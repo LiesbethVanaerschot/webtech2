@@ -120,17 +120,7 @@
 
 		else
 		{
-			var elementId = p_element.id;
-
-			if(elementId == "" || elementId == 'undefined')//het object heeft geen id
-			{
-				p_element.id = "todo-item" + number;
-				elementId = p_element.id;
-			}
-
-			var idToSelect = elementId;
-			var element = document.getElementById(idToSelect);
-			result = new IMDelement(element);
+			return new IMDelement(p_element)
 
 		}
 		return result;
