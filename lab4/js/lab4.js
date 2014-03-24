@@ -1,154 +1,228 @@
-// in vanila javascript kunnen we een functie "weer" aanmaken
-// waarin alle variabelen van hieronder gedefinieerd kunnen worden
-/*
 function weer(container)
 {
-	
+	this.container = container;
+	this.dag = this.container.find('#dag');
+	this.maand = this.container.find('#maand');
+	this.city = this.container.find('#city');
+	this.icoon = this.container.find('#icoon');
+	this.temperatuur = this.container.find('#temp');
+	this.omschrijving = this.container.find('#omschr');
+	this.min = this.container.find('#min');
+	this.max = this.container.find('#max');
+	this.zonsopkomst = this.container.find('#zonsopkomst');
+	this.zonsondergang = this.container.find('#zonsondergang');
+
+	this.start();
+
 }
-*/
-$(document).ready(function(){
-	console.log("ready");
 
-	var dag = $("#dag");
-	var maa = $("#maand");
-	var ico = $("#icoon");
-	var temp = $("#temp");
-	var om = $("#omschr");
-	var min = $("#min");
-	var max = $("#max");
-	var zop = $("#zonsopkomst");
-	var zon = $("#zonsondergang");
-
-	// dit kan in een functie gestoken worden weer.prototype.getcurrentdate
-	dag.text(new Date().getDate()+1);
+weer.prototype.start = function()
+{
+	this.dag.text(new Date().getDate()+1);
 	var maand = new Date().getMonth()+1;
-
 	switch(maand)
 	{
 		case 1:
-			maa.text("januari");
+			this.maand.text("januari");
 			break;
 		case 2:
-			maa.text("februari");
+			this.maand.text("februari");
 			break;
 		case 3:
-			maa.text("maart");
+			this.maand.text("maart");
 			break;
 		case 4:
-			maa.text("april");
+			this.maand.text("april");
 			break;
 		case 5:
-			maa.text("mei");
+			this.maand.text("mei");
 			break;
 		case 6:
-			maa.text("juni");
+			this.maand.text("juni");
 			break;
 		case 7:
-			maa.text("juli");
+			this.maand.text("juli");
 			break;
 		case 8:
-			maa.text("augustus");
+			this.maand.text("augustus");
 			break;
 		case 9:
-			maa.text("september");
+			this.maand.text("september");
 			break;
 		case 10:
-			maa.text("oktober");
+			this.maand.text("oktober");
 			break;
 		case 11:
-			maa.text("november");
+			this.maand.text("november");
 			break;
 		case 12:
-			maa.text("december");
+			this.maand.text("december");
 			break;				
 	}
+	console.log("location");
+	this.getLocation();
+	/*var latitude = localStorage.getItem("latitude");
+	var longitude = localStorage.getItem("longitude");
+	var forecastData = localStorage.getItem("forecastData");
 
-	if (navigator.geolocation) {
-
-		// Get the user's current position
-		console.log("location");
-		navigator.geolocation.getCurrentPosition(/*showPosition, */showWeather, errorFunction);
-
-	}
-	else 
+	if(latitude === null || longitude === null)
 	{
-    alert('Geolocation is not supported in your browser');
+		console.log("getlocation");
+		this.getLocation();
 	}
-
-	/*function showPosition(position) 
+	else if(forecastData === null)
 	{
-		//reverseGeocoding zie ander bestand voor 
-		var lat = position.coords.latitude;
-		var lng = position.coords.longitude;
-		$.ajax({
-			url:"api.geonames.org/findNearbyPlaceName?lat=" + lat + "&lng=" + lng + "&username=liesbeth",
-			dataType: "jsonp",
-			cities: "cities1000",
-			success: function
-				});*/
-	
-	function showWeather(position)
-	{	
-
-		//dit is gelijk de getForecast
-		var lat = position.coords.latitude;
-		var lng = position.coords.longitude;
-		$.ajax({
-			url:"https://api.forecast.io/forecast/9c576ebb4c7e72858d05e3bbee38479a/" + lat + "," + lng,
-			dataType: "jsonp",	
-			success: function(response){
-				temp.text(Math.round((response.currently.temperature - 32)/1.8) + " C°");
-				om.text(response.daily.data[1].summary);
-				min.text("MIN " + Math.round((response.daily.data[1].temperatureMin - 32)/1.8) + " C°");
-				max.text("MAX " + Math.round((response.daily.data[1].temperatureMax - 32)/1.8) + " C°");
-				var sunrise = new Date((response.daily.data[1].sunriseTime)*1000);
-				var sr_hours = sunrise.getHours();
-				var sr_minutes = sunrise.getMinutes();
-				var sr_sec = sunrise.getSeconds();
-				zop.text(sr_hours + ":" + sr_minutes + ":" + sr_sec);
-				var sunset = new Date((response.daily.data[1].sunsetTime)*1000);
-				var ss_hours = sunset.getHours();
-				var ss_minutes = sunset.getMinutes();
-				var ss_sec = sunset.getSeconds();
-				zon.text(ss_hours + ":" + ss_minutes + ":" + ss_sec);
-			}
-		})
-
-		console.log('Latitude: '+position.coords.latitude+'Longitude: '+position.coords.longitude);
+		console.log("getForecast");
+		this.getForecast();
 	}
-
-	function errorFunction()
+	else
 	{
-		location.text("Geocoder failed");
-	}
+		var localData = JSON.parse(forecastData);
+		var localDataTime = localData.currently.time;
+		var currentTime = Math.round((new Date()).getTime()/1000);
 
-			
-
-	/*var location = document.getElementById("location");
-
-		function showPosition(position)
+		if(currentTime - localDataTime >= 3600)//wanneer tijd langer is dan 1u
 		{
-			console.log("location");
-			console.log(position.coords.latitude);
-			console.log(position.coords.longitude);
-			alert("Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude);
+			this.getLocation();
 		}
+		else
+		{
+			this.setForecast();
+		}
+	}*/
+}
 
-		function getLocation()
+weer.prototype.getLocation = function()
+{
+	
+	var his = this;
+	if(navigator.geolocation)
+		{
+			navigator.geolocation.getCurrentPosition(showPosition,error);
+		}
+	
+	function showPosition(position)
+	{
+		var latitude = position.coords.latitude;
+		var longitude = position.coords.longitude;
+		var city = his.reverseGeocoding(latitude,longitude);
+
+		localStorage.setItem("latitude",latitude);
+		localStorage.setItem("longitude",longitude);
+		console.log("lat " + latitude + " lon " + longitude);
+		his.getForecast();
+	}	
+
+	function error(error)
+	{
+		console.log("geolocation isn't supported in your browser!");
+	}
+
+}
+
+weer.prototype.reverseGeocoding = function(latitude,longitude)
+{
+	var apiLatLng = "?latlng="+latitude+","+longitude+"";
+	var apikey = "AIzaSyBGFKu20YhC4Cn_lfmJnpG4Yrx6Tn5wKBY";
+	var urlLocation = "https://maps.googleapis.com/maps/api/geocode/json"+apiLatLng+"&sensor=true&key="+apikey+"";
+	
+	$.ajax(urlLocation, {dataType: "jsonp"})
+			.done(function(data)
 			{
-				console.log("location");
-				navigator.geolocation.getCurrentPosition(showPosition);
+				var city = data.results[2]['address_components'][0]['long_name'];
+				localStorage.setItem("city",city);
+				console.log(data);
+			})
+				
+}
 
-				if(navigator.geolocation)
-				{
-					navigator.geolocation.getCurrentPosition(showPosition);
-				}
-				else
-				{
-					location.innerHTML = "doesn't work in this browser."
-				}
-			}*/
+weer.prototype.getForecast = function()
+{
+	var his = this;
+	var latitude = localStorage.getItem("latitude");
+	var longitude = localStorage.getItem("longitude");
+	console.log(latitude + " " + longitude);
+	var apiKey = "9c576ebb4c7e72858d05e3bbee38479a";
+	var url = "https://api.forecast.io/forecast/" + apiKey +"/" + latitude + "," + longitude;
+	$.ajax(url, {
+			dataType: "jsonp"})
+			.done(function(data)
+					{
+						localStorage.setItem("forecastData",JSON.stringify(data));
+						his.setForecast();
+						console.log("succes");
+					});
+}	
 
+weer.prototype.setForecast = function()	
+{
+	console.log("setForecast");
+	var forecastData = localStorage.getItem("forecastData");
+	var localData = JSON.parse(forecastData);
+	console.log(localData);
+	var latitude = localStorage.getItem("latitude");
+	var longitude = localStorage.getItem("longitude");
+	var city = localStorage.getItem("city");
 	
 
-});	
+	
+	this.city.text(city);
+	this.omschrijving.text(localData.daily.data[1].summary);
+	this.min.text("MIN " + Math.round((localData.daily.data[1].temperatureMin - 32)/1.8) + " C°");
+	this.max.text("MAX " + Math.round((localData.daily.data[1].temperatureMax - 32)/1.8) + " C°");
+	var zonsopkomst = new Date((localData.daily.data[1].sunriseTime)*1000);
+	var sr_hours = zonsopkomst.getHours();
+	var sr_minutes = zonsopkomst.getMinutes();
+	var sr_sec = zonsopkomst.getSeconds();
+	this.zonsopkomst.text(sr_hours + ":" + sr_minutes + ":" + sr_sec);
+	var zonsondergang = new Date((localData.daily.data[1].sunsetTime)*1000);
+	var ss_hours = zonsondergang.getHours();
+	var ss_minutes = zonsondergang.getMinutes();
+	var ss_sec = zonsondergang.getSeconds();
+	this.zonsondergang.text(ss_hours + ":" + ss_minutes + ":" + ss_sec);
+	var his = this;
+	var ico = localData.daily.data[1].icon;
+	switch(ico)
+	{
+		case "clear-day":
+		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/sun-xxl.png");
+		break;
+
+		case "clear-night":
+		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/moon-xxl.png");
+		break;
+
+		case "partly-cloudy-day":
+		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/partly-cloudy-day-xxl.png");
+		break;
+
+		case "partly-cloudy-night":
+		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/partly-cloudy-night-xxl.png");
+		break;
+
+		case "cloudy":
+		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/clouds-xxl.png");
+		break;
+
+		case "rain":
+		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/rain-xxl.png");
+		break;
+
+		case "snow":
+		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/snow-xxl.png");
+		break;
+
+		case "fog":
+		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/fog-day-xxl.png");
+		break;
+
+		case "wind":
+		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/little-rain-xxl.png");
+		break;
+
+		default:
+		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/clouds-xxl.png");
+		break;
+	}
+	
+}

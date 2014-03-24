@@ -4,21 +4,22 @@
 
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 	<title>Webtech2-lab4</title>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	
 
 </head>
 <body>
-
+		<div id="localdata"></div>
 	 <div id="container">
 	 	<h1>het weer</h1>
-	 	<div id="datum">
+	 	<div id="datum"><!-- currently -->
 	 		<div id="dag"></div>
 			<div id="maand"></div>
 	 	</div>
-		<img id="icoon"/>
+	 	<div id="city"></div>
+		<img id="icoon"></img>
 		<div id="temp"></div>
 		<div id="omschr"></div>
-		<div id="details" >
+		<div id="details">
 			<div id="min"></div>
 			<div id="max"></div>
 			<div id="zonsopkomst" ></div>
@@ -29,5 +30,9 @@
 
 </body>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="js/lab4.js"></script>
+<script type="text/javascript">
+	var weer = new weer($('#container'));
+</script>
 </html>

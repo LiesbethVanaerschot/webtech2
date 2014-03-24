@@ -26,6 +26,7 @@ $(document).ready(function(){
 			url:"https://api.forecast.io/forecast/9c576ebb4c7e72858d05e3bbee38479a/" + lat + "," + lng,
 			dataType: "jsonp",	
 			success: function(response){
+				console.log(response);
 				temp.text(Math.round((response.currently.temperature - 32)/1.8) + " C°");
 				
 				var ico = response.currently.icon;
@@ -33,24 +34,38 @@ $(document).ready(function(){
 				switch(ico)
 				{
 					case "clear-day":
-						icon.attr
-					break;
+						return icon.attr("src","http://www.iconsdb.com/icons/preview/white/sun-xxl.png");
+						break;
 					case "clear-night":
-					break;
+						return icon.attr("src","http://www.iconsdb.com/icons/preview/white/moon-xxl.png");
+						break;
 					case "rain":
-					break;
+						return icon.attr("src","http://www.iconsdb.com/icons/preview/white/rain-xxl.png");
+						break;
 					case "snow":
-					break;
+						return icon.attr("src","http://www.iconsdb.com/icons/preview/white/snow-xxl.png");
+						break;
 					case "sleet":
-					break;
+						return icon.attr("src","http://www.iconsdb.com/icons/preview/white/sleet-xxl.png");
+						break;
 					case "fog":
-					break;
+						return icon.attr("src","http://www.iconsdb.com/icons/preview/white/fog-day-xxl.png");
+						break;
 					case "cloudy":
-					break;
+						return icon.attr("src","http://www.iconsdb.com/icons/preview/white/clouds-xxl.png");
+						break;
 					case "partly-cloudy-day":
-					break;
+						return icon.attr("src","http://www.iconsdb.com/icons/preview/white/partly-cloudy-day-xxl.png");
+						break;
 					case "partly-cloudy-night":
-					break;
+						return icon.attr("src","http://www.iconsdb.com/icons/preview/white/partly-cloudy-night-xxl.png");
+						break;
+					case "wind":
+						return icon.attr("src","http://www.iconsdb.com/icons/preview/white/little-rain-xxl.png");
+						break;	
+					default:
+						return icon.attr("src","http://www.iconsdb.com/icons/preview/white/clouds-xxl.png");
+						break;	
 
 				}
 			}
