@@ -1,6 +1,13 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1
+{
+	font-family: "Bebas Neue", sans-serif;
+	letter-spacing: 2px;
+	color: red;
 }
 
 a {
