@@ -33,19 +33,11 @@ $(document).ready(function(){
 		// var vragen = [];
 		// vragen.push({"naam" : message.naam, "vraag" : message.vraag});
 		//klik op vraag detecteren welke index dit heeft en dit publishen.
-		$( ".question" ).click(function() {
- 			// `this` is the DOM element that was clicked
-  			var index = $( ".question" ).index( this );
- 			 console.log("dit was vraag nr: " + index);
-			});
+		
 		
 	});
 
-	client.subscribe('/allquestions', function(message){
-		$("#questions").append("<div class='question'><p class='naam'>" + message.naam + "</p><p class='vraag'>" + message.vraag + "</p></div>");
-		$('.question').css('display','none');
-		$('.question').slideDown('slow');
-	});
+	
 
 	$('#throw').on('click',function()
 	{
@@ -64,8 +56,35 @@ $(document).ready(function(){
 		}
 	});
 
-	$('.question').on('click',function()
+	/*if($(".question").length)
 	{
-		console.log('vraag');
+
+		console.log("question exists!");
+	$( ".question" ).on("click", function() {
+ 			// `this` is the DOM element that was clicked
+  			//var index = $( ".question" ).index( this );
+ 			 //console.log("dit was vraag nr: " + index);
+ 	alert("vraag?");
+	});
+	}*/
+
+	client.subscribe("/allquestions",function(vote){
+		//if index die binnenkomt index.index === $(".question").index(this);
+		//scaling in css 
+		console.log(vote.index);
+		var gestemdeVraag = $(".question").index(this);
+		if(gestemdeVraag === vote.index)
+		{
+			console.log("gestemd op vraag: " + gestemdeVraag);
+		}
+	});
+
+	$("#questions").on("click",".question",function(event){
+		var index = $(".question").index(this);
+		console.log("dit was vraag nr " + index);
+		
+
+		client.publish("/allquestions",{index: index});
+
 	});
 });	
