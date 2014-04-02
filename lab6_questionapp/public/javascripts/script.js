@@ -23,9 +23,9 @@ $(document).ready(function(){
 	var idArray = [];
 
 	client.subscribe('/ask', function(message){
-		$("#questions").append("<div class='question' id='vraag" + vraagId + "'><p class='naam'>" + message.naam + "</p><p class='vraag'>" + message.vraag + "</p></div>");
-		$('.question').css('display','none');
-		$('.question').slideDown('slow');
+		var div = "<div class='question' display='none' id='vraag" + vraagId + "'><p class='naam'>" + message.naam + " vraagt:</p><p class='vraag'>" + message.vraag + "</p></div>";
+		$("#questions").prepend(div);
+		$('#questions div').first().slideDown('fast');
 		//css animation maken class adde aan nieuwste element :last
 		//div element in var steken
 		//var appenden
@@ -51,6 +51,13 @@ $(document).ready(function(){
 		if(vraag !="" && naam != "")
 		{
 			client.publish("/ask", {naam: naam, vraag: vraag});
+			$('#vraag').val("");
+			$('#naam').val("");
+		}
+		else if(vraag.length > 100)
+		{
+			$('#error').css('display','block');
+			$('#error').text('Your question has more then 100 characters!');
 		}
 		else
 		{
@@ -79,12 +86,12 @@ $(document).ready(function(){
 			var gesteldeVraag = $(this)[0].id;
 			if(gesteldeVraag === vote.index)
 			{
-				var gestemdeVraag = $("#" + vote.index);
+				var gestemdeVraag = $("#" + vote.index + " .vraag");
 				var fontSize = gestemdeVraag.css("font-size");
 				var fontNumber = parseInt(fontSize, 10);
-				gestemdeVraag.animate({height: gestemdeVraag.height() * 1.15, 
+				gestemdeVraag.animate({height: gestemdeVraag.height() * 1.05, 
 									   width: gestemdeVraag.width() * 1.05,
-									   fontSize: gestemdeVraag.css("fontSize", (fontNumber * 0.07) + "rem")}, 500);
+									   fontSize: gestemdeVraag.css("fontSize", (fontNumber * 0.065) + "rem")}, 500);
 				//gestemdeVraag.animate({width: gestemdeVraag.width() * 1.05}, 500, {queue: false} );
 			}
 		});
