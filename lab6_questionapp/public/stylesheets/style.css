@@ -9,15 +9,102 @@ h1
 {
 	font-family: "Bebas Neue", sans-serif;
 	letter-spacing: 2px;
+	color: white;
+	font-size: 1.6rem;
+}
+
+h2,
+#allq
+{
+	font-family: "Bebas Neue", sans-serif;
+	letter-spacing: 2px;
 	color: red;
+	font-size: 1.6rem;
 }
 
 a {
   color: #00B7FF;
 }
 
+.form
+{
+	display: block;
+	width: 250px;
+}
+
+#form
+{
+	display: inline-block;
+	background-color: red;
+	padding: 10px;
+}
+
+label
+{
+	text-transform: uppercase;
+	font-size: 0.8rem;
+	color: white;
+}
+
+input
+{
+	border: solid 1px white;
+	padding: 5px;
+	border-radius: 4px;
+	background-color: white;
+}
+
+#throw
+{
+	width: 65px;
+	text-transform: uppercase;
+	color: blue;
+	font-weight: bolder;
+}
+
+#error
+{
+	font-size: 0.78rem;
+	color: white;
+	font-weight: bold;
+}
+
+#naam,
+#vraag,
+#error
+{
+	margin-bottom: 15px;
+}
+
+#container
+{
+	display: inline-block;
+	position: absolute;
+	top: 63px;
+	left: 400px;
+}
+
 .question
 {
-	border: solid 1px red;
-	font-size: 1rem;
+	border: dotted 1px red;
+	font-size: 0.8rem;
+	min-width: 250px;
+	height: 100%;
+	padding: 5px;
+	margin: 3px 0px 3px 0px;
+}
+
+.naam
+{
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.naam,
+.vraag
+{
+	margin : 0.5px;
+	width: 100%;
+	height: 100%;
+	word-wrap: break-word;
 }
