@@ -1,4 +1,6 @@
 body {
+  font-size: 62.5%; /* 16px*62.5%=10px */
+  color: black;
   padding: 50px;
   font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -12,4 +14,10 @@ h1
 
 a {
   color: #00B7FF;
+}
+
+.question
+{
+	border: solid 1px red;
+	font-size: 1rem;
 }
