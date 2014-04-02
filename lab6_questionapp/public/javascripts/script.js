@@ -19,9 +19,11 @@ $(document).ready(function(){
 	//dan css click scalable.
 	$('#error').css('display','none');
 	
+	var vraagId = 0;
+	var idArray = [];
 
 	client.subscribe('/ask', function(message){
-		$("#questions").append("<div class='question'><p class='naam'>" + message.naam + "</p><p class='vraag'>" + message.vraag + "</p></div>");
+		$("#questions").append("<div class='question' id='vraag" + vraagId + "'><p class='naam'>" + message.naam + "</p><p class='vraag'>" + message.vraag + "</p></div>");
 		$('.question').css('display','none');
 		$('.question').slideDown('slow');
 		//css animation maken class adde aan nieuwste element :last
@@ -33,7 +35,8 @@ $(document).ready(function(){
 		// var vragen = [];
 		// vragen.push({"naam" : message.naam, "vraag" : message.vraag});
 		//klik op vraag detecteren welke index dit heeft en dit publishen.
-		
+		vraagId++;
+		idArray.push("vraag" + vraagId);
 		
 	});
 
@@ -72,16 +75,25 @@ $(document).ready(function(){
 		//if index die binnenkomt index.index === $(".question").index(this);
 		//scaling in css 
 		console.log(vote.index);
-		var gestemdeVraag = $(".question").index(this);
-		if(gestemdeVraag === vote.index)
-		{
-			console.log("gestemd op vraag: " + gestemdeVraag);
-		}
+		$.each($(".question"), function(key,value){
+			var gesteldeVraag = $(this)[0].id;
+			if(gesteldeVraag === vote.index)
+			{
+				var gestemdeVraag = $("#" + vote.index);
+				var fontSize = gestemdeVraag.css("font-size");
+				var fontNumber = parseInt(fontSize, 10);
+				gestemdeVraag.animate({height: gestemdeVraag.height() * 1.15, 
+									   width: gestemdeVraag.width() * 1.05,
+									   fontSize: gestemdeVraag.css("fontSize", (fontNumber * 0.07) + "rem")}, 500);
+				//gestemdeVraag.animate({width: gestemdeVraag.width() * 1.05}, 500, {queue: false} );
+			}
+		});
 	});
 
 	$("#questions").on("click",".question",function(event){
-		var index = $(".question").index(this);
-		console.log("dit was vraag nr " + index);
+		//var index = $(".question").index(this);
+		var index = $(this)[0].id;
+		console.log("dit was " + index);
 		
 
 		client.publish("/allquestions",{index: index});
