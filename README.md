@@ -13,11 +13,14 @@ Wat is GIT en hoe moeten we er mee werken? Dit hield de eerste opdracht voor Web
 
 Basis Git commando's:
 ```
-git clone
-git add
-git commit -m
-git push
-git pull
+git clone: clones/kopieert de repository map op je computer.
+git branch: toont lijst van alle branches en op welke branch je zit (default is master).
+git checkout branch (nieuwe branch): creËert nieuwe branch en wisselt er meteen naar.
+git add (bestandsnaam): enkel bestand toevoegen.
+git add (foldernaam)/ : een hele folder toevoegen.
+git commit -m: de bestanden of veranderingen committen met message.
+git push: de veranderingen/bestanden pushen naar de repository online.
+git pull: de lokale repository up-to-date brengen met de online versie.
 ```
 
 ### LAB 2 - CSS animations and transitions
