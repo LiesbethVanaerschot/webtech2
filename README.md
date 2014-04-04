@@ -1,7 +1,7 @@
 webtech2
 ========
 
-## individuele labs voor webtech2.
+## Individuele labs voor webtech2.
 
 Link to webtech2 repository [LiesbethVanaerschot](https://github.com/LiesbethVanaerschot/webtech2.git)
 
@@ -31,15 +31,25 @@ git pull: de lokale repository up-to-date brengen met de online versie.
 Als je wil bijdragen aan een repository van een andere git-gebruiker kun je zijn repository forken. Daardoor komt de repo ook in jouw repository overzicht te recht.
 ```
 git clone: clones/kopieert de repository map op je computer.
-git remote add upstream (link van geforked repo): upstream wijst naar de originele repo, 
-zo kun je altijd jouw versie updaten.
+git remote add upstream (link van geforked repo): upstream wijst naar de originele repo, zo kun je altijd jouw versie updaten.
 git fetch upstream: haalt de veranderingen in de originele repo op.
 git merge upstream/master: alles samen voegen.
 git push origin master: pushen naar jouw forked repo.
 ```
 Daarna kan je een pull request om jouw veranderingen toe te voegen aan de originele repository.
 
-### LAB 2 - CSS animations and transitions
+### LAB 2 - CSS3 animations and transitions
+
+Workshop over CSS3 animaties en transitions.</br>
+Deze lab bevat twee opdrachten:
+
+1. Gekleurde bolletjes die door middel van een klik verplaatsen.
+2. IMD-talks animatie on page load.
+
+#####Opdracht 1 - gebruik van CSS3 transition
+
+
+#####Opdracht 2 - gebruik van CSS3 animation
 
 ### LAB 3 - Advanced JS
 
