@@ -12,7 +12,7 @@ Link to webtech2 repository [LiesbethVanaerschot](https://github.com/LiesbethVan
 Wat is GIT en hoe moeten we er mee werken? Dit hield de eerste opdracht voor Webtech 2 in. In groepjes van 3 of 4 moesten we samen bijdragen aan een repository. Eén iemand moest de repository aanmaken na het installeren van GitHub. 
 
 #####Basis Git commando's:
-```
+```html
 <b>git clone</b>: clones/kopieert de repository map op je computer.
 <b>git branch</b>: toont lijst van alle branches en op welke branch je zit (default is master).
 <b>git checkout -b (nieuwe branch)</b>: creert nieuwe branch en wisselt er meteen naar.
@@ -30,7 +30,7 @@ Wat is GIT en hoe moeten we er mee werken? Dit hield de eerste opdracht voor Web
 
 Als je wil bijdragen aan een repository van een andere git-gebruiker kun je zijn repository forken. 
 Daardoor komt de repo ook in jouw repository overzicht te recht.
-```
+```html
 <b>git clone</b>: clones/kopieert de repository map op je computer.
 <b>git remote add upstream (link van geforked repo)</b>: upstream wijst naar de originele repo, 
 zo kun je altijd jouw versie updaten.
