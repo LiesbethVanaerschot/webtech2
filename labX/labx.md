@@ -31,15 +31,15 @@ Maar je leest dat zij de bestelapp gebruiken.
 Misschien een aanmeldingscode zodat je je niet kan vergissen van horeca-zaak?
 het menu verschijnt op je smartphone in categoriën: eten - drinken.<br/>
 ***
-*Bij Beans bijvoorbeeld:<BR/>
+*Bij Beans bijvoorbeeld:*<BR/>
 **ETEN**<br/>
-Ontbijt<br/>
+*Ontbijt<br/>
 Yoghurt<br/>
 Bagels<br/>
 Wraps<br/>
-Dessert<br/>    
+Dessert*<br/>    
 **DRINKEN**<br/>
-Koffie<br/>
+*Koffie<br/>
 Koffie specials<br/>
 Thee<br/>
 Smoothies<br/>
