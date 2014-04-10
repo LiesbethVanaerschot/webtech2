@@ -1,7 +1,13 @@
 #LABX
 
 ##De bestel app.
-(naam nog bedenken)
+Namen:
+	1. QuickOrder(App)
+	2. EasyOrder(App)
+	3. CallFor(App)
+	4. CallForFood/CallForBooz
+	5. BestelApp
+	...
 
 ##Wat moet het kunnen?
 
