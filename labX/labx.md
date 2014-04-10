@@ -2,13 +2,13 @@
 
 ##De bestel app.
 Namen:<br/>
-	* QuickOrder(App)
-	* EasyOrder(App)
-	* CallFor(App)
-	* CallForFood/CallForBooz
-	* BestelApp
-	<br/>
-	...
+* QuickOrder(App)
+* EasyOrder(App)
+* CallFor(App)
+* CallForFood/CallForBooz
+* BestelApp
+<br/>
+...
 
 ##Wat moet het kunnen?
 
