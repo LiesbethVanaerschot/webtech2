@@ -58,3 +58,11 @@ Deze lab bevat twee opdrachten:
 ### LAB 5 - Terrapke
 
 ### LAB 6 - NODE.js
+
+*Basic online tutorial: node + express + jade + mongodb + monk
+ http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
+
+### LAB X - BESTELAPP
+
+*(misschien) handige link:
+ http://stackoverflow.com/questions/18696556/mongodb-schema-design-huge-list
