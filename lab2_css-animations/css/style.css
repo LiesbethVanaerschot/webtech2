@@ -156,7 +156,7 @@ body
 
 @-webkit-keyframes box2_trans
 {
-	0%{-webkit-transform: rotateY( 0deg ); -webkit-transform-origin: left center; -webkit-transform-style: preserve-3d;}
+	/*0%{-webkit-transform: rotateY( 0deg ); -webkit-transform-origin: left center; -webkit-transform-style: preserve-3d;}
 	25%{-webkit-transform: rotateY( 90deg ); -webkit-transform-origin: left center; -webkit-transform-style: preserve-3d;}
 	50%{-webkit-transform: rotateY( -30deg ); 
 		-webkit-transform-origin: left center; 
@@ -165,7 +165,12 @@ body
 		-webkit-transform: perspective(700); 
 		-webkit-transform-origin: left center; 
 		-webkit-transform-style: preserve-3d; }
-	100%{-webkit-transform: rotateY( 0deg ); -webkit-transform-origin: left center; -webkit-transform-style: preserve-3d;}
+	100%{-webkit-transform: rotateY( 0deg ); -webkit-transform-origin: left center; -webkit-transform-style: preserve-3d;}*/
+
+	0%{-webkit-transform: perspective(400px) rotateY( 90deg ); -webkit-transform-origin: left center; opacity: 0;}
+	40%{-webkit-transform: perspective(400px) rotateY( -10deg ); -webkit-transform-origin: left center; }
+	70%{-webkit-transform: perspective(400px) rotateY( 10deg ); -webkit-transform-origin: left center; }
+	100%{-webkit-transform: perspective(400px) rotateY( 0deg ); -webkit-transform-origin: left center; opacity: 1;}
 }
 
 #foto1,
