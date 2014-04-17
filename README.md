@@ -58,14 +58,14 @@ transform-origin: left center; //van waaruit de transformatie moet gebeuren//
 De CSS3 transform eigenschap zorgt er voor dat het uitzicht van het geselecteerde element gemanipuleerd wordt volgens bepaalde transformatie functies. Het geselecteerde element behoudt zijn oorspronkelijke positie en grootte welke transformatie ook wordt uitgevoerd. <br/>
 Enkele voorbeelden van zulke transformatie functies zijn:
 
-1. rotate(angle)
+**rotate(angle)**
    Roteert een element onder een bepaalde hoek.
 
 ```
 voorbeeld rotate()
 ```
 
-2. scale()
+**scale()**
    - scale(2): vergroot een element 2 maal.
    - scale(2,4): horizontaal vergroten (x) met 2, verticaal vergroten (y) met 4.
    - scaleX(value) en scaleY(value): meer specifiek vergroten voor afzonderlijk de X- of Y-as.
@@ -73,14 +73,14 @@ voorbeeld rotate()
 ```
 voorbeeld scale()
 ```
-3. skew()
+**skew()**
     - skew(x,y): schuintrekken volges x- of y-as in één functie.
     - skewX() en skewY(): meer specifiek volges één as schuintrekken.
 
 ```
 voorbeeld skew()
 ```
-4. translate()
+**translate()**
     - translate(x,y): verplaatsen volgens beide assen.
     - translateX() of translateY(): verplaatsen volgens specifieke as.
 
@@ -103,19 +103,19 @@ Wanneer je transitions en transformations combineert, kun je bijvoorbeeld het vo
 voorbeeld animatie
 ```
 Naast de voorgaande 2D transformations heb je ook van sommige functies de **3D transformations**.<br/>
-1. rotateX() - rotateY() - rotate3d(x, y, z):<br/>
+**rotateX() - rotateY() - rotate3d(x, y, z):**<br/>
    Deze functies zorgen er voor dat een element rond een bepaalde as draait.
 
 ```
 voorbeeld
 ```
-2. translateZ() - translate3d(x, y, z):<br/>
+**translateZ() - translate3d(x, y, z):**<br/>
    De z-waarde bij deze functies zorgen er voor dat het element zich naar de user of weg van de user beweegt.
 
 ```
 voorbeeld
 ```
-3. perspective():<br/>
+**perspective():**<br/>
    Perspective manipuleert het element zelf niet maar voegt een bepaald perspectief, een diepte toe aan de 3D-transformations.
 
 ```
