@@ -65,7 +65,8 @@ Enkele voorbeelden van zulke transformatie functies zijn:
 voorbeeld rotate()
 ```
 
-**scale()**
+**scale()**<br/>
+
    - scale(2): vergroot een element 2 maal.
    - scale(2,4): horizontaal vergroten (x) met 2, verticaal vergroten (y) met 4.
    - scaleX(value) en scaleY(value): meer specifiek vergroten voor afzonderlijk de X- of Y-as.
@@ -73,14 +74,16 @@ voorbeeld rotate()
 ```
 voorbeeld scale()
 ```
-**skew()**
+**skew()**<br/>
+
     - skew(x,y): schuintrekken volges x- of y-as in één functie.
     - skewX() en skewY(): meer specifiek volges één as schuintrekken.
 
 ```
 voorbeeld skew()
 ```
-**translate()**
+**translate()**<br/>
+
     - translate(x,y): verplaatsen volgens beide assen.
     - translateX() of translateY(): verplaatsen volgens specifieke as.
 
