@@ -1,0 +1,11 @@
+extends layout
+
+block content
+ h1= title
+  ul
+   if(food.length)
+    each cat in food
+     li
+      p= cat.cat
+   else
+    p There is nothing here.   
