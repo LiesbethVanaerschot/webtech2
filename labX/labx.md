@@ -3,12 +3,16 @@
 ##De bestel app.
 Namen:<br/>
 * QuickOrder(App)
-* EasyOrder(App)
+* EasyOrder(App)<--
 * CallFor(App)
 * CallForFood/CallForBooz
 * BestelApp
 <br/>
 ...
+
+##Wat werkt er tot nu toe:
+1. Inloggen met username en paswoord dat in mongodb zit via mongoose schema/model met passport.js, express.js
+2. Eerste menulijst uitgelezen
 
 ##Wat moet het kunnen?
 
