@@ -131,7 +131,9 @@ img.repo-author-logo {
 .rij
 {
 	margin: 5px 0px 5px 0px;
-	height: 20px;
+	height: 40px;
+	text-align: center;
+	vertical-align: middle;
 }
 
 .kolom
