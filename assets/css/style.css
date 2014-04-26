@@ -127,6 +127,13 @@ img.repo-author-logo {
 	margin-right: 15px;
 }
 
+/*layout LAB 5 -Terrappke*/
+.kolom
+{
+	background-color: grey;
+	border: 1px solid black;
+}
+
 /* Media queries */
 /* Hide the ribbon when we are on a phone, screen is too small */
 @media only screen and (max-width: 479px) {
