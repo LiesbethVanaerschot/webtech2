@@ -138,6 +138,8 @@ img.repo-author-logo {
 {
 	background-color: #d3f6fe;
 	border: 1px solid #07b6db;
+	height: 40px;
+	border-radius: 1px;
 }
 
 /* Media queries */
