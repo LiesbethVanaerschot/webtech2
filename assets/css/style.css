@@ -159,6 +159,14 @@ pre .lab5
 	padding: 10px 0px 10px 0px;
 }
 
+.nkolomgroen
+{
+	background-color: #15da7a;
+	border: 1px solid #0b6e3e;
+	/*min-height: 40px;*/
+	border-radius: 1px;
+	padding: 10px 0px 10px 0px;
+}
 
 /* Media queries */
 /* Hide the ribbon when we are on a phone, screen is too small */
