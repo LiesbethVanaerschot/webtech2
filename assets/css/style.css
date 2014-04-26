@@ -137,6 +137,7 @@ pre .lab5
 {
 	margin: 5px 0px 5px 0px;
 	text-align: center;
+	min-height: 40px;
 	vertical-align: middle;
 }
 
