@@ -150,6 +150,14 @@ pre .lab5
 	padding: 10px 0px 10px 0px;
 }
 
+.nkolom
+{
+	background-color: #07b6db;
+	border: 1px solid #047f9c;
+	/*min-height: 40px;*/
+	border-radius: 1px;
+	padding: 10px 0px 10px 0px;
+}
 
 
 /* Media queries */
