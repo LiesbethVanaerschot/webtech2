@@ -1,11 +1,16 @@
 extends layout
 
 block content
- h1= title
+ div
+  h1= title
+
+ div
   ul
    if(food.length)
     each cat in food
-     li
-      p= cat.cat
+     li= cat.cat
+      ul
+       li iets drinken
+       li iets anders
    else
     p There is nothing here.   

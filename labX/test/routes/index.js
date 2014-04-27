@@ -13,38 +13,10 @@ exports.index = function(req, res){
 	var EtenLijst = require("../models/eten").EtenLijst;
 	EtenLijst.find({}, function(err, eten){
 		console.log(eten);
-	/*if(typeof res === 'object')
-	{
-		etenArray = [];
-		var i = 0;
-		while(res["eten" + i])
-			{
-				etenArray.push(res["eten" + i]);
-				i++;
-				console.log(typeof etenArray);
-				return etenArray;
-				//etenArray.render('index', {etenArray: eten});
-			}	
-		console.log	
-	}
-	else
-	{
-		res.render('index', {res: eten});
-	}*/
-	
-	res.render('index', {title: "eten", food: eten});
+	res.render('index', {title: "Beans Bar Menu", food: eten});
 	});
+
 }
-/*exports.EtenLijst = function(req, res){
-  EtenLijst.find({}, function(err, eten){
-	eten.render('index', {eten: eten});
-	console.log(eten);
-});
-};
 
-/*var mongoose = require('mongoose');
-EtenLijst = mongoose.model('EtenLijst');
-
-EtenLijst.find({}, function(err, data){
-	console.log(data);
-});*/
+//http://stackoverflow.com/questions/18008479/node-js-wait-for-multiple-async-calls
+//http://mherman.org/blog/2013/11/11/user-authentication-with-passport-dot-js/#.U1gM4Pl_tqU
