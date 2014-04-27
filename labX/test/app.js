@@ -9,6 +9,7 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 var mongoose = require('mongoose');
+var async = require('async');
 
 mongoose.connect('mongodb://127.0.0.1/beans');
 
@@ -20,9 +21,9 @@ db.once('open',function callback(){
 
 //MONGOOSE MODELS
 //var food = db.model('EtenLijst', require('./models/eten').EtenLijst);
-var food = require('./models/eten');
-console.log(typeof food.EtenLijst);
-
+var eten = require('./models/eten');
+//console.log(typeof eten.EtenLijst);
+var drinken = require('./models/drinken');
 
 var app = express();
 

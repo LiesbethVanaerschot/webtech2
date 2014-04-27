@@ -9,7 +9,8 @@
     "express": "*",
     "jade": "*",
     "mongodb": "*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "async": "*"
   },
   "devDependencies": {
     "gulp": "^3.6.2",
