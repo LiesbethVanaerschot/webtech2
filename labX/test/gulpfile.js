@@ -21,12 +21,19 @@ gulp.task('styles', function(){ //in plaats dit als default moet je nu gulp styl
 gulp.task('jade', function(){
 	gulp.src('views/*.jade')
 		.pipe(livereload());
-})
+});
+
+gulp.task('scripts', function(){
+	gulp.src('public/javascripts/*.js')
+		.pipe(livereload());
+});
 
 gulp.task('watch', function(){
 	gulp.watch('public/stylesheets/*.css', ['styles']);//hetzelfde voor images
 	gulp.watch('views/*.jade', ['jade']);
+	gulp.watch('public/javascripts/*.js', ['scripts']);
 });
 
 //default zou dit kunnen zijn
-gulp.task('default', ['serve', 'styles', 'jade', 'watch']);
+gulp.task('default', ['serve', 'styles', 'jade', 'scripts', 'watch']);
+

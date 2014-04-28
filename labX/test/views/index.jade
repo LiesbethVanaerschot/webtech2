@@ -7,16 +7,18 @@ block content
  div
   h2 MENU
  div
-  ul
+  ul.drinken.accordion
    if(Drinken.length)
     each cat in Drinken
-     li= cat.cat
-      ul
+     li(class='drinkcat', id=cat._id)
+      a=cat.cat
+      ul.miniaccordion
        case cat._id
         when "drink_1"
          each koffie in Koffie
-          li= koffie.naam
-           ul
+          li(class='koffiecat', id=koffie._id)
+           a=koffie.naam
+           ul.mini-sub
             case koffie._id
              when "koffie_1"
               each zwart in Zwart

@@ -183,10 +183,11 @@ exports.index = function(req, res, next){
 			if(err){
 				return next(err);
 			}
-			console.log(Eten);
-			console.log(Drinken);
-			console.log(Thee);
-			res.render('index', {Eten: Eten, 
+			//console.log(Eten);
+			//console.log(Drinken);
+			//onsole.log(Thee);
+			res.render('index', {title: "Beans Bar",
+								Eten: Eten, 
 								Drinken: Drinken, 
 								Koffie: Koffie, 
 								Zwart: Zwart, 
