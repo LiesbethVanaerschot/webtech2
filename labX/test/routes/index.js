@@ -2,49 +2,212 @@
 /*
  * GET home page.
  */
+var async = require('async');
 
-exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
-};
+exports.index = function(req, res, next){
+	var Eten = {};
+		Drinken = {}	
+		Koffie = {};
+		Zwart = {};
+		metMelk = {};
+		Specials = {};
+		Thee = {};
+		Melk= {};
+		Sappen= {};
+		Frisdrank= {};
+		Alcohol= {};
+		Ijskoffie= {};
 
+	var EtenLijst = require("../models/eten").EtenLijst;
+	var DrinkenLijst = require("../models/drinken").DrinkenLijst;
+	var KoffieLijst = require("../models/drinken").KoffieLijst;
+	var ZwartLijst = require("../models/drinken").ZwartLijst;
+	var metMelkLijst = require("../models/drinken").metMelkLijst;
+	var SpecialsLijst = require("../models/drinken").SpecialsLijst;
+	var TheeLijst = require("../models/drinken").TheeLijst;
+	var MelkLijst = require("../models/drinken").MelkLijst;
+	var SappenLijst = require("../models/drinken").SappenLijst;
+	var FrisdrankLijst = require("../models/drinken").FrisdrankLijst;
+	var AlcoholLijst = require("../models/drinken").AlcoholLijst;
+	var IjskoffieLijst = require("../models/drinken").IjskoffieLijst;
 
-exports.index = function(req, res){
-	console.log(res);
+	async.parallel([
+
+			function(callback){
+				EtenLijst.find({}, function(err,eten){
+					if(err)
+					{
+						return callback(err);
+					}
+					//console.log(eten);
+					Eten = eten;
+					//console.log(Eten);
+					callback();
+				});
+			},
+			function(callback){
+				DrinkenLijst.find({}, function(err,drinken){
+					if(err)
+					{
+						return callback(err);
+					}
+					//console.log(drinken);
+					Drinken = drinken;
+					//console.log(Drinken);
+					callback();
+				});
+			},
+			function(callback){
+				KoffieLijst.find({}, function(err,koffie){
+					if(err)
+					{
+						return callback(err);
+					}
+					//console.log(koffie);
+					Koffie = koffie;
+					//console.log(Koffie);
+					callback();
+				});
+			},
+			function(callback){
+				ZwartLijst.find({}, function(err,zwart){
+					if(err)
+					{
+						return callback(err);
+					}
+					//console.log(koffie);
+					Zwart = zwart;
+					//console.log(Koffie);
+					callback();
+				});
+			},
+			function(callback){
+				metMelkLijst.find({}, function(err,metmelk){
+					if(err)
+					{
+						return callback(err);
+					}
+					//console.log(koffie);
+					metMelk = metmelk;
+					//console.log(Koffie);
+					callback();
+				});
+			},
+			function(callback){
+				SpecialsLijst.find({}, function(err,specials){
+					if(err)
+					{
+						return callback(err);
+					}
+					//console.log(koffie);
+					Specials = specials;
+					//console.log(Koffie);
+					callback();
+				});
+			},
+			function(callback){
+				TheeLijst.find({}, function(err,thee){
+					if(err)
+					{
+						return callback(err);
+					}
+					//console.log(koffie);
+					Thee = thee;
+					//console.log(Koffie);
+					callback();
+				});
+			},
+			function(callback){
+				MelkLijst.find({}, function(err,melk){
+					if(err)
+					{
+						return callback(err);
+					}
+					//console.log(koffie);
+					Melk = melk;
+					//console.log(Koffie);
+					callback();
+				});
+			},
+			function(callback){
+				SappenLijst.find({}, function(err,sappen){
+					if(err)
+					{
+						return callback(err);
+					}
+					//console.log(koffie);
+					Sappen = sappen;
+					//console.log(Koffie);
+					callback();
+				});
+			},
+			function(callback){
+				FrisdrankLijst.find({}, function(err,frisdrank){
+					if(err)
+					{
+						return callback(err);
+					}
+					//console.log(koffie);
+					Frisdrank = frisdrank;
+					//console.log(Koffie);
+					callback();
+				});
+			},
+			function(callback){
+				AlcoholLijst.find({}, function(err,alcohol){
+					if(err)
+					{
+						return callback(err);
+					}
+					//console.log(koffie);
+					Alcohol = alcohol;
+					//console.log(Koffie);
+					callback();
+				});
+			},
+			function(callback){
+				IjskoffieLijst.find({}, function(err,ijskoffie){
+					if(err)
+					{
+						return callback(err);
+					}
+					//console.log(koffie);
+					Ijskoffie = ijskoffie;
+					//console.log(Koffie);
+					callback();
+				});
+			}
+		],
+		function(err)
+		{
+			if(err){
+				return next(err);
+			}
+			//console.log(Eten);
+			//console.log(Drinken);
+			//onsole.log(Thee);
+			res.render('index', {title: "Beans Bar",
+								Eten: Eten, 
+								Drinken: Drinken, 
+								Koffie: Koffie, 
+								Zwart: Zwart, 
+								metMelk: metMelk, 
+								Specials: Specials, 
+								Thee: Thee,
+								Melk: Melk,
+								Sappen: Sappen,
+								Frisdrank: Frisdrank,
+								Alcohol: Alcohol,
+								Ijskoffie: Ijskoffie});
+		});
+	/*console.log(res);
 	var EtenLijst = require("../models/eten").EtenLijst;
 	EtenLijst.find({}, function(err, eten){
 		console.log(eten);
-	/*if(typeof res === 'object')
-	{
-		etenArray = [];
-		var i = 0;
-		while(res["eten" + i])
-			{
-				etenArray.push(res["eten" + i]);
-				i++;
-				console.log(typeof etenArray);
-				return etenArray;
-				//etenArray.render('index', {etenArray: eten});
-			}	
-		console.log	
-	}
-	else
-	{
-		res.render('index', {res: eten});
-	}*/
-	
-	res.render('index', {title: "eten", food: eten});
-	});
+	res.render('index', {title: "Beans Bar Menu", food: eten});
+	});*/
+
 }
-/*exports.EtenLijst = function(req, res){
-  EtenLijst.find({}, function(err, eten){
-	eten.render('index', {eten: eten});
-	console.log(eten);
-});
-};
 
-/*var mongoose = require('mongoose');
-EtenLijst = mongoose.model('EtenLijst');
-
-EtenLijst.find({}, function(err, data){
-	console.log(data);
-});*/
+//http://stackoverflow.com/questions/18008479/node-js-wait-for-multiple-async-calls
+//http://mherman.org/blog/2013/11/11/user-authentication-with-passport-dot-js/#.U1gM4Pl_tqU

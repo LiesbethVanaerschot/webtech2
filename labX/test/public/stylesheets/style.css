@@ -6,3 +6,23 @@ body {
 a {
   color: #00B7FF;
 }
+
+.miniaccordion li > .mini-sub
+{
+	display: none;
+}
+
+.miniaccordion li:target > .mini-sub
+{
+	display: block;
+}
+
+.accordion li > .miniaccordion
+{
+	display: none;
+}
+
+.accordion li:target > .miniaccordion
+{
+	display: none;
+}

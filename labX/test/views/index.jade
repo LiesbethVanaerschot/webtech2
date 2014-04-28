@@ -1,11 +1,59 @@
 extends layout
 
 block content
- h1= title
-  ul
-   if(food.length)
-    each cat in food
-     li
-      p= cat.cat
+ div
+  h1 Welkom bij Beans Bar
+
+ div
+  h2 MENU
+ div
+  ul.drinken.accordion
+   if(Drinken.length)
+    each cat in Drinken
+     li(class='drinkcat', id=cat._id)
+      a=cat.cat
+      ul.miniaccordion
+       case cat._id
+        when "drink_1"
+         each koffie in Koffie
+          li(class='koffiecat', id=koffie._id)
+           a=koffie.naam
+           ul.mini-sub
+            case koffie._id
+             when "koffie_1"
+              each zwart in Zwart
+               li= zwart.naam
+             when "koffie_2"
+              each metmelk in metMelk
+               li= metmelk.naam 
+             when "koffie_3"
+              each special in Specials
+               li= special.naam   
+        when "drink_2"
+         each thee in Thee
+          li= thee.naam
+        when "drink_3"
+         each melk in Melk
+          li= melk.naam 
+        when "drink_4"
+         each sap in Sappen
+          li= sap.naam
+        when "drink_5"
+         each fris in Frisdrank
+          li= fris.naam
+        when "drink_6"
+         each alcohol in Alcohol
+          li= alcohol.naam
+        when "drink_7"
+         each ijs in Ijskoffie
+          li= ijs.naam
    else
-    p There is nothing here.   
+    p Er is geen Drinken.  
+
+ div
+  ul
+   if(Eten.length)
+    each cat in Eten
+     li= cat.cat
+   else
+    p Er is geen Eten.  
