@@ -8,6 +8,7 @@
 /* Page */
 body {
 	/*background: #333333 url('../images/page-background.png') repeat top left;*/
+	background: url('../images/ruitjesoverlay.svg') repeat;
 	font-family: arial,sans-serif;
 	/*padding:1%;*/
 	margin:1%;
@@ -128,6 +129,28 @@ img.repo-author-logo {
 	margin-right: 15px;
 }
 
+/*inleiding*/
+#inleiding
+{
+	text-align: center;
+	padding-bottom: 100px;
+}
+
+/*algemene lab css*/
+#lab1,
+#lab2,
+#lab3,
+#lab4,
+#lab5,
+#lab6,
+#lab7,
+#lab8,
+#lab9,
+#labx
+{
+	background: rgba(255,255,255,0.5);
+	margin-bottom: 100px;
+}
 /*layout LAB 5 -Terrappke*/
 pre .lab5
 {

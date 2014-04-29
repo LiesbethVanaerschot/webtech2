@@ -45,14 +45,44 @@
     </div><!-- /.container-fluid -->
   </nav>
   <section class="jumbotron">
-    <div class="container-fluid ">
-      <h1>Liesbeth Vanaerschot Webtech2</h1>
+    <div id="inleiding">
+      <div class="container-fluid">
+        <h1>Portfolio Liesbeth Vanaerschot</h1>
     
-      <a class="btn btn-primary btn-lg" role="button" href="https://github.com/LiesbethVanaerschot/webtech2">View on GitHub</a>
-      <a class='btn btn-primary btn-lg' href='https://github.com/liesbethvanaerschot/webtech2/zipball/master'>Download</a>
-    </div>
+        <a class="btn btn-primary btn-lg" role="button" href="https://github.com/LiesbethVanaerschot/webtech2">View on GitHub</a>
+        <a class='btn btn-primary btn-lg' href='https://github.com/liesbethvanaerschot/webtech2/zipball/master'>Download</a>
+      </div>
+    </div> 
     <div class="container-fluid" id="lab1">
       <h2>LAB 1 - Let's GIT to work</h2>
+      <p>
+        Wat is GIT en hoe moeten we er mee werken? Dit hield de eerste opdracht voor Webtech 2 in. In groepjes van 3 of 4 moesten we samen bijdragen aan een repository. Eén iemand moest de repository aanmaken na het installeren van GitHub. 
+      </p>
+      <h4>Basis Git commando's:</h4>
+      <pre class="prettyprint">
+git clone: clones/kopieert de repository map op je computer.
+git branch: toont lijst van alle branches en op welke branch je zit (default is master).
+git checkout -b (nieuwe branch): creert nieuwe branch en wisselt er meteen naar.
+git checkout: wisselen van branch.
+git merge (nieuwe branch): merge eigen branch met master.
+git branch -d (nieuwe branch): deleten van eigen branch.
+git add (bestandsnaam): enkel bestand toevoegen.
+git add (foldernaam)/ : een hele folder toevoegen.
+git commit -m: de bestanden of veranderingen committen met message.
+git push: de veranderingen/bestanden pushen naar de repository online.
+git pull: de lokale repository up-to-date brengen met de online versie.
+      </pre>
+      <h4>Git commando's ivm forked repositories:</h4>
+      <p>
+      Als je wil bijdragen aan een repository van een andere git-gebruiker kun je zijn repository forken. Daardoor komt de repo ook in jouw repository overzicht te recht.
+      </p>
+      <pre class="prettyprint">
+git clone: clones/kopieert de repository map op je computer.
+git remote add upstream (link van geforked repo): upstream wijst naar de originele repo, zo kun je altijd jouw versie updaten.
+git fetch upstream: haalt de veranderingen in de originele repo op.
+git merge upstream/master: alles samen voegen.
+git push origin master: pushen naar jouw forked repo.      
+      </pre>
     </div><!-- /container-fluid lab1-->  
     <div class="container-fluid" id="lab2">    
       <h2>LAB 2 - CSS3 animations and transitions</h2>
