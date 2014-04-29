@@ -7,7 +7,7 @@
 
 /* Page */
 body {
-	background: #333333 url('../images/page-background.png') repeat top left;
+	/*background: #333333 url('../images/page-background.png') repeat top left;*/
 	font-family: arial,sans-serif;
 	/*padding:1%;*/
 	margin:1%;
@@ -64,10 +64,11 @@ h1, h2 {
 }
 
 h1 {
-	font-style: italic;
 	color: #eee;
 	font-size: 50px;
-	margin-top: 100px;
+	text-align: center;
+	margin: 0;
+	padding-top: 100px;
 }
 
 h2 {
