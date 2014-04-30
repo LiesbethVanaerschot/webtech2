@@ -36,3 +36,4 @@ gulp.task('watch', function(){
 
 //default zou dit kunnen zijn
 gulp.task('default', ['serve', 'styles', 'jade', 'scripts', 'watch']);
+

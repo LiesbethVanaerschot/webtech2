@@ -1,16 +1,6 @@
 $(document).ready(function(){
 	console.log("ready");
 
-	/*$(".koffiecat").on("click", function(){
-		console.log("click");
-		//$(this).find("ul").not(this).removeClass("inactive");
-        //$(this).find("ul").addClass("active");
-        var koffiecat = $(this).find("ul");
-        
-        $('.koffiecat ul').not(this).removeClass('active').addClass('inactive');
-        koffiecat.toggleClass('active inactive');
-        
-    });*/
 
 	var accordion_mini = $('.miniaccordion > li > a');
 	var accordion_mini_body = $('.miniaccordion li > .mini-sub');
