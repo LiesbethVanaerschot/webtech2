@@ -22,38 +22,112 @@ block content
             case koffie._id
              when "koffie_1"
               each zwart in Zwart
-               li= zwart.naam
+               li
+                div= zwart.naam
+                div= zwart.prijs
+                div
+                 input(type='text', placeholder='#')
              when "koffie_2"
               each metmelk in metMelk
-               li= metmelk.naam 
+               li 
+                div= metmelk.naam
+                div= metmelk.prijs
+                div
+                 input(type='text', placeholder='#') 
              when "koffie_3"
               each special in Specials
-               li= special.naam   
+               li
+                div= special.naam
+                div= special.prijs
+                div
+                 input(type='text', placeholder='#')   
         when "drink_2"
          each thee in Thee
-          li= thee.naam
+          li
+           div= thee.naam
+           div= thee.prijs
+           div
+            input(type='text', placeholder='#')
         when "drink_3"
          each melk in Melk
-          li= melk.naam 
+          li
+           div= melk.naam
+           div= melk.prijs
+           div
+            input(type='text', placeholder='#') 
         when "drink_4"
          each sap in Sappen
-          li= sap.naam
+          li
+           div= sap.naam
+           div= sap.prijs
+           div
+            input(type='text', placeholder='#')
         when "drink_5"
          each fris in Frisdrank
-          li= fris.naam
+          li
+           div= fris.naam
+           div= fris.prijs
+           div
+            input(type='text', placeholder='#')
         when "drink_6"
          each alcohol in Alcohol
-          li= alcohol.naam
+          li
+           div= alcohol.naam
+           div= alcohol.prijs
+           div
+            input(type='text', placeholder='#')
         when "drink_7"
          each ijs in Ijskoffie
-          li= ijs.naam
+          li
+           div= ijs.naam
+           div= ijs.prijs
+           div
+            input(type='text', placeholder='#')
    else
     p Er is geen Drinken.  
 
  div
-  ul
+  ul.eten.accordion
    if(Eten.length)
     each cat in Eten
-     li= cat.cat
+     li(class='etencat', id=cat._id)
+      a=cat.cat
+      ul.miniaccordion
+       case cat._id
+        when "eten_1"
+         each ontbijt in Ontbijt
+          li
+           div= ontbijt.naam
+           div= ontbijt.prijs
+           div
+            input(type='text', placeholder='#')
+        when "eten_2"
+         each bagel in Bagels
+          li
+           div= bagel.naam
+           div= bagel.prijs
+           div
+            input(type='text', placeholder='#')
+        when "eten_3"
+         each wrap in Wraps
+          li
+           div= wrap.naam 
+           div= wrap.prijs
+           div
+            input(type='text', placeholder='#')
+        when "eten_4"
+         each soep in Soep
+          li
+           div= soep.naam
+           div= soep.prijs
+           div
+            input(type='text', placeholder='#')
+        when "eten_5"
+         each yoghurt in Yoghurt
+          li
+           div= yoghurt.naam
+           div= yoghurt.prijs
+           div
+            input(type='text', placeholder='#')
    else
     p Er is geen Eten.  

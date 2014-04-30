@@ -26,3 +26,9 @@ a {
 {
 	display: none;
 }
+
+.miniaccordion li div
+{
+	display: inline-block;
+	text-align: center;
+}

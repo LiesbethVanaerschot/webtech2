@@ -6,6 +6,11 @@ var async = require('async');
 
 exports.index = function(req, res, next){
 	var Eten = {};
+		Ontbijt = {};
+		Bagels = {};
+		Wraps = {};
+		Soep = {};
+		Yoghurt = {};
 		Drinken = {}	
 		Koffie = {};
 		Zwart = {};
@@ -19,6 +24,11 @@ exports.index = function(req, res, next){
 		Ijskoffie= {};
 
 	var EtenLijst = require("../models/eten").EtenLijst;
+	var OntbijtLijst = require("../models/eten").OntbijtLijst;
+	var BagelsLijst = require("../models/eten").BagelsLijst;
+	var WrapsLijst = require("../models/eten").WrapsLijst;
+	var SoepLijst = require("../models/eten").SoepLijst;
+	var YoghurtLijst = require("../models/eten").YoghurtLijst;
 	var DrinkenLijst = require("../models/drinken").DrinkenLijst;
 	var KoffieLijst = require("../models/drinken").KoffieLijst;
 	var ZwartLijst = require("../models/drinken").ZwartLijst;
@@ -41,6 +51,66 @@ exports.index = function(req, res, next){
 					}
 					//console.log(eten);
 					Eten = eten;
+					//console.log(Eten);
+					callback();
+				});
+			},
+			function(callback){
+				OntbijtLijst.find({}, function(err,ontbijt){
+					if(err)
+					{
+						return callback(err);
+					}
+					//console.log(eten);
+					Ontbijt = ontbijt;
+					//console.log(Eten);
+					callback();
+				});
+			},
+			function(callback){
+				BagelsLijst.find({}, function(err,bagels){
+					if(err)
+					{
+						return callback(err);
+					}
+					//console.log(eten);
+					Bagels = bagels;
+					//console.log(Eten);
+					callback();
+				});
+			},
+			function(callback){
+				WrapsLijst.find({}, function(err,wraps){
+					if(err)
+					{
+						return callback(err);
+					}
+					//console.log(eten);
+					Wraps = wraps;
+					//console.log(Eten);
+					callback();
+				});
+			},
+			function(callback){
+				SoepLijst.find({}, function(err,soep){
+					if(err)
+					{
+						return callback(err);
+					}
+					//console.log(eten);
+					Soep = soep;
+					//console.log(Eten);
+					callback();
+				});
+			},
+			function(callback){
+				YoghurtLijst.find({}, function(err,yoghurt){
+					if(err)
+					{
+						return callback(err);
+					}
+					//console.log(eten);
+					Yoghurt = yoghurt;
 					//console.log(Eten);
 					callback();
 				});
@@ -187,7 +257,12 @@ exports.index = function(req, res, next){
 			//console.log(Drinken);
 			//onsole.log(Thee);
 			res.render('index', {title: "Beans Bar",
-								Eten: Eten, 
+								Eten: Eten,
+								Ontbijt: Ontbijt,
+								Bagels: Bagels,
+								Wraps: Wraps,
+								Soep: Soep,
+								Yoghurt: Yoghurt, 
 								Drinken: Drinken, 
 								Koffie: Koffie, 
 								Zwart: Zwart, 

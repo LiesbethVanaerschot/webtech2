@@ -7,8 +7,59 @@ var Eten = new Schema({
 	cat: String
 },{collection:'eten'});
 
+var Ontbijt = new Schema({
+	_id: String,
+	eten_id: String,
+	naam: String,
+	prijs: Number,
+	omschrijving: String
+},{collection: 'ontbijt'});
+
+var Bagels = new Schema({
+	_id: String,
+	eten_id: String,
+	naam: String,
+	prijs: Number,
+	omschrijving: String
+},{collection: 'bagels'});
+
+var Wraps = new Schema({
+	_id: String,
+	eten_id: String,
+	naam: String,
+	prijs: Number,
+	omschrijving: String
+},{collection: 'wraps'});
+
+var Soep = new Schema({
+	_id: String,
+	eten_id: String,
+	naam: String,
+	prijs: Number,
+	omschrijving: String
+},{collection: 'soep'});
+
+var Yoghurt = new Schema({
+	_id: String,
+	eten_id: String,
+	naam: String,
+	prijs: Number,
+	omschrijving: String
+},{collection: 'yoghurt'});
+
 var EtenLijst = mongoose.model('EtenLijst', Eten);
-module.exports = { EtenLijst: EtenLijst};
+var OntbijtLijst = mongoose.model('OntbijtLijst', Ontbijt);
+var BagelsLijst = mongoose.model('BagelsLijst', Bagels);
+var WrapsLijst = mongoose.model('WrapsLijst', Wraps);
+var SoepLijst = mongoose.model('SoepLijst', Soep);
+var YoghurtLijst = mongoose.model('YoghurtLijst', Yoghurt);
+
+module.exports = {	EtenLijst: EtenLijst,
+					OntbijtLijst: OntbijtLijst,
+					BagelsLijst: BagelsLijst,
+					WrapsLijst: WrapsLijst,
+					SoepLijst: SoepLijst,
+					YoghurtLijst: YoghurtLijst};
 
 
 
