@@ -116,7 +116,74 @@ transform-origin: left center; //van waaruit de transformatie moet gebeuren//
       <p>
         De CSS3 transform eigenschap zorgt er voor dat het uitzicht van het geselecteerde element gemanipuleerd wordt volgens bepaalde transformatie functies. Het geselecteerde element behoudt zijn oorspronkelijke positie en grootte welke transformatie ook wordt uitgevoerd. <br/>
         <strong>Enkele voorbeelden van zulke transformatie functies zijn:</strong>
-      </p>  
+      </p>
+      <h5>rotate(angle)</h5>  
+      <p>Roteert een element onder een bepaalde hoek.</p>
+      <pre>
+VOORBEELD ROTATE()
+
+#rotate
+{
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+  transform: rotate(30deg);
+}  
+
+DEMO
+<div id="rotate"></div>    
+      </pre>
+      </br>
+      <h5>scale()</h5>
+      <u>
+        SYNTAX:
+        <li>scale(2): vergroot een element 2 maal.</li>
+        <li>scale(2,4): horizontaal vergroten (x) met 2, verticaal vergroten (y) met 4.</li>
+        <li>scaleX(value) en scaleY(value): meer specifiek vergroten voor afzonderlijk de X- of Y-as.</li>
+      </u>
+      <pre>
+VOORBEELD SCALE()
+<div class="scale">
+#scale1
+{
+  background-color: blue;
+  width: 80px;
+  height: 80px;
+  transform: scale(2);
+} 
+</div>
+<div class="scale">
+DEMO
+  <div id="scale1"></div>
+</div>
+<div class="scale">
+#scale2
+{
+  background-color: blue;
+  width: 80px;
+  height: 80px;
+  transform: scale(4,1);
+} 
+</div>
+<div class="scale">
+DEMO
+  <div id="scale2"></div>
+</div>
+<div class="scale">
+#scale3
+{
+  background-color: blue;
+  width: 80px;
+  height: 80px;
+  transform: scaleX(3);
+} 
+</div>
+<div class="scale">
+DEMO
+  <div id="scale3"></div> 
+</div>  
+    </pre>
+        
     </div><!-- /container-fluid lab2-->  
     <div class="container-fluid" id="lab3">  
       <h2>LAB 3 - Advanced JS</h2>
