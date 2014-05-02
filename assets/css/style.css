@@ -37,7 +37,7 @@ div.repo-author {
 
 /* Text */
 p, strong, li {
-    color: #CCCCCC;
+    
     font-size: 14px;
 }
 
@@ -127,7 +127,7 @@ img.repo-author-logo {
 	margin-right: 15px;
 }
 
-/*css transformation*/
+/*LAB 3 CSS ANIMATIONS*/
 #rotate
 {
   background-color: blue;
@@ -172,6 +172,31 @@ img.repo-author-logo {
   height: 80px;
   transform: scaleX(3);
   -webkit-transform: scaleX(3);
+}
+
+/*LAB 5 BOOTSTRAP*/
+.kolom
+{
+	padding: 10px;
+	margin-bottom: 4px;
+	background-color: #97dce2;
+	border: solid 1px #55C6CF;
+}
+
+.nkolom
+{
+	padding: 10px;
+	margin-bottom: 4px;
+	background-color: #00A3AA;
+	border: solid 1px #008288;
+}
+
+.nkolomgroen
+{
+	padding: 10px;
+	margin-bottom: 4px;
+	background-color: #4CC686;
+	border: solid 1px #329c64;
 }
 
 /* Media queries */
