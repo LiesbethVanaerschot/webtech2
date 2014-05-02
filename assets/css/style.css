@@ -131,25 +131,22 @@ img.repo-author-logo {
 #rotate
 {
   background-color: blue;
-  width: 80px;
-  height: 80px;
+  width: 40px;
+  height: 40px;
   transform: rotate(30deg);
   -webkit-transform: rotate(30deg);
   margin-top: 20px;
   margin-left: 10px;
 } 
 
-#scale
-{
-	display:inline-block;
-}
+
 
 #scale1
 {
   
   background-color: blue;
-  width: 80px;
-  height: 80px;
+  width: 40px;
+  height: 40px;
   transform: scale(2);
   -webkit-transform: scale(2);
 } 
@@ -158,8 +155,8 @@ img.repo-author-logo {
 {
   
   background-color: blue;
-  width: 80px;
-  height: 80px;
+  width: 40px;
+  height: 40px;
   transform: scale(4,1);
   -webkit-transform: scale(4,1);
 } 
@@ -168,8 +165,8 @@ img.repo-author-logo {
 {
   
   background-color: blue;
-  width: 80px;
-  height: 80px;
+  width: 40px;
+  height: 40px;
   transform: scaleX(3);
   -webkit-transform: scaleX(3);
 }

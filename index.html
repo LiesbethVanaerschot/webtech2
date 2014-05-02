@@ -141,47 +141,53 @@ DEMO
         <li>scale(2,4): horizontaal vergroten (x) met 2, verticaal vergroten (y) met 4.</li>
         <li>scaleX(value) en scaleY(value): meer specifiek vergroten voor afzonderlijk de X- of Y-as.</li>
       </u>
-      <pre>
+      <pre class="container-fluid">
 VOORBEELD SCALE()
-<div class="scale">
-#scale1
-{
-  background-color: blue;
-  width: 80px;
-  height: 80px;
-  transform: scale(2);
-} 
+<div class="row">
+    <div class="scale col-md-6">
+    &#35;scale1
+    &#123;
+      background-color: blue;
+      width: 40px;
+      height: 40px;
+      transform: scale(2);
+    &#125;
+    </div>
+    <div class="scale col-md-6">
+    DEMO
+      <div id="scale1"></div>
+    </div>
 </div>
-<div class="scale">
-DEMO
-  <div id="scale1"></div>
+<div class="row">
+    <div class="scale col-md-6">
+    &#35;scale2
+    &#123;
+      background-color: blue;
+      width: 40px;
+      height: 40px;
+      transform: scale(4,1);
+    &#125;
+    </div>
+    <div class="scale col-md-6">
+    <h5>DEMO</h5>
+      <div id="scale2"></div>
+    </div>
 </div>
-<div class="scale">
-#scale2
-{
-  background-color: blue;
-  width: 80px;
-  height: 80px;
-  transform: scale(4,1);
-} 
-</div>
-<div class="scale">
-DEMO
-  <div id="scale2"></div>
-</div>
-<div class="scale">
-#scale3
-{
-  background-color: blue;
-  width: 80px;
-  height: 80px;
-  transform: scaleX(3);
-} 
-</div>
-<div class="scale">
-DEMO
-  <div id="scale3"></div> 
-</div>  
+<div class="row">
+    <div class="scale col-md-6">
+    &#35;scale3
+    &#123;
+      background-color: blue;
+      width: 40px;
+      height: 40px;
+      transform: scaleX(3);
+    &#125;
+    </div>
+    <div class="scale col-md-6">
+    DEMO
+      <div id="scale3"></div> 
+    </div> 
+</div> 
     </pre>
         
     </div><!-- /container-fluid lab2-->  
