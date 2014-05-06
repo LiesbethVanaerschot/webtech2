@@ -16,13 +16,14 @@ Namen:<br/>
 
 ##Wat moet het kunnen?
 
-1. Menu van bar/cafe/resto weergeven
+1. Menu van bar/cafe/resto weergeven (check)
 2. Klant moet kunnen aanduiden wat ze willen bestellen
-3. dit wordt weergegeven in een "winkelmandje"
-4. Dit winkelmandje moet je kunnen bevestigen : BESTEL!
-5. Controle op ingave tafelnummer
-6. Bestelling moet in de zaak op scherm komen/afgeprint worden
-7. feedback hoeveelste in wachtrij. --> iets met gemiddelde tijden, bestelling vervalt uit systeem na bep tijd.
+	--> toggleClass bestel + aantal invullen
+3. Door op BESTEL te klikken alle waarden verzamelen van classe bestel + aantal
+	--> jquery each element met die classe --> pushen in array
+	--> Faye websocket doorsturen naar admin kant (bestellingen.php)
+4. Admin kant( = aanmelden) inkomende bestellingen + lijst met alle bestellingen
+	--> wanneer op print gedrukt wordt komt inkomde bestelling in de lijst met alle bestellingen terecht.
 
 ##TODO
 

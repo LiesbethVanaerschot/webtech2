@@ -43,7 +43,6 @@ p, strong, li {
 
 strong {
     font-weight: bold;
-    color: #EEEEEE;
 }
 
 a {
@@ -139,7 +138,11 @@ img.repo-author-logo {
   margin-left: 10px;
 } 
 
-
+.sd
+{
+	display: inline-block;
+	vertical-align: text-top;
+}
 
 #scale1
 {
@@ -169,6 +172,43 @@ img.repo-author-logo {
   height: 40px;
   transform: scaleX(3);
   -webkit-transform: scaleX(3);
+}
+
+#skew
+{
+  background-color: blue;
+  width: 40px;
+  height: 40px;
+  transform: skewX(30deg);
+  -webkit-transform: skewX(30deg);
+  margin-left: 20px;
+} 
+
+#pt
+{
+	height: 260px;
+	overflow: hidden;
+}
+
+#notranslate
+{
+	position: relative;
+	left: 40px;
+	border: dashed 1px red;
+	width: 40px;
+  	height: 40px;
+}
+
+#translate
+{
+  position: relative;
+  left: 40px;
+  top: -76px;
+  background-color: blue;
+  width: 40px;
+  height: 40px;
+  transform: translateX(30px);
+  -webkit-transform: translateX(80px);
 }
 
 /*LAB 5 BOOTSTRAP*/

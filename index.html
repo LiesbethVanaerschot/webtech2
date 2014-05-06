@@ -125,8 +125,8 @@ VOORBEELD ROTATE()
 #rotate
 {
   background-color: blue;
-  width: 100px;
-  height: 100px;
+  width: 40px;
+  height: 40px;
   transform: rotate(30deg);
 }  
 
@@ -135,61 +135,92 @@ DEMO
       </pre>
       </br>
       <h5>scale()</h5>
-      <u>
+      <ul>
         SYNTAX:
         <li>scale(2): vergroot een element 2 maal.</li>
         <li>scale(2,4): horizontaal vergroten (x) met 2, verticaal vergroten (y) met 4.</li>
         <li>scaleX(value) en scaleY(value): meer specifiek vergroten voor afzonderlijk de X- of Y-as.</li>
-      </u>
-      <pre class="container-fluid">
+      </ul>
+      <pre>
 VOORBEELD SCALE()
-<div class="row">
-    <div class="scale col-md-6">
-    &#35;scale1
-    &#123;
-      background-color: blue;
-      width: 40px;
-      height: 40px;
-      transform: scale(2);
-    &#125;
-    </div>
-    <div class="scale col-md-6">
-    DEMO
-      <div id="scale1"></div>
-    </div>
-</div>
-<div class="row">
-    <div class="scale col-md-6">
-    &#35;scale2
-    &#123;
-      background-color: blue;
-      width: 40px;
-      height: 40px;
-      transform: scale(4,1);
-    &#125;
-    </div>
-    <div class="scale col-md-6">
-    <h5>DEMO</h5>
-      <div id="scale2"></div>
-    </div>
-</div>
-<div class="row">
-    <div class="scale col-md-6">
-    &#35;scale3
-    &#123;
-      background-color: blue;
-      width: 40px;
-      height: 40px;
-      transform: scaleX(3);
-    &#125;
-    </div>
-    <div class="scale col-md-6">
-    DEMO
-      <div id="scale3"></div> 
-    </div> 
-</div> 
-    </pre>
-        
+
+&#35;scale1
+&#123;
+  background-color: blue;
+  width: 40px;
+  height: 40px;
+  transform: scale(2);
+&#125;
+
+
+        <div class="sd" id="scale1"></div>
+
+
+&#35;scale2
+&#123;
+  background-color: blue;
+  width: 40px;
+  height: 40px;
+  transform: scale(4,1);
+&#125;
+
+        <div class="sd" id="scale2"></div>
+
+&#35;scale3
+&#123;
+  background-color: blue;
+  width: 40px;
+  height: 40px;
+  transform: scaleX(3);
+&#125;
+
+        <div class="sd" id="scale3"></div>
+      </pre>
+      </br>
+      <h5>skew()</h5>
+      <ul>
+        SYNTAX:
+        <li>skew(x,y): schuintrekken volges x- of y-as in één functie.</li>
+        <li>skewX() en skewY(): meer specifiek volges één as schuintrekken.</li>
+      </ul>
+      <pre>
+VOORBEELD SKEW()  
+
+#skew
+{
+  background-color: blue;
+  width: 40px;
+  height: 40px;
+  transform: skewX(30deg);
+}   
+
+        <div id="skew"></div>    
+      </pre>
+      </br>
+      <h5>translate()</h5>
+      <ul>
+        SYNTAX:
+        <li>translate(x,y): verplaatsen volgens beide assen.</li>
+        <li>translateX() of translateY(): verplaatsen volgens specifieke as.</li>
+      </ul>
+      <pre id="pt">
+VOORBEELD TRANSLATE() 
+
+#translate
+{
+  background-color: blue;
+  width: 40px;
+  height: 40px;
+  transform: translateX(80px);
+}
+        <div id="notranslate"></div> 
+        <div id="translate"></div> 
+      </pre>
+      <p>
+        Voor deze opdracht heb ik de translate() functie gebruikt. Omdat transformations directe manipulaties zijn van het uitzicht van een element zie je direct het eindresultaat. <br/>
+        Het zou natuurlijk veel fijner zijn moest je deze verandering geanimeerd kunnen waarnemen.<br/>
+        <strong>Transitions</strong> in combinatie met transformations kunnen hiervoor zorgen.
+      </p>
     </div><!-- /container-fluid lab2-->  
     <div class="container-fluid" id="lab3">  
       <h2>LAB 3 - Advanced JS</h2>
