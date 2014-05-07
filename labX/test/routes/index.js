@@ -282,7 +282,13 @@ exports.index = function(req, res, next){
 	res.render('index', {title: "Beans Bar Menu", food: eten});
 	});*/
 
-}
+};
+
+exports.order = function(req, res){	
+  res.render('order', { 
+  	title: 'Orders',
+  	 });
+};
 
 //http://stackoverflow.com/questions/18008479/node-js-wait-for-multiple-async-calls
 //http://mherman.org/blog/2013/11/11/user-authentication-with-passport-dot-js/#.U1gM4Pl_tqU

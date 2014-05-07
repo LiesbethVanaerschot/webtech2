@@ -7,6 +7,8 @@ a {
   color: #00B7FF;
 }
 
+/*ACCORDION MENU CSS*/
+
 .miniaccordion li > .mini-sub
 {
 	display: none;
@@ -24,11 +26,35 @@ a {
 
 .accordion li:target > .miniaccordion
 {
+	display: block;
+}
+
+.large-accordion li > .accordion
+{
 	display: none;
+}
+
+.large-accordion li:target > .accordion
+{
+	display: block;
+}
+
+/*MENU ALGEMENE CSS*/
+
+#bestelnav div
+{
+	display: inline-block;
 }
 
 .miniaccordion li div
 {
 	display: inline-block;
 	text-align: center;
+}
+
+/*BESTELLEN CSS*/
+
+.bestel
+{
+	background-color: green;
 }
