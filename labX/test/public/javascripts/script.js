@@ -4,6 +4,8 @@ $(document).ready(function(){
 	var client = new Faye.Client('http://localhost:3000/faye/',
 		{timeout: 20 });
 
+	$('#error p').hide();
+
 //MENU ACCORDION
 
 	var accordion_mini = $('.miniaccordion > li > a');
@@ -88,6 +90,8 @@ $(document).ready(function(){
 		if(items === "")
 		{
 			console.log("bestelling niet correct!");
+			$('#error p').text("Je kan niet niets bestellen!");
+			$('#error p').slideDown();	
 
 		}
 		else
@@ -100,10 +104,14 @@ $(document).ready(function(){
 				if(!allFilled)
 				{
 					console.log('vergeet aantal niet');
+					$('#error p').text("Vergeet de hoeveelheid niet!");
+					$('#error p').slideDown();
+					
 				}
 				else
 				{
 					getBestelling();
+					$('#error p').hide();
 				}
 			
 		}
