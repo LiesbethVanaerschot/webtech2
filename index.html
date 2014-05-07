@@ -117,9 +117,12 @@ transform-origin: left center; //van waaruit de transformatie moet gebeuren//
         De CSS3 transform eigenschap zorgt er voor dat het uitzicht van het geselecteerde element gemanipuleerd wordt volgens bepaalde transformatie functies. Het geselecteerde element behoudt zijn oorspronkelijke positie en grootte welke transformatie ook wordt uitgevoerd. <br/>
         <strong>Enkele voorbeelden van zulke transformatie functies zijn:</strong>
       </p>
-      <h5>rotate(angle)</h5>  
-      <p>Roteert een element onder een bepaalde hoek.</p>
-      <pre>
+
+<!-- ROTATE -->   
+      <section>   
+        <h5>rotate(angle)</h5>  
+        <p>Roteert een element onder een bepaalde hoek.</p>
+        <pre>
 VOORBEELD ROTATE()
 
 #rotate
@@ -132,16 +135,19 @@ VOORBEELD ROTATE()
 
 DEMO
 <div id="rotate"></div>    
-      </pre>
-      </br>
-      <h5>scale()</h5>
-      <ul>
-        SYNTAX:
-        <li>scale(2): vergroot een element 2 maal.</li>
-        <li>scale(2,4): horizontaal vergroten (x) met 2, verticaal vergroten (y) met 4.</li>
-        <li>scaleX(value) en scaleY(value): meer specifiek vergroten voor afzonderlijk de X- of Y-as.</li>
-      </ul>
-      <pre>
+        </pre>
+      </section>
+
+<!-- SCALE -->   
+      <section>   
+        <h5>scale()</h5>
+        <ul>
+          SYNTAX:
+          <li>scale(2): vergroot een element 2 maal.</li>
+          <li>scale(2,4): horizontaal vergroten (x) met 2, verticaal vergroten (y) met 4.</li>
+          <li>scaleX(value) en scaleY(value): meer specifiek vergroten voor afzonderlijk de X- of Y-as.</li>
+        </ul>
+        <pre>
 VOORBEELD SCALE()
 
 &#35;scale1
@@ -153,7 +159,7 @@ VOORBEELD SCALE()
 &#125;
 
 
-        <div class="sd" id="scale1"></div>
+          <div class="sd" id="scale1"></div>
 
 
 &#35;scale2
@@ -164,7 +170,7 @@ VOORBEELD SCALE()
   transform: scale(4,1);
 &#125;
 
-        <div class="sd" id="scale2"></div>
+          <div class="sd" id="scale2"></div>
 
 &#35;scale3
 &#123;
@@ -174,16 +180,19 @@ VOORBEELD SCALE()
   transform: scaleX(3);
 &#125;
 
-        <div class="sd" id="scale3"></div>
-      </pre>
-      </br>
-      <h5>skew()</h5>
-      <ul>
-        SYNTAX:
-        <li>skew(x,y): schuintrekken volges x- of y-as in één functie.</li>
-        <li>skewX() en skewY(): meer specifiek volges één as schuintrekken.</li>
-      </ul>
-      <pre>
+          <div class="sd" id="scale3"></div>
+        </pre>
+      </section>
+
+<!-- SKEW -->      
+      <section>
+        <h5>skew()</h5>
+        <ul>
+          SYNTAX:
+          <li>skew(x,y): schuintrekken volges x- of y-as in één functie.</li>
+          <li>skewX() en skewY(): meer specifiek volges één as schuintrekken.</li>
+        </ul>
+        <pre>
 VOORBEELD SKEW()  
 
 #skew
@@ -194,16 +203,20 @@ VOORBEELD SKEW()
   transform: skewX(30deg);
 }   
 
-        <div id="skew"></div>    
-      </pre>
-      </br>
-      <h5>translate()</h5>
-      <ul>
-        SYNTAX:
-        <li>translate(x,y): verplaatsen volgens beide assen.</li>
-        <li>translateX() of translateY(): verplaatsen volgens specifieke as.</li>
-      </ul>
-      <pre id="pt">
+          <div id="skew"></div>    
+        </pre>
+      </section>  
+      
+
+<!-- TRANSLATE -->  
+      <section>    
+        <h5>translate()</h5>
+        <ul>
+          SYNTAX:
+          <li>translate(x,y): verplaatsen volgens beide assen.</li>
+          <li>translateX() of translateY(): verplaatsen volgens specifieke as.</li>
+        </ul>
+        <pre id="pt">
 VOORBEELD TRANSLATE() 
 
 #translate
@@ -213,14 +226,91 @@ VOORBEELD TRANSLATE()
   height: 40px;
   transform: translateX(80px);
 }
-        <div id="notranslate"></div> 
-        <div id="translate"></div> 
-      </pre>
-      <p>
-        Voor deze opdracht heb ik de translate() functie gebruikt. Omdat transformations directe manipulaties zijn van het uitzicht van een element zie je direct het eindresultaat. <br/>
-        Het zou natuurlijk veel fijner zijn moest je deze verandering geanimeerd kunnen waarnemen.<br/>
-        <strong>Transitions</strong> in combinatie met transformations kunnen hiervoor zorgen.
-      </p>
+          <div id="notranslate"></div> 
+          <div id="translate"></div> 
+        </pre>
+      </section>
+      <div>
+        <p>
+          Voor deze opdracht heb ik de translate() functie gebruikt. Omdat transformations directe manipulaties zijn van het uitzicht van een element zie je direct het eindresultaat. <br/>
+          Het zou natuurlijk veel fijner zijn moest je deze verandering geanimeerd kunnen waarnemen.<br/>
+          <strong>Transitions</strong> in combinatie met transformations kunnen hiervoor zorgen.
+        </p>
+      </div>  
+<!-- TRANSITIONS -->
+      <section>
+        <h4>transition: property duration timing-function delay;</h4>
+        <P>
+          Transitions worden bijvoorbeeld aangeroepen wanneer er over een element gehoverd wordt. Ze vormen de animatie tussen veranderingen die je op een  element wilt uitvoeren.
+        </P>
+        <pre>
+TRANSITION VOORBEELD
+
+#transition
+{
+  transition: background-color 0.8s ease,
+              border-radius 0.8s ease;
+  background-color: blue;
+  border-radius: 6px;
+  width: 60px;
+  height: 60px;
+}
+#transition:hover {
+  background-color: yellow;
+  border-radius: 50%;
+}
+
+          <div id="transition"></div> 
+        </pre>
+      </section> 
+
+      <section>
+        <p>Wanneer je transitions en transformations combineert, kun je bijvoorbeeld het volgende doen:</p>
+        <pre>
+ANIMATION VOORBEELD
+
+#animation
+{
+  transition: all 2s ease-in-out;
+  background-color: blue;
+  border-radius: 6px;
+  width: 60px;
+  height: 60px;
+}
+#animation:hover {
+  background-color: yellow;
+  border-radius: 50%;
+  transform: translateX(200px);
+  -webkit-transform: translateX(200px);
+}   
+
+          <div id="animation"></div>      
+        </pre>
+      </section>
+<!-- 3D TRANSFORMATIONS -->
+      <section>
+        <p>Naast de voorgaande 2D transformations heb je ook van sommige functies de <strong>3D transformations</strong>.</p>
+        <h4>rotateX() - rotateY() - rotate3d(x, y, z):</h4>
+        <p>Deze functies zorgen er voor dat een element rond een bepaalde as draait.</p>
+        <pre>
+VOORBEELD 3D ROTATE          
+        </pre>
+
+        <h4>translateZ() - translate3d(x, y, z):</h4>
+        <p>De z-waarde bij deze functies zorgen er voor dat het element zich naar de user of weg van de user beweegt.</p>
+        <pre>
+VOORBEELD 3D TRANSLATE          
+        </pre>
+
+        <h4>perspective():</h4>
+        <p>Perspective manipuleert het element zelf niet maar voegt een bepaald perspectief, een diepte toe aan de 3D-transformations.</p>
+        <pre>
+VOORBEELD 3D PERSPECTIVE          
+        </pre>
+      </section>
+      <section>
+        
+      </section>
     </div><!-- /container-fluid lab2-->  
     <div class="container-fluid" id="lab3">  
       <h2>LAB 3 - Advanced JS</h2>
