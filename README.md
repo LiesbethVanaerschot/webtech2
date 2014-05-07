@@ -192,10 +192,18 @@ Behandelen van:
 
 ### LAB 5 - Terrapke
 
-### LAB 6 - NODE.js
+### LAB 6 - NODE.js + WEBSOCKETS
 
 *Basic online tutorial: node + express + jade + mongodb + monk*
  http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
+
+De vragen moesten allemaal gedisplayed kunnen worden in een tweede browser (scherm). Wanneer je je vraag in zond dus onclick moesten je vragen verstuurd worden naar de tweede pagina. Dit doen we met websockets. We zagen twee soorten websockets in de les websocket.io en Faye. Hier en in labX heb ik met Faye gewerkt.
+Op de website van Faye staat goed gedocumenteerd hoe je hieraan moet beginnen met een node.js server.
+Je installeert eerst Faye via npm installe faye en ziet dat faye ook tussen je te gebruiken dependencies staat.
+Dan moet je in je app.js een faye server aanmaken want deze heb je nodig om gegevens te kunnen doorsturen naar de verschillende browsers.
+-- server code --
+
+https://github.com/faye/faye
 
 ### LAB 7 - SASS
 

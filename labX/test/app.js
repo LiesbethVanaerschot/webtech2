@@ -10,6 +10,7 @@ var http = require('http');
 var path = require('path');
 var mongoose = require('mongoose');
 var async = require('async');
+var faye = require('faye');
 
 mongoose.connect('mongodb://127.0.0.1/beans');
 
@@ -58,12 +59,17 @@ function ensureAuthenticated(req, res, next) {
 //APP GET GEDEELTE
 
 app.get('/', routes.index);
+app.get('/order', routes.order);
 //app.get('/', ensureAuthenticated, routes.login);
 app.get('/users', user.list);
 
 
-http.createServer(app).listen(app.get('port'), function(){
+var server = http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
+var bayeux = new faye.NodeAdapter({mount: '/faye', timeout: 45});
+
+bayeux.attach(server);
+server.listen(3000);
 

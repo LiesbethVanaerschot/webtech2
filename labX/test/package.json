@@ -10,7 +10,8 @@
     "jade": "*",
     "mongodb": "*",
     "mongoose": "*",
-    "async": "*"
+    "async": "*",
+    "faye": "*"
   },
   "devDependencies": {
     "gulp": "^3.6.2",
