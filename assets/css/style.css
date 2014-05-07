@@ -242,6 +242,62 @@ img.repo-author-logo {
   -webkit-transform: translateX(200px);
 } 
 
+#rotate3d
+{
+  transition: all 2s ease-in-out;
+  background-color: blue;
+  border-radius: 6px;
+  width: 60px;
+  height: 60px;
+  -webkit-perspective: 800px;
+  -webkit-perspective-origin: 50% 100px;
+}
+#rotate3d:hover {
+  transform: rotateX(150deg);
+  -webkit-transform: rotateX(150deg);
+}
+
+#translate3d
+{
+  display: inline-block;
+  transition: all 2s ease-in-out;
+  background-color: blue;
+  border-radius: 6px;
+  width: 60px;
+  height: 60px;
+
+}
+#translate3d:hover {
+  transform: translateZ(80px);
+  -webkit-transform:translate3d(65px,65px,180px );
+}
+
+#block
+{
+  display: inline-block;
+  border:dashed 1px red;
+  border-radius: 6px;
+  width: 60px;
+  height: 60px
+}
+
+#keyframe
+{
+	width: 60px;
+	height: 60px;
+	background-color: red;
+	position: relative;
+	animation:mymove 5s infinite;
+	-webkit-animation:mymove 5s infinite;
+}
+
+@-webkit-keyframes mymove
+{
+0%   {top:0px; left: 0px; background:red; width:60px;}
+50% {top:20px; left: 200px; background:yellow; width:60px; border-radius: 50%; -webkit-transform: rotateZ(180deg );}
+100% {top:0px; left: 400px; background:blue; width:60px; border-radius: 15%; -webkit-transform: rotateZ(-180deg );}
+}
+
 /*LAB 5 BOOTSTRAP*/
 .kolom
 {

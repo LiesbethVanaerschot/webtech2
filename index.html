@@ -107,210 +107,320 @@ git push origin (nieuwe branch): maakt eigen branch aan online op GitHub zelf en
         <li>IMD-talks animatie on page load.</li>
       </ol>
       </br>
-      <h4>Opdracht 1 - gebruik van CSS3 transformations</h4>
-      <pre>
-SYNTAX:
-transform : function(value) //;other transform functions//;
-transform-origin: left center; //van waaruit de transformatie moet gebeuren//
-      </pre>
-      <p>
-        De CSS3 transform eigenschap zorgt er voor dat het uitzicht van het geselecteerde element gemanipuleerd wordt volgens bepaalde transformatie functies. Het geselecteerde element behoudt zijn oorspronkelijke positie en grootte welke transformatie ook wordt uitgevoerd. <br/>
-        <strong>Enkele voorbeelden van zulke transformatie functies zijn:</strong>
-      </p>
-
-<!-- ROTATE -->   
-      <section>   
-        <h5>rotate(angle)</h5>  
-        <p>Roteert een element onder een bepaalde hoek.</p>
+      <section id="css_opdracht1">
+        <h4>Opdracht 1 - gebruik van CSS3 transformations</h4>
         <pre>
-VOORBEELD ROTATE()
-
-#rotate
-{
-  background-color: blue;
-  width: 40px;
-  height: 40px;
-  transform: rotate(30deg);
-}  
-
-DEMO
-<div id="rotate"></div>    
+  SYNTAX:
+  transform : function(value) //;other transform functions//;
+  transform-origin: left center; //van waaruit de transformatie moet gebeuren//
         </pre>
-      </section>
-
-<!-- SCALE -->   
-      <section>   
-        <h5>scale()</h5>
-        <ul>
-          SYNTAX:
-          <li>scale(2): vergroot een element 2 maal.</li>
-          <li>scale(2,4): horizontaal vergroten (x) met 2, verticaal vergroten (y) met 4.</li>
-          <li>scaleX(value) en scaleY(value): meer specifiek vergroten voor afzonderlijk de X- of Y-as.</li>
-        </ul>
-        <pre>
-VOORBEELD SCALE()
-
-&#35;scale1
-&#123;
-  background-color: blue;
-  width: 40px;
-  height: 40px;
-  transform: scale(2);
-&#125;
-
-
-          <div class="sd" id="scale1"></div>
-
-
-&#35;scale2
-&#123;
-  background-color: blue;
-  width: 40px;
-  height: 40px;
-  transform: scale(4,1);
-&#125;
-
-          <div class="sd" id="scale2"></div>
-
-&#35;scale3
-&#123;
-  background-color: blue;
-  width: 40px;
-  height: 40px;
-  transform: scaleX(3);
-&#125;
-
-          <div class="sd" id="scale3"></div>
-        </pre>
-      </section>
-
-<!-- SKEW -->      
-      <section>
-        <h5>skew()</h5>
-        <ul>
-          SYNTAX:
-          <li>skew(x,y): schuintrekken volges x- of y-as in één functie.</li>
-          <li>skewX() en skewY(): meer specifiek volges één as schuintrekken.</li>
-        </ul>
-        <pre>
-VOORBEELD SKEW()  
-
-#skew
-{
-  background-color: blue;
-  width: 40px;
-  height: 40px;
-  transform: skewX(30deg);
-}   
-
-          <div id="skew"></div>    
-        </pre>
-      </section>  
-      
-
-<!-- TRANSLATE -->  
-      <section>    
-        <h5>translate()</h5>
-        <ul>
-          SYNTAX:
-          <li>translate(x,y): verplaatsen volgens beide assen.</li>
-          <li>translateX() of translateY(): verplaatsen volgens specifieke as.</li>
-        </ul>
-        <pre id="pt">
-VOORBEELD TRANSLATE() 
-
-#translate
-{
-  background-color: blue;
-  width: 40px;
-  height: 40px;
-  transform: translateX(80px);
-}
-          <div id="notranslate"></div> 
-          <div id="translate"></div> 
-        </pre>
-      </section>
-      <div>
         <p>
-          Voor deze opdracht heb ik de translate() functie gebruikt. Omdat transformations directe manipulaties zijn van het uitzicht van een element zie je direct het eindresultaat. <br/>
-          Het zou natuurlijk veel fijner zijn moest je deze verandering geanimeerd kunnen waarnemen.<br/>
-          <strong>Transitions</strong> in combinatie met transformations kunnen hiervoor zorgen.
+          De CSS3 transform eigenschap zorgt er voor dat het uitzicht van het geselecteerde element gemanipuleerd wordt volgens bepaalde transformatie functies. Het geselecteerde element behoudt zijn oorspronkelijke positie en grootte welke transformatie ook wordt uitgevoerd. <br/>
+          <strong>Enkele voorbeelden van zulke transformatie functies zijn:</strong>
         </p>
-      </div>  
-<!-- TRANSITIONS -->
-      <section>
-        <h4>transition: property duration timing-function delay;</h4>
-        <P>
-          Transitions worden bijvoorbeeld aangeroepen wanneer er over een element gehoverd wordt. Ze vormen de animatie tussen veranderingen die je op een  element wilt uitvoeren.
-        </P>
-        <pre>
-TRANSITION VOORBEELD
 
-#transition
-{
-  transition: background-color 0.8s ease,
-              border-radius 0.8s ease;
-  background-color: blue;
-  border-radius: 6px;
-  width: 60px;
-  height: 60px;
-}
-#transition:hover {
-  background-color: yellow;
-  border-radius: 50%;
-}
+  <!-- ROTATE -->   
+        <section>   
+          <h5>rotate(angle)</h5>  
+          <p>Roteert een element onder een bepaalde hoek.</p>
+          <pre>
+  VOORBEELD ROTATE()
 
-          <div id="transition"></div> 
-        </pre>
-      </section> 
+  #rotate
+  {
+    background-color: blue;
+    width: 40px;
+    height: 40px;
+    transform: rotate(30deg);
+  }  
 
-      <section>
-        <p>Wanneer je transitions en transformations combineert, kun je bijvoorbeeld het volgende doen:</p>
-        <pre>
-ANIMATION VOORBEELD
+  DEMO
+  <div id="rotate"></div>    
+          </pre>
+        </section>
 
-#animation
-{
-  transition: all 2s ease-in-out;
-  background-color: blue;
-  border-radius: 6px;
-  width: 60px;
-  height: 60px;
-}
-#animation:hover {
-  background-color: yellow;
-  border-radius: 50%;
-  transform: translateX(200px);
-  -webkit-transform: translateX(200px);
-}   
+  <!-- SCALE -->   
+        <section>   
+          <h5>scale()</h5>
+          <ul>
+            SYNTAX:
+            <li>scale(2): vergroot een element 2 maal.</li>
+            <li>scale(2,4): horizontaal vergroten (x) met 2, verticaal vergroten (y) met 4.</li>
+            <li>scaleX(value) en scaleY(value): meer specifiek vergroten voor afzonderlijk de X- of Y-as.</li>
+          </ul>
+          <pre>
+  VOORBEELD SCALE()
 
-          <div id="animation"></div>      
-        </pre>
-      </section>
-<!-- 3D TRANSFORMATIONS -->
-      <section>
-        <p>Naast de voorgaande 2D transformations heb je ook van sommige functies de <strong>3D transformations</strong>.</p>
-        <h4>rotateX() - rotateY() - rotate3d(x, y, z):</h4>
-        <p>Deze functies zorgen er voor dat een element rond een bepaalde as draait.</p>
-        <pre>
-VOORBEELD 3D ROTATE          
-        </pre>
+  &#35;scale1
+  &#123;
+    background-color: blue;
+    width: 40px;
+    height: 40px;
+    transform: scale(2);
+  &#125;
 
-        <h4>translateZ() - translate3d(x, y, z):</h4>
-        <p>De z-waarde bij deze functies zorgen er voor dat het element zich naar de user of weg van de user beweegt.</p>
-        <pre>
-VOORBEELD 3D TRANSLATE          
-        </pre>
 
-        <h4>perspective():</h4>
-        <p>Perspective manipuleert het element zelf niet maar voegt een bepaald perspectief, een diepte toe aan de 3D-transformations.</p>
-        <pre>
-VOORBEELD 3D PERSPECTIVE          
-        </pre>
-      </section>
-      <section>
+            <div class="sd" id="scale1"></div>
+
+
+  &#35;scale2
+  &#123;
+    background-color: blue;
+    width: 40px;
+    height: 40px;
+    transform: scale(4,1);
+  &#125;
+
+            <div class="sd" id="scale2"></div>
+
+  &#35;scale3
+  &#123;
+    background-color: blue;
+    width: 40px;
+    height: 40px;
+    transform: scaleX(3);
+  &#125;
+
+            <div class="sd" id="scale3"></div>
+          </pre>
+        </section>
+
+  <!-- SKEW -->      
+        <section>
+          <h5>skew()</h5>
+          <ul>
+            SYNTAX:
+            <li>skew(x,y): schuintrekken volges x- of y-as in één functie.</li>
+            <li>skewX() en skewY(): meer specifiek volges één as schuintrekken.</li>
+          </ul>
+          <pre>
+  VOORBEELD SKEW()  
+
+  #skew
+  {
+    background-color: blue;
+    width: 40px;
+    height: 40px;
+    transform: skewX(30deg);
+  }   
+
+            <div id="skew"></div>    
+          </pre>
+        </section>  
         
-      </section>
+
+  <!-- TRANSLATE -->  
+        <section>    
+          <h5>translate()</h5>
+          <ul>
+            SYNTAX:
+            <li>translate(x,y): verplaatsen volgens beide assen.</li>
+            <li>translateX() of translateY(): verplaatsen volgens specifieke as.</li>
+          </ul>
+          <pre id="pt">
+  VOORBEELD TRANSLATE() 
+
+  #translate
+  {
+    background-color: blue;
+    width: 40px;
+    height: 40px;
+    transform: translateX(80px);
+  }
+            <div id="notranslate"></div> 
+            <div id="translate"></div> 
+          </pre>
+        </section>
+        <div>
+          <p>
+            Voor deze opdracht heb ik de translate() functie gebruikt. Omdat transformations directe manipulaties zijn van het uitzicht van een element zie je direct het eindresultaat. <br/>
+            Het zou natuurlijk veel fijner zijn moest je deze verandering geanimeerd kunnen waarnemen.<br/>
+            <strong>Transitions</strong> in combinatie met transformations kunnen hiervoor zorgen.
+          </p>
+        </div>  
+  <!-- TRANSITIONS -->
+        <section>
+          <h4>transition: property duration timing-function delay;</h4>
+          <P>
+            Transitions worden bijvoorbeeld aangeroepen wanneer er over een element gehoverd wordt. Ze vormen de animatie tussen veranderingen die je op een  element wilt uitvoeren.
+          </P>
+          <pre>
+  TRANSITION VOORBEELD
+
+  #transition
+  {
+    transition: background-color 0.8s ease,
+                border-radius 0.8s ease;
+    background-color: blue;
+    border-radius: 6px;
+    width: 60px;
+    height: 60px;
+  }
+  #transition:hover {
+    background-color: yellow;
+    border-radius: 50%;
+  }
+
+            <div id="transition"></div> 
+          </pre>
+        </section> 
+
+        <section>
+          <p>Wanneer je transitions en transformations combineert, kun je bijvoorbeeld het volgende doen:</p>
+          <pre>
+  ANIMATION VOORBEELD
+
+  #animation
+  {
+    transition: all 2s ease-in-out;
+    background-color: blue;
+    border-radius: 6px;
+    width: 60px;
+    height: 60px;
+  }
+  #animation:hover {
+    background-color: yellow;
+    border-radius: 50%;
+    transform: translateX(200px);
+    -webkit-transform: translateX(200px);
+  }   
+
+            <div id="animation"></div>      
+          </pre>
+        </section>
+  <!-- 3D TRANSFORMATIONS -->
+        <section>
+          <p>Naast de voorgaande 2D transformations heb je ook van sommige functies de <strong>3D transformations</strong>.</p>
+          <h4>rotateX() - rotateY() - rotate3d(x, y, z):</h4>
+          <p>Deze functies zorgen er voor dat een element rond een bepaalde as draait.</p>
+          <p>
+            bij onderstaande voorbeelden gebruik ik ook de 3D transformatie optie <strong>perspective</strong>.
+            Perspective manipuleert het element zelf niet maar voegt een bepaald perspectief, een diepte toe aan de 3D-transformations.
+            Met <strong>perspective-origin</strong> wordt er bepaald waar de basis van het gewenste perspectief ligt op de x- en y-as.
+          </p>
+          <pre>
+  VOORBEELD 3D ROTATE  
+
+  #rotate3d
+  {
+    transition: all 2s ease-in-out;
+    background-color: blue;
+    border-radius: 6px;
+    width: 60px;
+    height: 60px;
+    -webkit-perspective: 800px;
+    -webkit-perspective-origin: 50% 100px;
+  }
+  #rotate3d:hover {
+    transform: rotateX(150deg);
+    -webkit-transform: rotateX(150deg);
+  }        
+            <div id="rotate3d"></div>
+          </pre>
+
+          <h4>translateZ() - translate3d(x, y, z):</h4>
+          <p>De z-waarde bij deze functies zorgen er voor dat het element zich naar de user of weg van de user beweegt.</p>
+          <pre>
+  VOORBEELD 3D TRANSLATE  
+
+  #translate3d
+  {
+    display: inline-block;
+    transition: all 2s ease-in-out;
+    background-color: blue;
+    border-radius: 6px;
+    width: 60px;
+    height: 60px;
+
+  }
+  #translate3d:hover {
+    transform:translate3d(65px,65px,180px);
+    -webkit-transform:translate3d(65px,65px,180px);
+  }  
+            <div id="translate3d"></div>  
+            <div id="block"></div>     
+          </pre>
+        </section>
+      </section><!-- /css-opdracht1 -->  
+      <section id="css_opdracht2">
+        <h4>Opdracht 2 - gebruik van CSS3 animation</h4>
+        <pre>
+  SYNTAX
+  Animatie waarbij de eigenschappen apart worden aangeroepen:
+  #box 
+  {
+    animation-name: bounce;
+    animation-duration: 4s;
+    animation-iteration-count: 10;
+    animation-direction: alternate;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+  }
+
+  Animatie genoteerd in 1 lijn:
+  animation: name duration iteration-count direction timing-function fille-mode delay;
+  animation: bounc 4s 10 alternate ease-out forwards 2s;
+        </pre>
+        <h5>Waarvoor staan al deze animatie-eigenschappen?</h5>
+        <ul>
+          <li><strong>name</strong>: naam van de animatie.</li>
+          <li><strong>duration</strong>: hoelang de animatie zal duren.</li>
+          <li><strong>iteration-count</strong>: hoeveel keer de animatie herhaalt moet worden.</li>
+          <li><strong>direction</strong>: in welke richting de animatie moet afgespeeld worden bv: normal,reverse,...</li>
+          <li><strong>timing-function</strong>: hoe de animatie moet verlopen over zijn duur bv: ease-in-out, lineair,...</li>
+          <li><strong>fill-mode</strong>: bepaald waar de animatie moet stoppen.</li>
+          <li><strong>delay</strong>: de vertraging waarmee de animatie moet starten.</li>
+        </ul>
+        <h5>Een animatie kan ook in verschillende stappen gebeuren.</h5>
+        <pre>
+  @keyframes [animation-name]{
+  from{wat er geanimeerd moet worden}
+  to{wat er geanimeerd moet worden}
+  }
+
+  OF
+
+  @keyframes [animation-name]{
+  0%{}//begin
+  50%{}//midden
+  100%{}//einde
+  }          
+        </pre>
+        <h5><strong>Animations en transformations combineren</strong></h5>
+        <pre>
+  #keyframe
+  {
+    width: 60px;
+    height: 60px;
+    background-color: red;
+    position: relative;
+    animation:mymove 5s infinite;
+    -webkit-animation:mymove 5s infinite;
+  }
+
+  @-webkit-keyframes mymove
+  {
+  0%  {top:0px; 
+       left: 0px; 
+       background:red; 
+       width:60px;}
+  50% {top:20px; 
+       left: 200px; 
+       background:yellow; 
+       width:60px; border-radius: 50%; 
+       -webkit-transform: rotateZ(180deg );}
+  100% {top:0px; 
+        left: 400px; 
+        background:blue; 
+        width:60px; 
+        border-radius: 15%; 
+        -webkit-transform: rotateZ(-180deg );}
+  }      
+          <div id="keyframe"></div>
+        </pre>
+        
+      </section><!-- /css_opdracht2 -->
     </div><!-- /container-fluid lab2-->  
     <div class="container-fluid" id="lab3">  
       <h2>LAB 3 - Advanced JS</h2>
