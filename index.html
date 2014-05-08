@@ -432,8 +432,71 @@ git push origin (nieuwe branch): maakt eigen branch aan online op GitHub zelf en
         <li>object notation</li>
         <li>DRY</li>
         <li>function zijn js classes</li>
-        <li>inheritance</li>
+        <li>prototipical inheritance</li>
       </ul>
+      <section id="object_notation">
+        <h4>Object Notation</h4>
+        <h6>Een Object creëren kan op twee manieren:</h6>
+        <pre>
+  Object Constructor Method
+
+  var object = new Object()
+  object.name = "firstObject"; 
+
+  Object Literal 
+
+  var object = {
+    name: "firstObject"
+  }       
+        </pre>
+        <h4>DRY</h4>
+        <p><strong>Don't Repeat Yourself</strong></p>
+        <p>
+          Tijdens het schrijven van Javascript code kom je vaak/soms op het punt dat je merkt dat je code herhaalt. Te veel herhaling in je code moet je proberen te vermijden. Houdt DRY daarom altijd in je achterhoofd.
+        </p>
+        <h5>Voorbeeld JavaScript geschreven met herhaling en DRY</h5>
+        <pre>
+  MET HERHALING
+
+  $('#myCheckbox').click(function() {
+    if (this.checked) {
+      $('#field_foo').val(config.foo);
+      $('#field_bar').val(config.bar);
+      $('#field_baz').val(config.baz);
+    } else {
+      $('#field_foo').val('');
+      $('#field_bar').val('');
+      $('#field_baz').val('');
+    }
+  });  
+
+  MET DRY IN JE ACHTERHOOFD
+
+  $('#myCheckbox').click(function() {
+
+    var checked = this.checked;
+
+    $.each(['foo', 'bar', 'baz'], function(i,v) {
+      if(checked)
+      {
+        $('#field_' + v).val(config[v]);
+      }
+      else
+      {
+        $('#field_' + v).val('');
+      }
+    });
+  });          
+        </pre>
+        <h4>Functions zijn JS Classes</h4>
+        <pre>
+          
+        </pre>
+        <h4>Prototypical Inheritance</h4>
+        <pre>
+          
+        </pre>
+      </section><!-- /object_notation -->
     </div><!-- /container-fluid lab3-->  
     <div class="container-fluid" id="lab4">  
       <h2>LAB 4 - prototype Weather App</h2>
