@@ -132,6 +132,7 @@ img.repo-author-logo {
   background-color: blue;
   width: 40px;
   height: 40px;
+  border-radius: 15%;
   transform: rotate(30deg);
   -webkit-transform: rotate(30deg);
   margin-top: 20px;
@@ -150,6 +151,7 @@ img.repo-author-logo {
   background-color: blue;
   width: 40px;
   height: 40px;
+  border-radius: 15%;
   transform: scale(2);
   -webkit-transform: scale(2);
 } 
@@ -160,6 +162,7 @@ img.repo-author-logo {
   background-color: blue;
   width: 40px;
   height: 40px;
+  border-radius: 15%;
   transform: scale(4,1);
   -webkit-transform: scale(4,1);
 } 
@@ -170,6 +173,7 @@ img.repo-author-logo {
   background-color: blue;
   width: 40px;
   height: 40px;
+  border-radius: 15%;
   transform: scaleX(3);
   -webkit-transform: scaleX(3);
 }
@@ -179,6 +183,7 @@ img.repo-author-logo {
   background-color: blue;
   width: 40px;
   height: 40px;
+  border-radius: 15%;
   transform: skewX(30deg);
   -webkit-transform: skewX(30deg);
   margin-left: 20px;
@@ -197,6 +202,7 @@ img.repo-author-logo {
 	border: dashed 1px red;
 	width: 40px;
   	height: 40px;
+  	border-radius: 15%;
 }
 
 #translate
@@ -207,6 +213,7 @@ img.repo-author-logo {
   background-color: blue;
   width: 40px;
   height: 40px;
+  border-radius: 15%;
   transform: translateX(30px);
   -webkit-transform: translateX(80px);
 }
@@ -216,7 +223,7 @@ img.repo-author-logo {
   transition: background-color 0.8s ease,
               border-radius 0.8s ease;
   background-color: blue;
-  border-radius: 6px;
+  border-radius: 15%;
   width: 60px;
   height: 60px;
   margin-left: 15px;
@@ -230,7 +237,7 @@ img.repo-author-logo {
 {
   transition: all 2s ease-in-out;
   background-color: blue;
-  border-radius: 6px;
+  border-radius: 15%;
   width: 60px;
   height: 60px;
   margin-left: 15px;
@@ -246,7 +253,7 @@ img.repo-author-logo {
 {
   transition: all 2s ease-in-out;
   background-color: blue;
-  border-radius: 6px;
+  border-radius: 15%;
   width: 60px;
   height: 60px;
   -webkit-perspective: 800px;
@@ -262,7 +269,7 @@ img.repo-author-logo {
   display: inline-block;
   transition: all 2s ease-in-out;
   background-color: blue;
-  border-radius: 6px;
+  border-radius: 15%;
   width: 60px;
   height: 60px;
 
@@ -276,7 +283,7 @@ img.repo-author-logo {
 {
   display: inline-block;
   border:dashed 1px red;
-  border-radius: 6px;
+  border-radius: 15%;
   width: 60px;
   height: 60px
 }
@@ -293,9 +300,21 @@ img.repo-author-logo {
 
 @-webkit-keyframes mymove
 {
-0%   {top:0px; left: 0px; background:red; width:60px;}
-50% {top:20px; left: 200px; background:yellow; width:60px; border-radius: 50%; -webkit-transform: rotateZ(180deg );}
-100% {top:0px; left: 400px; background:blue; width:60px; border-radius: 15%; -webkit-transform: rotateZ(-180deg );}
+0%  {top:0px; 
+	 left: 0px; 
+	 background:red; 
+	 width:60px;}
+50% {top:20px; 
+	 left: 200px; 
+	 background:yellow; 
+	 width:60px; border-radius: 50%; 
+	 -webkit-transform: rotateZ(180deg );}
+100% {top:0px; 
+	  left: 400px; 
+	  background:blue; 
+	  width:60px; 
+	  border-radius: 15%; 
+	  -webkit-transform: rotateZ(-180deg );}
 }
 
 /*LAB 5 BOOTSTRAP*/

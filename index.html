@@ -638,6 +638,89 @@ git push origin (nieuwe branch): maakt eigen branch aan online op GitHub zelf en
     </div><!-- /container-fluid lab7-->  
     <div class="container-fluid" id="lab8">  
       <h2>LAB 8 - BACKBONE.JS</h2>
+      <p>
+        De workshop over Backbone.js gegeven door Laurens van District01 vond ik, boven op alles wat we tot nu toe gezien hebben, heel interessant.
+        Voor Attribute.be heb ik hierover ook een artikel geschreven, in functie van dit Webtech 2 Portfolio, dat u hier kan vinden: <a href="http://www.attribute.be/2014/04/12/bam-en-daar-was-backbonejs">BACKBONE</a>.
+        </br>
+        Hier zal ik mijn artikel verder aanvullen met code voorbeelden. 
+      </p>
+      <section id="inleiding_bb">
+        <h4>Wat is Backbone.js?</h4>
+        <p>
+          Backbone.js is een Javascript framework dat structuur brengt in <strong>clientside applicaties</strong>. Bij pure JavaScript of het jQuery framework moet je eigenhandig een goede structuur in je code proberen te brengen wat bij complexe applicaties al snel een rommeltje kan worden. De visualisatie van je applicatie en de server hangen bij Javascript niet automatisch aan elkaar, je moet dit zelf aan elkaar schrijven. Je kunt elementen selecteren waarop je bepaalde functies kan toepassen die deze elementen dan beïnvloeden of veranderen. Als je dan ook nog eens data wilt aanroepen of opslagen moet je apart een Ajax call sturen naar je server. Bij Backbone.js ligt dit anders. Het brengt structuur in je applicatie, <strong>logica in je Javascript code</strong>. Met behulp van Backbone.js kan je je datastructuur scheiden van de visualisatie van je applicatie. Maar met behulp van de MVC structuur hangt de server, data en visualisatie aan elkaar waardoor je applicatie synchroon uitgevoerd kan worden.
+        </p>
+      </section><!-- /inleiding_bb -->
+      <section id="mvc_bb">
+        <h4>Waarvoor staat MVC?</h4>
+        <p>
+          Bij Backbone.js staat MVC voor Models, Views en Collections. Een model kan je vergelijken met een klasse zoals in PHP, maar een opgevulde klasse. Daarmee wordt er bedoeld dat een model gegevens/data bevat bijvoorbeeld: model friend kan voornaam, naam, adres,…  van een vriend bevatten. Een model is dus een beter gestructureerd object, dat naast data ook nog eens methoden of functies kan bevatten.
+        </p>
+        <pre>
+  MODEL VOORBEELD  
+
+  var friendModel = Backbone.Model.extend({
+    //setting default values
+    Defaults :
+    {
+      firstname: 'Anonymous',
+      lastname: 'Person',
+      phone: 'no phone number',
+      email: 'no email'
+    }
+  }); 
+
+  var liesbeth = new friendModel(); 
+  //wanneer je geen properties meegeeft (.set) krijg je de default values wanneer je liesbeth.get('firstname') doet.
+  //liesbeth.get('firstname') zal 'Anonymous' weergeven.
+
+  <strong>dus doe je best:</strong>
+  var liesbeth = new friendModel();
+  liesbeth.set({firstname: 'Liesbeth', 
+                lastname: 'Vanaerschot', 
+                email: 'lies.vanaerschot@gmail.com'});
+  liesbeth.get('email') //returns lies.vanaerschot@gmail.com
+  liesbeth.get('phone') //returns default: no phone number
+
+        </pre>
+        <P>
+          De meeste mensen onder ons hebben natuurlijk meerdere vrienden, dus meerdere friend models.
+          Maar het is moeilijk om bijvoorbeeld van al je vrienden hun voornaam op te roepen wanneer al die friend models losse stukjes zijn. Om dit makkelijker te maken hebben we een collection nodig.
+          Een collection bevat letterlijk een collectie models, dus friend models zitten in de collection friends. Zo een collection kan je vergelijken met een array, maar krachtiger want in een collection kan je ook weer methoden en functies steken.
+        </P>
+        <pre>
+  COLLECTION VOORBEELD  
+
+  var FriendsCollection = Backbone.Collection.extend(
+  {model: friendModel});
+
+  var friends = new FriendsCollection();
+  friends.set([liesbeth,other models]);
+        </pre>   
+        <P>
+          Hoe toon je nu al deze gestructureerde data aan de gebruiker? Hiervoor creëer je een view waarin je schrijft welk DOM element je wilt gebruiken om de data, die in de door jouw gecreëerde collection of model zit, te renderen.
+        </P>  
+        <pre>
+  VIEW CODE VOORBEELD  
+
+  var FriendView = Backbone.View.extend({
+    el: 'li',
+    initialize: function(){
+      this.render();
+    },
+    render: function(){
+      this.$el.html(this.model.get('firstname'));
+      return this;
+    }
+  }); 
+
+  var friendview = new FriendView({model: liesbeth});  
+        </pre> 
+        <p>
+          De voorbeelden zijn basis en ik heb ze uitgeschreven op basis van de workshop, tutorials en hoe ik Backbone.js op dit moment begrijp.
+        </p>           
+      </section><!-- /mvc_bb -->
+
+
     </div><!-- /container-fluid lab8-->   
     <div class="container-fluid" id="lab9">  
       <h2>LAB 9 - Gulp</h2>
