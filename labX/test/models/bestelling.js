@@ -7,3 +7,4 @@ var Bestelling = new Schema({
 });
 
 var BestellingLijst = mongoose.model('BestellingLijst', Bestelling);
+module.exports = { BestellingLijst: BestellingLijst};

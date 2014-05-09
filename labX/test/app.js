@@ -64,22 +64,33 @@ app.get('/order', routes.order);
 //app.get('/', ensureAuthenticated, routes.login);
 app.get('/users', user.list);
 
+var Bestelling =  new mongoose.Schema({
+	_id: String,
+	bestelling: Object
+});
 
+var order = mongoose.model('orders', Bestelling);
 
 app.post('/', function(req, res){
 	var obj = {};
 	console.log(req.body.bestelling);
 
 	var id = req.body._id;
-	var order = req.body.bestelling;
+	var bestelling = req.body.bestelling;
 	//https://www.youtube.com/watch?v=uZqwHfNIf8M
-	db.open(function(err, client){
-		client.createCollection("bestellingen", function(err, col){
-			client.collection("bestellingen", function(err, col){
-				col.insert({_id:})
-			})
-		})
-	})
+	new order({
+		_id: id,
+		bestelling: bestelling
+	}).save(function(err, doc){
+		if(err)
+		{
+			res.json(err);
+		}
+		else
+		{
+			console.log('succesful!');
+		}
+	});
 
 });
 
