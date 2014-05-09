@@ -52,16 +52,6 @@ a {
 	text-align: center;
 }
 
-.large-accordion li > .accordion
-{
-	display: none;
-}
-
-.large-accordion li:target > .accordion
-{
-	display: none;
-}
-
 /*BESTELLEN CSS*/
 
 .bestel

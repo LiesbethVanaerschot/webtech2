@@ -6,6 +6,10 @@ $(document).ready(function(){
 
 	$('#error p').hide();
 
+	var orderId = 0;
+	var idArray = [];
+	var idArray_2 = [];
+
 //MENU ACCORDION
 
 	var accordion_mini = $('.miniaccordion > li > a');
@@ -69,10 +73,23 @@ $(document).ready(function(){
 			bestelling.push({aantal: aantal, naam: naam, prijs: prijs});
 			console.log(bestelling);
 			
-			
 			//console.log(index + ":" + aantal + "" + naam + "" + prijs);
 		});
 		client.publish("/order", bestelling);
+		//data variabelen
+		orderId ++;
+		idArray_2.push(orderId);
+
+		//ajax call voor het saven in mongodb
+		$.ajax({
+			type: 'POST',
+			url: 'http://localhost:3000',
+			data: {_id: 'order_' + orderId, bestelling: bestelling},
+			dataType: 'json',
+			succes: function(data){
+				console.log('success');
+			}
+		});
 		/*var bestellingnaam = $('.bestel div:first-child').text();
 		var bestellingprijs = $('.bestel div:nth-child(2)').text();
 		var bestellingaantal = $('.bestel div:last-child input').val();
@@ -111,7 +128,11 @@ $(document).ready(function(){
 				else
 				{
 					getBestelling();
+					console.log(idArray_2);
 					$('#error p').hide();
+					$('.bestel input').val("");
+					$('.item').parent().removeClass('bestel');
+
 				}
 			
 		}
@@ -119,13 +140,10 @@ $(document).ready(function(){
 		
 	});
 
-	var orderId = 0;
-	var idArray = [];
-
 	client.subscribe("/order",function(result){
-		console.log(result);
+		//console.log(result);
 		var ul = document.createElement('ul');
-		ul.id = orderId;
+		ul.id = "order" + orderId;
 		$('#orders').prepend(ul);
 		//var aantal = 0;
 		//var naam = " ";
@@ -149,10 +167,40 @@ $(document).ready(function(){
 			
 		});
 
-		$('#orders ul:first').append("<input type='button' value='print'/>")
+		$('#orders ul:first').append("<input class='print' type='button' value='print'/>")
 
 		orderId++;
 		idArray.push("order" + orderId);
+		console.log(idArray);
+	});
+
+//TIMER FUNCTIE START OP KLIK PRINT
+
+	var timer = function(p_bestelling){
+		console.log('hide');
+		console.log(p_bestelling);
+		p_bestelling.hide();
+		//bestelling verplaatsen naar andere tabel
+	}
+
+	$('#orders').on('click', '.print', function(){
+		console.log('print');
+		console.log($(this).parent());
+		var currentB = $(this).parent();
+		//de bestelling verdwijnt uit van /order
+		// currentB.hide();
+		//timefunctie starten
+		setTimeout(function() {timer(currentB);}, 2000);
+
 	});
 
 });
+
+
+
+
+//twee tabbladen maken in /order
+//1 recente orders, 2 alle orders
+//recente bestelling op bestel in array time out 15 min * hoeveelste in array vanaf klik print
+// print klik feedback naar / :  heel menu weg wel knop met terug naar menu
+// na 15min moet oudste bestelling automatisch verhuizen naar de alle bestellingen tab.

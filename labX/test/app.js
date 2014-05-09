@@ -25,6 +25,7 @@ db.once('open',function callback(){
 var eten = require('./models/eten');
 //console.log(typeof eten.EtenLijst);
 var drinken = require('./models/drinken');
+var bestellingen = require('./models/bestelling');
 
 var app = express();
 
@@ -63,6 +64,27 @@ app.get('/order', routes.order);
 //app.get('/', ensureAuthenticated, routes.login);
 app.get('/users', user.list);
 
+
+
+app.post('/', function(req, res){
+	var obj = {};
+	console.log(req.body.bestelling);
+
+	var id = req.body._id;
+	var order = req.body.bestelling;
+	//https://www.youtube.com/watch?v=uZqwHfNIf8M
+	db.open(function(err, client){
+		client.createCollection("bestellingen", function(err, col){
+			client.collection("bestellingen", function(err, col){
+				col.insert({_id:})
+			})
+		})
+	})
+
+});
+
+//tellen hoeveel docs in collection zitten.
+//http://mongoosejs.com/docs/api.html#model_Model.count
 
 var server = http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
