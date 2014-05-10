@@ -1,1 +1,5 @@
 .DS_Store
+
+/labX/test/data
+
+/labX/test/node_modules

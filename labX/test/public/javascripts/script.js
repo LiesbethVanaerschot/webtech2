@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 	$('#error p').hide();
 
-	var orderId = 0;
+	var orderId = 1;
 	var idArray = [];
 	var idArray_2 = [];
 
@@ -176,6 +176,30 @@ $(document).ready(function(){
 
 //TIMER FUNCTIE START OP KLIK PRINT
 
+	var getOrder = function(currentID){
+	order = [];
+
+	$('#orders ul li').each(function(index){
+		var aantal = $(this).find('p:first-child').text();
+		console.log(aantal);
+		var product = $(this).find('h4').text();
+		console.log(product);
+		var prijs = $(this).find('p:last-child').text();
+		console.log(prijs);
+		order.push({aantal: aantal, product: product, prijs: prijs});
+	});
+
+	$.ajax({
+			type: 'POST',
+			url: 'http://localhost:3000/order',
+			data: {_id: currentID, order: order},
+			dataType: 'json',
+			succes: function(data){
+				console.log('success');
+			}
+		});
+	}
+
 	var timer = function(p_bestelling){
 		console.log('hide');
 		console.log(p_bestelling);
@@ -185,8 +209,14 @@ $(document).ready(function(){
 
 	$('#orders').on('click', '.print', function(){
 		console.log('print');
-		console.log($(this).parent());
+		//console.log($(this).parent());
 		var currentB = $(this).parent();
+		var currentID = $(this).parent().attr('id');
+
+		//bestelling saven in orders
+		getOrder(currentID);
+		//console.log(currentID);
+
 		//de bestelling verdwijnt uit van /order
 		// currentB.hide();
 		//timefunctie starten
@@ -195,8 +225,6 @@ $(document).ready(function(){
 	});
 
 });
-
-
 
 
 //twee tabbladen maken in /order

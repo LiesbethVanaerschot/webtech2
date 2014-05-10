@@ -64,12 +64,15 @@ app.get('/order', routes.order);
 //app.get('/', ensureAuthenticated, routes.login);
 app.get('/users', user.list);
 
-var Bestelling =  new mongoose.Schema({
+//BESTELLING OPSLAAN AJAX APP.POST
+//1. OP 'BESTEL' IN TABEL CLIENTORDERS
+
+var BestellingKlant =  new mongoose.Schema({
 	_id: String,
 	bestelling: Object
 });
 
-var order = mongoose.model('orders', Bestelling);
+var clientorder = mongoose.model('clientorders', BestellingKlant);
 
 app.post('/', function(req, res){
 	var obj = {};
@@ -78,7 +81,7 @@ app.post('/', function(req, res){
 	var id = req.body._id;
 	var bestelling = req.body.bestelling;
 	//https://www.youtube.com/watch?v=uZqwHfNIf8M
-	new order({
+	new clientorder({
 		_id: id,
 		bestelling: bestelling
 	}).save(function(err, doc){
@@ -89,6 +92,44 @@ app.post('/', function(req, res){
 		else
 		{
 			console.log('succesful!');
+			order.count(function(err,c){
+				console.log('count is' + c);
+			});
+		}
+	});
+
+});
+
+//2. OP PRINT IN TBL ORDERS
+
+var Bestelling =  new mongoose.Schema({
+	_id: String,
+	bestelling: Object
+});
+
+var order = mongoose.model('orders', Bestelling);
+
+app.post('/order', function(req, res){
+	var obj = {};
+	console.log(req.body.order);
+
+	var id = req.body._id;
+	var bestelling = req.body.order;
+	//https://www.youtube.com/watch?v=uZqwHfNIf8M
+	new order({
+		_id: id,
+		bestelling: bestelling
+	}).save(function(err, doc){
+		if(err)
+		{
+			console.log(err);
+		}
+		else
+		{
+			console.log('succesful!');
+			order.count(function(err,c){
+				console.log('count is' + c);
+			});
 		}
 	});
 
