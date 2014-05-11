@@ -285,9 +285,11 @@ exports.index = function(req, res, next){
 };
 
 exports.order = function(req, res){	
-  res.render('order', { 
-  	title: 'Orders',
-  	 });
+  var BestellingLijst = require("../models/bestelling").BestellingLijst;
+  BestellingLijst.find({}, function(err, bestellingen){
+  		res.render('order', { title: 'Orders', bestellingen: bestellingen});
+  });	
+  
 };
 
 exports.feedback = function(req, res){	

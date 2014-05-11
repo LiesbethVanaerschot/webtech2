@@ -266,7 +266,30 @@ $(document).ready(function(){
 
 	});
 
+//TABBLADEN ORDER.JADE
 
+	$('#orders').css('display','block');
+	$('#alles').css('display', 'none');
+	var tabID = $('.tab').attr('id');
+	$('.tabs .tab-links a').on('click', function(e){
+		var currentAttrVal = $(this).attr('href');
+		console.log(currentAttrVal);
+		//$(currentAttrVal).css('display', 'block');
+		if(currentAttrVal === '#alles'){
+			$('#alles').css('display','block');
+			$('#orders').css('display', 'none');
+		}
+		else
+		{
+			$('#orders').css('display','block');
+			$('#alles').css('display', 'none');
+		}
+		//$('.tab ' + currentAttrVal).addClass('active');
+		//$('.tab ' + currentAttrVal).parent('div').siblings().removeClass('active');
+		$(this).parent('li').addClass('active').siblings().removeClass('active');
+
+		e.preventDefault();
+	});
 });
 
 

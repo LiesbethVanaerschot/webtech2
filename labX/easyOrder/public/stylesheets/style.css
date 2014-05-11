@@ -179,3 +179,20 @@ left:0px;
 }
 
 }
+
+/*ORDERS*/
+.tabs li
+{
+	display: inline-block;
+	margin: 5px;
+}
+
+.tab
+{
+	display:none;
+}
+
+.tab.active
+{
+	display:block;
+}
