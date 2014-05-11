@@ -1,0 +1,218 @@
+html,
+body
+{
+	height: 100%;
+}
+
+body
+{
+	font-size: 62.5%; /* 16px*62.5%=10px */
+	font-family: Cabin, Arial, sans-serif;
+	color: black;
+	background-color: #213447;
+}
+
+#wrapper
+{
+	width: 200px;
+	height: 200px;
+}	
+
+#geel
+{
+	position: relative;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: yellow;
+	z-index: 30;
+}
+
+.geel_trans
+{
+	-ms-transform: translate(0px,200px); /* IE 9 */
+	-webkit-transform: translate(0px,200px); /* Chrome, Safari, Opera */
+	transform: translate(0px,200px);
+	transition-duration: 1.5s;
+}
+
+#groen
+{
+	position: relative;
+	top: -40px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: green;
+}
+
+.groen_trans
+{
+	-ms-transform: translate(200px,200px); /* IE 9 */
+	-webkit-transform: translate(200px,200px); /* Chrome, Safari, Opera */
+	transform: translate(200px,200px);
+	transition-duration: 1.5s;
+}
+
+#rood
+{
+	position: relative;
+	top: -80px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: red;
+}
+
+.rood_trans
+{
+	-ms-transform: translate(200px,0px); /* IE 9 */
+	-webkit-transform: translate(200px,0px); /* Chrome, Safari, Opera */
+	transform: translate(200px,0px);
+	transition-duration: 1.5s;
+}
+
+#wrapper2
+{
+	background-color: #213447;
+	width: 600px;
+	height: 300px;
+	padding: 50px;
+}
+
+.box
+{
+	background-color: #F6F6EF;
+	width: 400px;
+	height: 80px;
+	border-radius: 10px;
+	overflow: hidden;
+ 	-webkit-perspective: 50px;
+  	-webkit-perspective-origin: 10% 10px;
+}
+
+.box div
+{
+	height: 80px;
+	display: inline-block;
+	position: relative;
+	top: -20px;
+	margin-left: 5px;
+}
+
+.box img
+{
+	width: 80px;
+	margin-left: 10px;
+}
+
+@-webkit-keyframes box_trans
+{
+	0%{-webkit-transform: rotateX( 0deg );}
+	25%{-webkit-transform: rotateX( 90deg );}
+	50%{-webkit-transform: rotateX( -30deg );}
+	75%{-webkit-transform: rotateX( 30deg );}
+	100%{-webkit-transform: rotateX( 0deg );}
+}
+
+.spinner
+{
+	-webkit-animation-name: box_trans;
+	-webkit-animation: 3s;
+	-webkit-animation: box_trans 3s;
+	-webkit-transform-style: preserve-3d;
+}
+
+.slide_in
+{
+	-webkit-animation-name: slide_in;
+	-webkit-animation: 1s;
+	-webkit-animation: slide_in 1s;
+	/*-webkit-transition: left 1s ease-in-out;*/
+}
+
+@-webkit-keyframes slide_in
+{
+	0%{-webkit-transform: translate(-200px,0px);}
+	100%{-webkit-transform: translate( 0px, 0px);}
+}
+
+.box2
+{
+	width: 400px;
+	height: 120px;
+	margin-top: 40px;
+ 	-webkit-perspective: 500px;
+  	-webkit-perspective-origin: 100% 100px;
+}
+
+.flapper
+{
+	-webkit-animation-name: box2_trans;
+	-webkit-animation: 3s;
+	-webkit-animation: box2_trans 3s;
+
+}
+
+@-webkit-keyframes box2_trans
+{
+	/*0%{-webkit-transform: rotateY( 0deg ); -webkit-transform-origin: left center; -webkit-transform-style: preserve-3d;}
+	25%{-webkit-transform: rotateY( 90deg ); -webkit-transform-origin: left center; -webkit-transform-style: preserve-3d;}
+	50%{-webkit-transform: rotateY( -30deg ); 
+		-webkit-transform-origin: left center; 
+		-webkit-transform-style: preserve-3d; }
+	75%{-webkit-transform: rotateY( 30deg ); 
+		-webkit-transform: perspective(700); 
+		-webkit-transform-origin: left center; 
+		-webkit-transform-style: preserve-3d; }
+	100%{-webkit-transform: rotateY( 0deg ); -webkit-transform-origin: left center; -webkit-transform-style: preserve-3d;}*/
+
+	0%{-webkit-transform: perspective(400px) rotateY( 90deg ); -webkit-transform-origin: left center; opacity: 0;}
+	40%{-webkit-transform: perspective(400px) rotateY( -10deg ); -webkit-transform-origin: left center; }
+	70%{-webkit-transform: perspective(400px) rotateY( 10deg ); -webkit-transform-origin: left center; }
+	100%{-webkit-transform: perspective(400px) rotateY( 0deg ); -webkit-transform-origin: left center; opacity: 1;}
+}
+
+#foto1,
+#foto2,
+#foto3
+{
+	display: inline-block;
+	border-radius: 10px;
+	width: 120px;
+	height: 120px;
+	-webkit-transition: all .2s ease-in-out;
+}
+
+#foto1
+{
+	margin-right: 10px;
+	margin-left: 5px;
+	background-image: url(../images/Metoracle.jpg);
+	background-size: 120px;
+	background-repeat: no-repeat;
+}
+
+#foto2
+{
+	margin-right: 10px;
+	background-image: url(../images/Michael.jpg);
+	background-size: 120px;
+	background-repeat: no-repeat;
+}
+
+#foto3
+{
+	margin-right: 5px;
+	background-image: url(../images/Sarah_alt.png);
+	background-size: 120px;
+	background-repeat: no-repeat;
+}
+
+#foto1:hover,
+#foto2:hover,
+#foto3:hover
+{
+	-webkit-transform: scale(1.1);
+}
+

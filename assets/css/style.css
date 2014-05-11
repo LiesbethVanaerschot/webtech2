@@ -1,0 +1,351 @@
+/**
+ * A clean concise theme for your GitHub projects
+ *
+ * Licenced under GPL v3
+ * http://www.gnu.org/licenses/gpl.html
+ **/
+
+/* Page */
+body {
+	background: #333333 url('../images/page-background.png') repeat top left;
+	font-family: arial,sans-serif;
+	padding:1%;
+	margin:1%;
+}
+/* Header */
+header {
+	padding-top: 50px;
+	padding-bottom: 28px;
+}
+
+
+div.credits {
+	padding-top: 9px;
+	margin-top: 30px;
+	margin-bottom: 25px;
+	border-top: 1px solid #DDD2B2;
+	text-align: center;
+}
+
+footer p {
+	color: #333333;
+}
+
+div.repo-author {
+	padding-top: 30px;
+}
+
+/* Text */
+p, strong, li {
+    
+    font-size: 14px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+a {
+	color: #0075B6;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #0075B6;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1, h2 {
+	font-family: georgia,serif;
+}
+
+h1 {
+	font-style: italic;
+	color: #eee;
+	font-size: 50px;
+	margin: 0;
+}
+
+h2 {
+	color: #CCCCCC;
+	font-size: 20px;
+	line-height: 23px;
+	padding-top: 15px;
+}
+
+h3, h4 {
+	color: #FFFFFF;
+	font-weight: bold;
+	font-family: inherit;
+}
+
+h3 {
+	font-size: 28px;
+	margin-top: 40px;
+}
+
+h4 {
+	font-size: 20px;
+	margin-top: 20px;
+}
+
+/* Useful classes and styles */
+a.github-ribbon {
+	position: absolute;
+	top: 45px;
+	left: 0;
+	border: 0;
+}
+
+
+
+code {
+	margin-top: 15px;
+	border: 3px solid #FFFFFF;
+	background-color: #CCCC99;
+	display: block;
+	padding: 20px;
+	font-family: monospace;
+	-webkit-box-shadow: 3px 3px 5px #000000;
+	-moz-box-shadow: 3px 3px 5px #000000;
+	box-shadow: 3px 3px 5px #000000;
+	overflow-x: auto;
+}
+
+pre.prettyprint {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+img.repo-author-logo {
+	float: left;
+	margin-right: 15px;
+}
+
+/*LAB 3 CSS ANIMATIONS*/
+#rotate
+{
+  background-color: blue;
+  width: 40px;
+  height: 40px;
+  border-radius: 15%;
+  transform: rotate(30deg);
+  -webkit-transform: rotate(30deg);
+  margin-top: 20px;
+  margin-left: 10px;
+} 
+
+.sd
+{
+	display: inline-block;
+	vertical-align: text-top;
+}
+
+#scale1
+{
+  
+  background-color: blue;
+  width: 40px;
+  height: 40px;
+  border-radius: 15%;
+  transform: scale(2);
+  -webkit-transform: scale(2);
+} 
+
+#scale2
+{
+  
+  background-color: blue;
+  width: 40px;
+  height: 40px;
+  border-radius: 15%;
+  transform: scale(4,1);
+  -webkit-transform: scale(4,1);
+} 
+
+#scale3
+{
+  
+  background-color: blue;
+  width: 40px;
+  height: 40px;
+  border-radius: 15%;
+  transform: scaleX(3);
+  -webkit-transform: scaleX(3);
+}
+
+#skew
+{
+  background-color: blue;
+  width: 40px;
+  height: 40px;
+  border-radius: 15%;
+  transform: skewX(30deg);
+  -webkit-transform: skewX(30deg);
+  margin-left: 20px;
+} 
+
+#pt
+{
+	height: 260px;
+	overflow: hidden;
+}
+
+#notranslate
+{
+	position: relative;
+	left: 40px;
+	border: dashed 1px red;
+	width: 40px;
+  	height: 40px;
+  	border-radius: 15%;
+}
+
+#translate
+{
+  position: relative;
+  left: 40px;
+  top: -76px;
+  background-color: blue;
+  width: 40px;
+  height: 40px;
+  border-radius: 15%;
+  transform: translateX(30px);
+  -webkit-transform: translateX(80px);
+}
+
+#transition
+{
+  transition: background-color 0.8s ease,
+              border-radius 0.8s ease;
+  background-color: blue;
+  border-radius: 15%;
+  width: 60px;
+  height: 60px;
+  margin-left: 15px;
+}
+#transition:hover {
+  background-color: yellow;
+  border-radius: 50%;
+}
+
+#animation
+{
+  transition: all 2s ease-in-out;
+  background-color: blue;
+  border-radius: 15%;
+  width: 60px;
+  height: 60px;
+  margin-left: 15px;
+}
+#animation:hover {
+  background-color: yellow;
+  border-radius: 50%;
+  transform: translateX(200px);
+  -webkit-transform: translateX(200px);
+} 
+
+#rotate3d
+{
+  transition: all 2s ease-in-out;
+  background-color: blue;
+  border-radius: 15%;
+  width: 60px;
+  height: 60px;
+  -webkit-perspective: 800px;
+  -webkit-perspective-origin: 50% 100px;
+}
+#rotate3d:hover {
+  transform: rotateX(150deg);
+  -webkit-transform: rotateX(150deg);
+}
+
+#translate3d
+{
+  display: inline-block;
+  transition: all 2s ease-in-out;
+  background-color: blue;
+  border-radius: 15%;
+  width: 60px;
+  height: 60px;
+
+}
+#translate3d:hover {
+  transform: translateZ(80px);
+  -webkit-transform:translate3d(65px,65px,180px );
+}
+
+#block
+{
+  display: inline-block;
+  border:dashed 1px red;
+  border-radius: 15%;
+  width: 60px;
+  height: 60px
+}
+
+#keyframe
+{
+	width: 60px;
+	height: 60px;
+	background-color: red;
+	position: relative;
+	animation:mymove 5s infinite;
+	-webkit-animation:mymove 5s infinite;
+}
+
+@-webkit-keyframes mymove
+{
+0%  {top:0px; 
+	 left: 0px; 
+	 background:red; 
+	 width:60px;}
+50% {top:20px; 
+	 left: 200px; 
+	 background:yellow; 
+	 width:60px; border-radius: 50%; 
+	 -webkit-transform: rotateZ(180deg );}
+100% {top:0px; 
+	  left: 400px; 
+	  background:blue; 
+	  width:60px; 
+	  border-radius: 15%; 
+	  -webkit-transform: rotateZ(-180deg );}
+}
+
+/*LAB 5 BOOTSTRAP*/
+.kolom
+{
+	padding: 10px;
+	margin-bottom: 4px;
+	background-color: #97dce2;
+	border: solid 1px #55C6CF;
+}
+
+.nkolom
+{
+	padding: 10px;
+	margin-bottom: 4px;
+	background-color: #00A3AA;
+	border: solid 1px #008288;
+}
+
+.nkolomgroen
+{
+	padding: 10px;
+	margin-bottom: 4px;
+	background-color: #4CC686;
+	border: solid 1px #329c64;
+}
+
+/* Media queries */
+/* Hide the ribbon when we are on a phone, screen is too small */
+@media only screen and (max-width: 479px) {
+	a.github-ribbon {
+		display: none;
+	}
+}

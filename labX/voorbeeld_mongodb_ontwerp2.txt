@@ -1,0 +1,91 @@
+MONGODB
+
+Hoe menu invoegen?
+
+Embedded data model
+http://docs.mongodb.org/manual/tutorial/model-embedded-one-to-many-relationships-between-documents/
+
+eventjes een voorbeeld uitschrijven van de structuur van de databank
+DB BEANSBAR(
+
+	{
+		_id: "eten",
+		categoriën:[
+					{
+						catnaam: "ontbijt",
+						keuzes:[
+								{
+									naam: "Morning Glory",
+									omschrijving: "Bagel met natuur creamcheese, bruine suiker en aardbeien"
+								},
+								{
+									naam: "Nutty Banana",
+									omschrijving: "Bagel met hazelnootpasta en banaan"
+								},
+								{...}
+								]
+					},
+					{
+						catnaam: "bagels",
+						keuzes:[]
+					},
+					{
+						catnaam: "wraps",
+						keuzes:[]
+					}	
+
+					]
+	},
+
+	beans is databank
+	eten is een collection
+	de categorien zijn documents
+	embedded data zijn embedded documents
+	_ID NIET VERGETEN!
+	
+	{
+		_id: "drinken",
+		categoriën:[
+					{
+						catnaam: "koffie",
+						catkoffie: [
+									{
+										koffie: "zwart",
+										keuzes:[
+												{
+													naam: "espresso",
+													omschrijving: "enkel shot, klein maar sterk"
+												},
+												{
+													naam: "doppio",
+													omschrijving: "dubbel shot"
+												},
+												{
+													naam: "Americano klein",
+													omschrijving: "gewone koffie, klein formaat"
+												},
+												{
+													naam: "Americano groot",
+													omschrijving: "gewone koffie, groot formaat"
+												}
+												]
+									},
+									{
+										koffie: "melk",
+										keuzes:[]
+									},
+									{
+										koffie: "specials",
+										keuzes:[]
+									}
+									]
+					},
+					{
+						catnaam: "thee",
+						keuzes:[]
+					},
+					{...}
+					]
+	}
+
+)
