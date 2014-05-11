@@ -489,17 +489,131 @@
   });          
         </pre>
         <h4>Functions zijn JS Classes</h4>
+        <p>
+          In JavaScript spreken we niet van classes zoals in PHP waar je eigenschappen, gegevens en functies in plaatst. Maar dit doen we met functions. 
+        </p>     
         <pre>
-          
+  function Person(){}   
+  var liesbeth = new Person()
+  <strong>liesbeth is hier een nieuwe Person op dit moment nog zonder eigenschappen.</strong>
+
+  function Person(lastname, firstname, age){
+    this.lastname = lastname,
+    this.firstname = firstname,
+    this.age = age
+  }  
+  var liesbeth = new Person(Vanaerschot, Liesbeth, 25)
+  console.log(liesbeth.firstname + " is " + liesbeth.age + " jaar.");
+  <strong>hier is de output "Liesbeth is 25 jaar."</strong> 
         </pre>
         <h4>Prototypical Inheritance</h4>
+        <p>
+          Om er bijvoorbeeld voor te kunnen zorgen dat een object de eigenschappen van een ander object kan overnemen/gebruiken bouwen we in JavaScript het overerving principe van classes na door middel van prototypes. Prototypical inheritance maakt het coderen flexibeler en hierdoor hou je rekening met DRY.
+        </p>
         <pre>
-          
+  voort bouwen op de Person function:
+  
+  Person.prototype.sayHello = function(){
+    alert( this.firstname + " says hello!");
+  }
+  liesbeth.sayHello();
+  <strong>output: Liesbeth says hello!</strong>
+
+  var Child = function(){
+    Person.call(this);
+  }
+  Child.prototype = new Person(); 
+  Child.prototype.constructor = Child;
+  Child.prototype.walk = function(){
+    alert('I can walk!');
+  }     
+
+  var elle = new Child(Desmedt, Elle, 1);
+  elle.sayHello();
+  elle.walk();
+  <strong>output: Elle says hello! en I can walk!</strong>  
         </pre>
       </section><!-- /object_notation -->
     </div><!-- /container-fluid lab3-->  
     <div class="container-fluid" id="lab4">  
       <h2>LAB 4 - prototype Weather App</h2>
+      <p>
+        Op basis van Advanced JS (LAB3) workshop bouwden we een eenvoudige weerapp met behulp van API's zoals HTML5 Geolocation, Google Maps en Forecast.io om het weer te kunnen detecteren waar jij je bevindt. LocalStorage gebruiken we in deze app om te verkomen dat er bij elk bezoek van de weerapp door dezelfde gebruiker een nieuwe API (ajax)-call gemaakt moet worden. Per API key wordt dit namelijk beperkt.
+      </p>
+      <h4>AJAX en API</h4>
+      <h5>1. AJAX</h5>
+      <p>
+        AJAX staat voor Asynchronous Javascript And XML, maar in plaats van XML gebruiken wij JSON (JavaScript Object Notation). De resultaten die we terug krijgen van een AJAX-call zullen objecten zijn. Soms veranderen ze AJAX dan in AJAJ...</br>
+        <strong>Wat doet AJAX nu eigenlijk?</strong></br>
+        AJAX zorgt er voor dat het mogelijk is om een asynchronische webapp te kunnen bouwen. In plaats van dat verschillende functies achter elkaar uitgevoerd moeten worden kan je met AJAX bekomen dat ook al is er één proces reeds gestart een ander proces ook uitgevoerd kan worden. Met AJAX kan je gegevens van een server of API oproepen (of saven naar een server) zonder dat na elk proces de webpagina moet herladen. De gebruiken merkt dus niets van wat er in de achtergrond uitgevoerd wordt. Hij krijgt enkel zonder page reload het bekomen resultaat te zien. Met AJAX herlaad maar een stukje van de webpagina: bijvoorbeeld enkel de div waar je het resultaat in wilt weergeven.
+      </p>
+      <pre>
+  var currentID = $(this).parent().attr('id');
+
+  $.ajax({
+      type: 'POST',
+      url: 'http://localhost:3000/order',
+      data: {_id: currentID},
+      dataType: 'json',
+    })
+   .done(function(data){
+      console.log('success');
+      console.log(data);
+      return previd = data;
+   });  
+
+      </pre>
+      <h5>2. API's</h5>
+      <p>
+        API staat voor Application Programming Interface. Public API's zijn een soort van bibliotheken die veel informatie bevatten in de vorm van JSON. Als je werkt met API's dan zijn de AJAX calls die je er naartoe stuurt enkel GET verzoeken en geen POST zoals in mijn voorgaande voorbeeld. Aan de meeste publieke API's kan je zelf niets toevoegen, maar wel informatie uithalen.</br>
+        Hieronder de getForecast functie om het weer op te halen aan de hand van de coördinaten van jouw huidige positie:
+      </p>  
+      <pre>
+  weer.prototype.getForecast = function()
+    {
+      var his = this;
+      var latitude = localStorage.getItem("latitude");
+      var longitude = localStorage.getItem("longitude");
+      console.log(latitude + " " + longitude);
+      var apiKey = "uw apikey";
+      var url = "https://api.forecast.io/forecast/" + apiKey +"/" + latitude + "," + longitude;
+      $.ajax(url, {
+          dataType: "jsonp"})
+          .done(function(data)
+              {
+                his.setForecast();
+                console.log("succes");
+              });
+    }        
+      </pre>
+      <p>
+        Een eigen API key verkrijg je door een account aan te maken voor de API die je wilt gebruiken. Zonder kan je geen connectie maken. In de .done() methode krijg je het resultaat terug waar in je dan zelf kunt bepalen wat je doet met het resultaat. De longitude en latitude coördinaten bekom je door de methoden te gebruiken van de HTML5 Geolocation API: 
+        <a href="http://html5demos.com/geo">Geolocation DEMO</a>.
+      </p>
+      <pre>
+  if(navigator.geolocation)
+    {
+      navigator.geolocation.getCurrentPosition(showPosition,error);
+    }      
+      </pre>
+      <h4>LocalStorage</h4>
+      <p>
+        Uitgebreide informatie over localStorage vindt je hier: <a href="http://diveintohtml5.info/storage.html">Dive into HTML5</a></br>
+        Met localStorage is het mogelijk om het resultaat van je API call lokaal voor een tijdje op te slaan. LocalStorage is puur client-side net zoals COOKIES enkel wordt met localStorage de opgeslagen data niet bij elk verzoek meegestuurd en heb je veel meer opslagruimte per domein.
+      </p>
+      <pre>
+  $.ajax(url, {
+      dataType: "jsonp"})
+      .done(function(data)
+          {
+            <strong>localStorage.setItem("forecastData",JSON.stringify(data));</strong>
+            //Dit slaagt het resultaat = data op in de vorm van JSON onder de naame forecastData.
+            //als je de data ergens anders terug wilt oproepen doe je:
+            //var forecast = localStorage.getItem("forecastData");
+            his.setForecast();
+            console.log("succes");
+          });        
+      </pre>
     </div><!-- /container-fluid lab4-->  
     <div class="container-fluid" id="lab5">  
       <h2>LAB 5 - Terrapke</h2>
