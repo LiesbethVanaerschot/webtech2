@@ -60,39 +60,39 @@
       </p>
       <h4>Basis Git commando's:</h4>
       <pre class="prettyprint">
-git clone: clones/kopieert de repository map op je computer.
-git branch: toont lijst van alle branches en op welke branch je zit (default is master).
-git checkout -b (nieuwe branch): creert nieuwe branch en wisselt er meteen naar.
-git checkout: wisselen van branch.
-git merge (nieuwe branch): merge eigen branch met master.
-git branch -d (nieuwe branch): deleten van eigen branch.
-git add (bestandsnaam): enkel bestand toevoegen.
-git add (foldernaam)/ : een hele folder toevoegen.
-git commit -m: de bestanden of veranderingen committen met message.
-git push: de veranderingen/bestanden pushen naar de repository online.
-git pull: de lokale repository up-to-date brengen met de online versie.
+  git clone: clones/kopieert de repository map op je computer.
+  git branch: toont lijst van alle branches en op welke branch je zit (default is master).
+  git checkout -b (nieuwe branch): creert nieuwe branch en wisselt er meteen naar.
+  git checkout: wisselen van branch.
+  git merge (nieuwe branch): merge eigen branch met master.
+  git branch -d (nieuwe branch): deleten van eigen branch.
+  git add (bestandsnaam): enkel bestand toevoegen.
+  git add (foldernaam)/ : een hele folder toevoegen.
+  git commit -m: de bestanden of veranderingen committen met message.
+  git push: de veranderingen/bestanden pushen naar de repository online.
+  git pull: de lokale repository up-to-date brengen met de online versie.
       </pre>
       <h4>Git commando's ivm forked repositories:</h4>
       <p>
       Als je wil bijdragen aan een repository van een andere git-gebruiker kun je zijn repository forken. Daardoor komt de repo ook in jouw repository overzicht te recht.
       </p>
       <pre class="prettyprint">
-git clone: clones/kopieert de repository map op je computer.
-git remote add upstream (link van geforked repo): upstream wijst naar de originele repo, zo kun je altijd jouw versie updaten.
-git fetch upstream: haalt de veranderingen in de originele repo op.
-git merge upstream/master: alles samen voegen.
-git push origin master: pushen naar jouw forked repo.      
+  git clone: clones/kopieert de repository map op je computer.
+  git remote add upstream (link van geforked repo): upstream wijst naar de originele repo, zo kun je altijd jouw versie updaten.
+  git fetch upstream: haalt de veranderingen in de originele repo op.
+  git merge upstream/master: alles samen voegen.
+  git push origin master: pushen naar jouw forked repo.      
       </pre>
       <p>
       Daarna kan je een pull request om jouw veranderingen toe te voegen aan de originele repository.<br/>
       Je kan ook bijdragen aan een repository door jouw veranderingen toe te voegen onder een eigen branch en vanuit je eigen branch dan een pull request te sturen naar de originele repo.
       </p>
       <pre>
-Je doet git clone, git remote add upstream, git fetch upstream.
-git checkout -b (nieuwe branch): creëren van nieuwe branch en er meteen naar wisselen.
-git add --all: alle veranderingen vn de repo op je persoonlijke branch toevoegen.
-git commit -m: de toevoegingen committen met message (zonder geeft error).
-git push origin (nieuwe branch): maakt eigen branch aan online op GitHub zelf en pusht er jouw veranderingen naar.     
+  Je doet git clone, git remote add upstream, git fetch upstream.
+  git checkout -b (nieuwe branch): creëren van nieuwe branch en er meteen naar wisselen.
+  git add --all: alle veranderingen vn de repo op je persoonlijke branch toevoegen.
+  git commit -m: de toevoegingen committen met message (zonder geeft error).
+  git push origin (nieuwe branch): maakt eigen branch aan online op GitHub zelf en pusht er jouw veranderingen naar.     
       </pre>
       
     </div><!-- /container-fluid lab1-->  
@@ -107,213 +107,396 @@ git push origin (nieuwe branch): maakt eigen branch aan online op GitHub zelf en
         <li>IMD-talks animatie on page load.</li>
       </ol>
       </br>
-      <h4>Opdracht 1 - gebruik van CSS3 transformations</h4>
-      <pre>
-SYNTAX:
-transform : function(value) //;other transform functions//;
-transform-origin: left center; //van waaruit de transformatie moet gebeuren//
-      </pre>
-      <p>
-        De CSS3 transform eigenschap zorgt er voor dat het uitzicht van het geselecteerde element gemanipuleerd wordt volgens bepaalde transformatie functies. Het geselecteerde element behoudt zijn oorspronkelijke positie en grootte welke transformatie ook wordt uitgevoerd. <br/>
-        <strong>Enkele voorbeelden van zulke transformatie functies zijn:</strong>
-      </p>
-
-<!-- ROTATE -->   
-      <section>   
-        <h5>rotate(angle)</h5>  
-        <p>Roteert een element onder een bepaalde hoek.</p>
+      <section id="css_opdracht1">
+        <h4>Opdracht 1 - gebruik van CSS3 transformations</h4>
         <pre>
-VOORBEELD ROTATE()
-
-#rotate
-{
-  background-color: blue;
-  width: 40px;
-  height: 40px;
-  transform: rotate(30deg);
-}  
-
-DEMO
-<div id="rotate"></div>    
+  SYNTAX:
+  transform : function(value) //;other transform functions//;
+  transform-origin: left center; //van waaruit de transformatie moet gebeuren//
         </pre>
-      </section>
-
-<!-- SCALE -->   
-      <section>   
-        <h5>scale()</h5>
-        <ul>
-          SYNTAX:
-          <li>scale(2): vergroot een element 2 maal.</li>
-          <li>scale(2,4): horizontaal vergroten (x) met 2, verticaal vergroten (y) met 4.</li>
-          <li>scaleX(value) en scaleY(value): meer specifiek vergroten voor afzonderlijk de X- of Y-as.</li>
-        </ul>
-        <pre>
-VOORBEELD SCALE()
-
-&#35;scale1
-&#123;
-  background-color: blue;
-  width: 40px;
-  height: 40px;
-  transform: scale(2);
-&#125;
-
-
-          <div class="sd" id="scale1"></div>
-
-
-&#35;scale2
-&#123;
-  background-color: blue;
-  width: 40px;
-  height: 40px;
-  transform: scale(4,1);
-&#125;
-
-          <div class="sd" id="scale2"></div>
-
-&#35;scale3
-&#123;
-  background-color: blue;
-  width: 40px;
-  height: 40px;
-  transform: scaleX(3);
-&#125;
-
-          <div class="sd" id="scale3"></div>
-        </pre>
-      </section>
-
-<!-- SKEW -->      
-      <section>
-        <h5>skew()</h5>
-        <ul>
-          SYNTAX:
-          <li>skew(x,y): schuintrekken volges x- of y-as in één functie.</li>
-          <li>skewX() en skewY(): meer specifiek volges één as schuintrekken.</li>
-        </ul>
-        <pre>
-VOORBEELD SKEW()  
-
-#skew
-{
-  background-color: blue;
-  width: 40px;
-  height: 40px;
-  transform: skewX(30deg);
-}   
-
-          <div id="skew"></div>    
-        </pre>
-      </section>  
-      
-
-<!-- TRANSLATE -->  
-      <section>    
-        <h5>translate()</h5>
-        <ul>
-          SYNTAX:
-          <li>translate(x,y): verplaatsen volgens beide assen.</li>
-          <li>translateX() of translateY(): verplaatsen volgens specifieke as.</li>
-        </ul>
-        <pre id="pt">
-VOORBEELD TRANSLATE() 
-
-#translate
-{
-  background-color: blue;
-  width: 40px;
-  height: 40px;
-  transform: translateX(80px);
-}
-          <div id="notranslate"></div> 
-          <div id="translate"></div> 
-        </pre>
-      </section>
-      <div>
         <p>
-          Voor deze opdracht heb ik de translate() functie gebruikt. Omdat transformations directe manipulaties zijn van het uitzicht van een element zie je direct het eindresultaat. <br/>
-          Het zou natuurlijk veel fijner zijn moest je deze verandering geanimeerd kunnen waarnemen.<br/>
-          <strong>Transitions</strong> in combinatie met transformations kunnen hiervoor zorgen.
+          De CSS3 transform eigenschap zorgt er voor dat het uitzicht van het geselecteerde element gemanipuleerd wordt volgens bepaalde transformatie functies. Het geselecteerde element behoudt zijn oorspronkelijke positie en grootte welke transformatie ook wordt uitgevoerd. <br/>
+          <strong>Enkele voorbeelden van zulke transformatie functies zijn:</strong>
         </p>
-      </div>  
-<!-- TRANSITIONS -->
-      <section>
-        <h4>transition: property duration timing-function delay;</h4>
-        <P>
-          Transitions worden bijvoorbeeld aangeroepen wanneer er over een element gehoverd wordt. Ze vormen de animatie tussen veranderingen die je op een  element wilt uitvoeren.
-        </P>
-        <pre>
-TRANSITION VOORBEELD
 
-#transition
-{
-  transition: background-color 0.8s ease,
-              border-radius 0.8s ease;
-  background-color: blue;
-  border-radius: 6px;
-  width: 60px;
-  height: 60px;
-}
-#transition:hover {
-  background-color: yellow;
-  border-radius: 50%;
-}
+  <!-- ROTATE -->   
+        <section>   
+          <h5>rotate(angle)</h5>  
+          <p>Roteert een element onder een bepaalde hoek.</p>
+          <pre>
+  VOORBEELD ROTATE()
 
-          <div id="transition"></div> 
-        </pre>
-      </section> 
+  #rotate
+  {
+    background-color: blue;
+    width: 40px;
+    height: 40px;
+    transform: rotate(30deg);
+  }  
 
-      <section>
-        <p>Wanneer je transitions en transformations combineert, kun je bijvoorbeeld het volgende doen:</p>
-        <pre>
-ANIMATION VOORBEELD
+  DEMO
+  <div id="rotate"></div>    
+          </pre>
+        </section>
 
-#animation
-{
-  transition: all 2s ease-in-out;
-  background-color: blue;
-  border-radius: 6px;
-  width: 60px;
-  height: 60px;
-}
-#animation:hover {
-  background-color: yellow;
-  border-radius: 50%;
-  transform: translateX(200px);
-  -webkit-transform: translateX(200px);
-}   
+  <!-- SCALE -->   
+        <section>   
+          <h5>scale()</h5>
+          <ul>
+            SYNTAX:
+            <li>scale(2): vergroot een element 2 maal.</li>
+            <li>scale(2,4): horizontaal vergroten (x) met 2, verticaal vergroten (y) met 4.</li>
+            <li>scaleX(value) en scaleY(value): meer specifiek vergroten voor afzonderlijk de X- of Y-as.</li>
+          </ul>
+          <pre>
+  VOORBEELD SCALE()
 
-          <div id="animation"></div>      
-        </pre>
-      </section>
-<!-- 3D TRANSFORMATIONS -->
-      <section>
-        <p>Naast de voorgaande 2D transformations heb je ook van sommige functies de <strong>3D transformations</strong>.</p>
-        <h4>rotateX() - rotateY() - rotate3d(x, y, z):</h4>
-        <p>Deze functies zorgen er voor dat een element rond een bepaalde as draait.</p>
-        <pre>
-VOORBEELD 3D ROTATE          
-        </pre>
+  &#35;scale1
+  &#123;
+    background-color: blue;
+    width: 40px;
+    height: 40px;
+    transform: scale(2);
+  &#125;
 
-        <h4>translateZ() - translate3d(x, y, z):</h4>
-        <p>De z-waarde bij deze functies zorgen er voor dat het element zich naar de user of weg van de user beweegt.</p>
-        <pre>
-VOORBEELD 3D TRANSLATE          
-        </pre>
 
-        <h4>perspective():</h4>
-        <p>Perspective manipuleert het element zelf niet maar voegt een bepaald perspectief, een diepte toe aan de 3D-transformations.</p>
-        <pre>
-VOORBEELD 3D PERSPECTIVE          
-        </pre>
-      </section>
-      <section>
+            <div class="sd" id="scale1"></div>
+
+
+  &#35;scale2
+  &#123;
+    background-color: blue;
+    width: 40px;
+    height: 40px;
+    transform: scale(4,1);
+  &#125;
+
+            <div class="sd" id="scale2"></div>
+
+  &#35;scale3
+  &#123;
+    background-color: blue;
+    width: 40px;
+    height: 40px;
+    transform: scaleX(3);
+  &#125;
+
+            <div class="sd" id="scale3"></div>
+          </pre>
+        </section>
+
+  <!-- SKEW -->      
+        <section>
+          <h5>skew()</h5>
+          <ul>
+            SYNTAX:
+            <li>skew(x,y): schuintrekken volges x- of y-as in één functie.</li>
+            <li>skewX() en skewY(): meer specifiek volges één as schuintrekken.</li>
+          </ul>
+          <pre>
+  VOORBEELD SKEW()  
+
+  #skew
+  {
+    background-color: blue;
+    width: 40px;
+    height: 40px;
+    transform: skewX(30deg);
+  }   
+
+            <div id="skew"></div>    
+          </pre>
+        </section>  
         
-      </section>
+
+  <!-- TRANSLATE -->  
+        <section>    
+          <h5>translate()</h5>
+          <ul>
+            SYNTAX:
+            <li>translate(x,y): verplaatsen volgens beide assen.</li>
+            <li>translateX() of translateY(): verplaatsen volgens specifieke as.</li>
+          </ul>
+          <pre id="pt">
+  VOORBEELD TRANSLATE() 
+
+  #translate
+  {
+    background-color: blue;
+    width: 40px;
+    height: 40px;
+    transform: translateX(80px);
+  }
+            <div id="notranslate"></div> 
+            <div id="translate"></div> 
+          </pre>
+        </section>
+        <div>
+          <p>
+            Voor deze opdracht heb ik de translate() functie gebruikt. Omdat transformations directe manipulaties zijn van het uitzicht van een element zie je direct het eindresultaat. <br/>
+            Het zou natuurlijk veel fijner zijn moest je deze verandering geanimeerd kunnen waarnemen.<br/>
+            <strong>Transitions</strong> in combinatie met transformations kunnen hiervoor zorgen.
+          </p>
+        </div>  
+  <!-- TRANSITIONS -->
+        <section>
+          <h4>transition: property duration timing-function delay;</h4>
+          <P>
+            Transitions worden bijvoorbeeld aangeroepen wanneer er over een element gehoverd wordt. Ze vormen de animatie tussen veranderingen die je op een  element wilt uitvoeren.
+          </P>
+          <pre>
+  TRANSITION VOORBEELD
+
+  #transition
+  {
+    transition: background-color 0.8s ease,
+                border-radius 0.8s ease;
+    background-color: blue;
+    border-radius: 6px;
+    width: 60px;
+    height: 60px;
+  }
+  #transition:hover {
+    background-color: yellow;
+    border-radius: 50%;
+  }
+
+            <div id="transition"></div> 
+          </pre>
+        </section> 
+
+        <section>
+          <p>Wanneer je transitions en transformations combineert, kun je bijvoorbeeld het volgende doen:</p>
+          <pre>
+  ANIMATION VOORBEELD
+
+  #animation
+  {
+    transition: all 2s ease-in-out;
+    background-color: blue;
+    border-radius: 6px;
+    width: 60px;
+    height: 60px;
+  }
+  #animation:hover {
+    background-color: yellow;
+    border-radius: 50%;
+    transform: translateX(200px);
+    -webkit-transform: translateX(200px);
+  }   
+
+            <div id="animation"></div>      
+          </pre>
+        </section>
+  <!-- 3D TRANSFORMATIONS -->
+        <section>
+          <p>Naast de voorgaande 2D transformations heb je ook van sommige functies de <strong>3D transformations</strong>.</p>
+          <h4>rotateX() - rotateY() - rotate3d(x, y, z):</h4>
+          <p>Deze functies zorgen er voor dat een element rond een bepaalde as draait.</p>
+          <p>
+            bij onderstaande voorbeelden gebruik ik ook de 3D transformatie optie <strong>perspective</strong>.
+            Perspective manipuleert het element zelf niet maar voegt een bepaald perspectief, een diepte toe aan de 3D-transformations.
+            Met <strong>perspective-origin</strong> wordt er bepaald waar de basis van het gewenste perspectief ligt op de x- en y-as.
+          </p>
+          <pre>
+  VOORBEELD 3D ROTATE  
+
+  #rotate3d
+  {
+    transition: all 2s ease-in-out;
+    background-color: blue;
+    border-radius: 6px;
+    width: 60px;
+    height: 60px;
+    -webkit-perspective: 800px;
+    -webkit-perspective-origin: 50% 100px;
+  }
+  #rotate3d:hover {
+    transform: rotateX(150deg);
+    -webkit-transform: rotateX(150deg);
+  }        
+            <div id="rotate3d"></div>
+          </pre>
+
+          <h4>translateZ() - translate3d(x, y, z):</h4>
+          <p>De z-waarde bij deze functies zorgen er voor dat het element zich naar de user of weg van de user beweegt.</p>
+          <pre>
+  VOORBEELD 3D TRANSLATE  
+
+  #translate3d
+  {
+    display: inline-block;
+    transition: all 2s ease-in-out;
+    background-color: blue;
+    border-radius: 6px;
+    width: 60px;
+    height: 60px;
+
+  }
+  #translate3d:hover {
+    transform:translate3d(65px,65px,180px);
+    -webkit-transform:translate3d(65px,65px,180px);
+  }  
+            <div id="translate3d"></div>  
+            <div id="block"></div>     
+          </pre>
+        </section>
+      </section><!-- /css-opdracht1 -->  
+      <section id="css_opdracht2">
+        <h4>Opdracht 2 - gebruik van CSS3 animation</h4>
+        <pre>
+  SYNTAX
+  Animatie waarbij de eigenschappen apart worden aangeroepen:
+  #box 
+  {
+    animation-name: bounce;
+    animation-duration: 4s;
+    animation-iteration-count: 10;
+    animation-direction: alternate;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+  }
+
+  Animatie genoteerd in 1 lijn:
+  animation: name duration iteration-count direction timing-function fille-mode delay;
+  animation: bounc 4s 10 alternate ease-out forwards 2s;
+        </pre>
+        <h5>Waarvoor staan al deze animatie-eigenschappen?</h5>
+        <ul>
+          <li><strong>name</strong>: naam van de animatie.</li>
+          <li><strong>duration</strong>: hoelang de animatie zal duren.</li>
+          <li><strong>iteration-count</strong>: hoeveel keer de animatie herhaalt moet worden.</li>
+          <li><strong>direction</strong>: in welke richting de animatie moet afgespeeld worden bv: normal,reverse,...</li>
+          <li><strong>timing-function</strong>: hoe de animatie moet verlopen over zijn duur bv: ease-in-out, lineair,...</li>
+          <li><strong>fill-mode</strong>: bepaald waar de animatie moet stoppen.</li>
+          <li><strong>delay</strong>: de vertraging waarmee de animatie moet starten.</li>
+        </ul>
+        <h5>Een animatie kan ook in verschillende stappen gebeuren.</h5>
+        <pre>
+  @keyframes [animation-name]{
+  from{wat er geanimeerd moet worden}
+  to{wat er geanimeerd moet worden}
+  }
+
+  OF
+
+  @keyframes [animation-name]{
+  0%{}//begin
+  50%{}//midden
+  100%{}//einde
+  }          
+        </pre>
+        <h5><strong>Animations en transformations combineren</strong></h5>
+        <pre>
+  #keyframe
+  {
+    width: 60px;
+    height: 60px;
+    background-color: red;
+    position: relative;
+    animation:mymove 5s infinite;
+    -webkit-animation:mymove 5s infinite;
+  }
+
+  @-webkit-keyframes mymove
+  {
+  0%  {top:0px; 
+       left: 0px; 
+       background:red; 
+       width:60px;}
+  50% {top:20px; 
+       left: 200px; 
+       background:yellow; 
+       width:60px; border-radius: 50%; 
+       -webkit-transform: rotateZ(180deg );}
+  100% {top:0px; 
+        left: 400px; 
+        background:blue; 
+        width:60px; 
+        border-radius: 15%; 
+        -webkit-transform: rotateZ(-180deg );}
+  }      
+          <div id="keyframe"></div>
+        </pre>
+        
+      </section><!-- /css_opdracht2 -->
     </div><!-- /container-fluid lab2-->  
     <div class="container-fluid" id="lab3">  
       <h2>LAB 3 - Advanced JS</h2>
+      <p>
+        Voor de opdracht rond de workshop Advanced JS moesten we een simpele todo-app uitwerken. De to-do items zullen gewone list-items zijn in een unordered list, maar de bedoeling is dat we deze als 'done' kunnen aanduiden met Javascript zonder het gebruik van jQuery. Hiervoor schrijven we ons eigen mini-framework.
+      </p>
+      <ul>
+        <h4>Behandelen van:</h4>
+        <li>object notation</li>
+        <li>DRY</li>
+        <li>function zijn js classes</li>
+        <li>prototipical inheritance</li>
+      </ul>
+      <section id="object_notation">
+        <h4>Object Notation</h4>
+        <h6>Een Object creëren kan op twee manieren:</h6>
+        <pre>
+  Object Constructor Method
+
+  var object = new Object()
+  object.name = "firstObject"; 
+
+  Object Literal 
+
+  var object = {
+    name: "firstObject"
+  }       
+        </pre>
+        <h4>DRY</h4>
+        <p><strong>Don't Repeat Yourself</strong></p>
+        <p>
+          Tijdens het schrijven van Javascript code kom je vaak/soms op het punt dat je merkt dat je code herhaalt. Te veel herhaling in je code moet je proberen te vermijden. Houdt DRY daarom altijd in je achterhoofd.
+        </p>
+        <h5>Voorbeeld JavaScript geschreven met herhaling en DRY</h5>
+        <pre>
+  MET HERHALING
+
+  $('#myCheckbox').click(function() {
+    if (this.checked) {
+      $('#field_foo').val(config.foo);
+      $('#field_bar').val(config.bar);
+      $('#field_baz').val(config.baz);
+    } else {
+      $('#field_foo').val('');
+      $('#field_bar').val('');
+      $('#field_baz').val('');
+    }
+  });  
+
+  MET DRY IN JE ACHTERHOOFD
+
+  $('#myCheckbox').click(function() {
+
+    var checked = this.checked;
+
+    $.each(['foo', 'bar', 'baz'], function(i,v) {
+      if(checked)
+      {
+        $('#field_' + v).val(config[v]);
+      }
+      else
+      {
+        $('#field_' + v).val('');
+      }
+    });
+  });          
+        </pre>
+        <h4>Functions zijn JS Classes</h4>
+        <pre>
+          
+        </pre>
+        <h4>Prototypical Inheritance</h4>
+        <pre>
+          
+        </pre>
+      </section><!-- /object_notation -->
     </div><!-- /container-fluid lab3-->  
     <div class="container-fluid" id="lab4">  
       <h2>LAB 4 - prototype Weather App</h2>
@@ -518,6 +701,89 @@ VOORBEELD 3D PERSPECTIVE
     </div><!-- /container-fluid lab7-->  
     <div class="container-fluid" id="lab8">  
       <h2>LAB 8 - BACKBONE.JS</h2>
+      <p>
+        De workshop over Backbone.js gegeven door Laurens van District01 vond ik, boven op alles wat we tot nu toe gezien hebben, heel interessant.
+        Voor Attribute.be heb ik hierover ook een artikel geschreven, in functie van dit Webtech 2 Portfolio, dat u hier kan vinden: <a href="http://www.attribute.be/2014/04/12/bam-en-daar-was-backbonejs">BACKBONE</a>.
+        </br>
+        Hier zal ik mijn artikel verder aanvullen met code voorbeelden. 
+      </p>
+      <section id="inleiding_bb">
+        <h4>Wat is Backbone.js?</h4>
+        <p>
+          Backbone.js is een Javascript framework dat structuur brengt in <strong>clientside applicaties</strong>. Bij pure JavaScript of het jQuery framework moet je eigenhandig een goede structuur in je code proberen te brengen wat bij complexe applicaties al snel een rommeltje kan worden. De visualisatie van je applicatie en de server hangen bij Javascript niet automatisch aan elkaar, je moet dit zelf aan elkaar schrijven. Je kunt elementen selecteren waarop je bepaalde functies kan toepassen die deze elementen dan beïnvloeden of veranderen. Als je dan ook nog eens data wilt aanroepen of opslagen moet je apart een Ajax call sturen naar je server. Bij Backbone.js ligt dit anders. Het brengt structuur in je applicatie, <strong>logica in je Javascript code</strong>. Met behulp van Backbone.js kan je je datastructuur scheiden van de visualisatie van je applicatie. Maar met behulp van de MVC structuur hangt de server, data en visualisatie aan elkaar waardoor je applicatie synchroon uitgevoerd kan worden.
+        </p>
+      </section><!-- /inleiding_bb -->
+      <section id="mvc_bb">
+        <h4>Waarvoor staat MVC?</h4>
+        <p>
+          Bij Backbone.js staat MVC voor Models, Views en Collections. Een model kan je vergelijken met een klasse zoals in PHP, maar een opgevulde klasse. Daarmee wordt er bedoeld dat een model gegevens/data bevat bijvoorbeeld: model friend kan voornaam, naam, adres,…  van een vriend bevatten. Een model is dus een beter gestructureerd object, dat naast data ook nog eens methoden of functies kan bevatten.
+        </p>
+        <pre>
+  MODEL VOORBEELD  
+
+  var friendModel = Backbone.Model.extend({
+    //setting default values
+    Defaults :
+    {
+      firstname: 'Anonymous',
+      lastname: 'Person',
+      phone: 'no phone number',
+      email: 'no email'
+    }
+  }); 
+
+  var liesbeth = new friendModel(); 
+  //wanneer je geen properties meegeeft (.set) krijg je de default values wanneer je liesbeth.get('firstname') doet.
+  //liesbeth.get('firstname') zal 'Anonymous' weergeven.
+
+  <strong>dus doe je best:</strong>
+  var liesbeth = new friendModel();
+  liesbeth.set({firstname: 'Liesbeth', 
+                lastname: 'Vanaerschot', 
+                email: 'lies.vanaerschot@gmail.com'});
+  liesbeth.get('email') //returns lies.vanaerschot@gmail.com
+  liesbeth.get('phone') //returns default: no phone number
+
+        </pre>
+        <P>
+          De meeste mensen onder ons hebben natuurlijk meerdere vrienden, dus meerdere friend models.
+          Maar het is moeilijk om bijvoorbeeld van al je vrienden hun voornaam op te roepen wanneer al die friend models losse stukjes zijn. Om dit makkelijker te maken hebben we een collection nodig.
+          Een collection bevat letterlijk een collectie models, dus friend models zitten in de collection friends. Zo een collection kan je vergelijken met een array, maar krachtiger want in een collection kan je ook weer methoden en functies steken.
+        </P>
+        <pre>
+  COLLECTION VOORBEELD  
+
+  var FriendsCollection = Backbone.Collection.extend(
+  {model: friendModel});
+
+  var friends = new FriendsCollection();
+  friends.set([liesbeth,other models]);
+        </pre>   
+        <P>
+          Hoe toon je nu al deze gestructureerde data aan de gebruiker? Hiervoor creëer je een view waarin je schrijft welk DOM element je wilt gebruiken om de data, die in de door jouw gecreëerde collection of model zit, te renderen.
+        </P>  
+        <pre>
+  VIEW CODE VOORBEELD  
+
+  var FriendView = Backbone.View.extend({
+    el: 'li',
+    initialize: function(){
+      this.render();
+    },
+    render: function(){
+      this.$el.html(this.model.get('firstname'));
+      return this;
+    }
+  }); 
+
+  var friendview = new FriendView({model: liesbeth});  
+        </pre> 
+        <p>
+          De voorbeelden zijn basis en ik heb ze uitgeschreven op basis van de workshop, tutorials en hoe ik Backbone.js op dit moment begrijp.
+        </p>           
+      </section><!-- /mvc_bb -->
+
+
     </div><!-- /container-fluid lab8-->   
     <div class="container-fluid" id="lab9">  
       <h2>LAB 9 - Gulp</h2>
