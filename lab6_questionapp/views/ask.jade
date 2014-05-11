@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  form
+   label(for='naam') who's asking?
+   br
+   input(type='text', id='naam')
+   br
+   label(for='vraag') Ask it here!
+   br
+   input(type='text', id='vraag')
+   br
+   p(id='error')
+   br
+   input(type='button', id = 'throw' value='throw!')
+
+  div(id="questions")
+   h1 All questions

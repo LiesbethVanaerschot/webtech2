@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title>Webtech2-lab3</title>
+
+	<link rel="stylesheet" href="css/reset.css" media="all">
+	<link rel="stylesheet" href="css/lab3.css" media="all">	
+
+</head>
+<body>
+
+<div class="container" >
+
+	<header>
+		<div class="circle" ></div>
+		<h1>IMDo App</h1>
+		<div class="circle" ></div>
+	</header>
+	
+	<ul>
+		<li id="todo-item4"  class = "prior-high" >webtech2 - lab 4</li>
+		<li id="todo-item3"  class = "prior-high" >webtech2 - lab 3</li>
+		<li id="todo-item2" class="prior-medium" >php1 - testjezelf week 2</li>
+		<li id="todo-item1" class="prior-low" >koffie maken bij Beans</li>
+	</ul>
+
+</div><!-- /container -->
+
+<script type="text/javascript">
+
+	// mark list items as DONE (line-through and grey)
+	//te veel gekopieer niet efficient
+	/*var item1 = document.getElementById("todo-item1");
+	console.log(item1);
+	item1.style.color = "#AAA";
+	item1.style.textDecoration = "line-through";
+
+	var item2 = document.getElementById("todo-item2");
+	console.log(item2);
+	item2.style.color = "#AAA";
+	item2.style.textDecoration = "line-through";
+
+	var item3 = document.getElementById("todo-item3");
+	console.log(item3);
+	item3.style.color = "#AAA";
+	item3.style.textDecoration = "line-through";*/
+
+	//stap2: functie kan op den duur veel te veel parameters bevatten waardoor het
+	//een warboel wordt en niet meer overzichtelijk.
+	/*function markAsDone(elementid, important)
+	{
+		var item = document.getElementById(elementid);
+		item.style.color = "#AAA";
+		item.style.textDecoration = "line-through";
+
+		if(important == 1)
+		{
+			item.style.color = "red";
+		}	
+	}
+
+	markAsDone("todo-item1");
+	markAsDone("todo-item2", true);
+	markAsDone("todo-item3");*/
+
+	//stap3
+	//$("#todo-item1").css("color","red");
+
+
+	var IMDelement = function(element) //dit is een wrapper object
+	{
+		this.element = element;
+
+		/*if(element.length >1)
+		{
+			var isarray = true;
+		}
+		else
+		{
+			var isarray = false;
+		}*/
+		//verkort if else
+		this.isArray = (element.length > 1) ? true : false;
+	}
+
+
+	var number = 0;
+	var $ = function(p_element)//definiëren welk object het is.
+	//p_element is het element dat gecheckt wordt op #, . of gewone tags.
+	{
+
+		if(typeof p_element != 'object')//wanneer het element een object is
+		{
+			var firstChar = p_element.charAt(0);
+			var result;
+			
+			switch(firstChar)
+			{
+				case "#":
+					var idToSelect = p_element.substring(1, p_element.length);
+					var element = document.getElementById(idToSelect);
+					result = new IMDelement(element);
+				break;	
+
+				case ".":
+					var classToSelect = p_element.substring(1, p_element.length);
+					var elements = document.getElementsByClassName(classToSelect);
+					result = new IMDelement(elements);
+				break;
+
+				default://= al de rest.
+					var elements = document.getElementsByTagName(p_element);
+					result = new IMDelement(elements);
+				break;
+			
+			}
+		}
+
+		else
+		{
+			return new IMDelement(p_element)
+
+		}
+		return result;
+	}
+
+	IMDelement.prototype.color = function(p_color)
+	{
+
+		if(this.isArray)
+		{
+			for(i=0, l=this.element.length; i<l; i++)
+			{
+				this.element[i].style['color'] = p_color;
+			}
+		}
+
+		else
+		{
+			console.log("1 elementje");
+			this.element.style['color'] = p_color;
+		}
+
+		return this.element; //iets returnen zorgt er voor dat je functies kunt aan elkaar hangen.
+
+	}
+
+	//$(".todo").color("yellow");
+
+	IMDelement.prototype.addClass = function(newClass)
+	{
+		this.element.className += ' newClass';
+
+		if(this.isArray)
+		{
+			for(i=0, l=this.element.length; i<l; i++)
+			{
+				console.log("newClass");
+				this.element[i].classList.add(newClass);
+			}
+		}
+
+		else
+		{
+			console.log("1 elementje");
+			this.element.classList.add(newClass);
+			
+		}
+
+		return this.element;
+	}
+
+
+	IMDelement.prototype.click = function(p_function)
+	{
+
+		if(this.isArray)
+		{
+			for(i=0, l=this.element.length; i<l; i++)
+			{
+				console.log("newClass");
+				this.element[i].addEventListener("click", p_function, false);
+			}
+		}
+
+		else
+		{
+			console.log("1 elementje");
+			this.element.addEventListener("click", p_function, false);
+			
+		}
+
+		return this.element;
+	}
+
+	$("li").click(function(){
+		$(this).addClass("done");
+		console.log("click");
+	});
+
+	/*$("li").click(function()
+	{
+		$("#todo-item1").addClass("done");
+		console.log("click");
+	});*/
+
+
+	//$("todo-item1").color("red"); --> er is geen functie color in js (enkel style.color)
+	//we gaan dit nabouwen zodat we dat op alle elementen kunnen toepassen.
+
+	/*HTMLElement.prototype.color = function(p_color)
+	{
+		this.style['color'] = p_color;
+	}
+
+	$("#todo-item1").color("red");*/
+
+	//nu dat we de basis functie color() hebben aangemaakt werkt het bovenstaande wel.
+	//een eigen basis functie aanmaken is gevaarlijk omdat als dit ooit algemeen ingevoegd wordt in js
+	//overschrijven we deze functie en kan het conflicten en fouten veroorzaken.
+
+	//uitleg objecten en protoypes
+	/*var Person = function(firstname, lastname)
+	{
+		this.firstname = firstname;
+		this.lastname = lastname;
+
+		this.sayName = function()
+		{
+			console.log("Hi my name is " + this.firstname);
+		}
+	}
+
+	var steve = new Person("Steve","Jobs");
+	var bill = new Person("Bill","Gates");
+
+	steve.sayName();
+	bill.sayName();*/ 
+
+	/*WAT MOET EEN TODO APP DOEN
+
+	todoitem.add
+	todoitem.click --> addClass "done".
+	na klik action*/
+
+</script>
+
+</body>
+</html>
