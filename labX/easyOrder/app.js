@@ -74,6 +74,7 @@ function ensureAuthenticated(req, res, next) {
 
 app.get('/', routes.index);
 app.get('/order', routes.order);
+app.get('/feedback', routes.feedback);
 //app.get('/', ensureAuthenticated, routes.login);
 app.get('/users', user.list);
 

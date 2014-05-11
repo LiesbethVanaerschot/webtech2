@@ -5,7 +5,7 @@ $(document).ready(function(){
 		{timeout: 20 });
 
 	$('#error p').hide();
-
+	$('#feedback').hide();
 
 //MENU ACCORDION
 
@@ -153,6 +153,7 @@ $(document).ready(function(){
 					else
 					{
 						getBestelling();
+						location.href = "http://localhost:3000/feedback";
 						$('#error p').hide();
 						$('.bestel input').val("");
 						$('#tafel').val("");
@@ -163,6 +164,7 @@ $(document).ready(function(){
 			
 		}
 		
+		//e.preventDefault();
 		
 	});
 
@@ -170,7 +172,7 @@ $(document).ready(function(){
 		//console.log(result);
 		var ul = document.createElement('ul');
 		ul.id = "order" + orderId;
-		$('#orders').prepend(ul);
+		$('#orders').append(ul);
 		//var aantal = 0;
 		//var naam = " ";
 		//var prijs = 0;
@@ -207,18 +209,29 @@ $(document).ready(function(){
 		console.log('hide');
 		//console.log(p_bestelling);
 		idArray.shift();
-		p_bestelling.hide();
+		p_bestelling.remove();
 		console.log(idArray);
 	}
 //ORDERREADY FUNCTIE = BEREKENEN HOELANG HET ONGEVEER ZAL DUREN 
+	var ready;
 	var orderReady = function(){
 		var n = idArray.length;
-		var orderReady = n * 10;
-		console.log(orderReady);
+		return ready = n * 10;
+
+		//console.log(orderReady);
 		//tijd publishen naar index 
-		client.publish("/", {orderReady: orderReady});
+		
 	}
 
+
+	client.subscribe("/feedback",function(data){
+			console.log(data);
+			var p = "<p>Uw bestelling zal klaar zijn binnen " + data.ready + " minuten!";
+			$('#movingBallG').hide();
+			$('#feedback').show();
+			$('#feedback').prepend(p);
+
+		});
 
 //TIMER FUNCTIE START OP KLIK PRINT
 	$('#orders').on('click', '.print', function(){
@@ -243,13 +256,16 @@ $(document).ready(function(){
 		
 		//berekening hoelang bestelling zal duren
 		orderReady();
+		console.log(ready);
+		client.publish("/feedback", {ready: ready});
 		//de bestelling verdwijnt uit van /order
-		// currentB.hide();
+		currentB.fadeOut();
 
 		//timefunctie starten
-		setTimeout(function() {Timer(currentB);}, 2000);
+		setTimeout(function() {Timer(currentB);}, 10000);
 
 	});
+
 
 });
 
