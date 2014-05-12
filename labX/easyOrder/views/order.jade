@@ -3,6 +3,8 @@ extends layout
 block content
  div
   h1 Beans Bar bestellingen
+  form(method='get', action='/logout')
+   input(type='submit', value='logout') 
  
  div(class = 'tabs')
   ul(class = 'tab-links')
@@ -22,11 +24,12 @@ block content
       p=order.datum
       p=order.tijd
       div
-       each item in order.bestelling
-        ul
-         li=item.aantal
-         li=item.product
-         li=item.prijs
+       if order.bestelling
+         for item in order.bestelling
+           ul
+            li=item.aantal
+            li=item.product
+            li=item.prijs
    else
        p Er zijn geen bestellingen.
 

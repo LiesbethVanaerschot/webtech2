@@ -11,7 +11,10 @@
     "mongodb": "*",
     "mongoose": "*",
     "async": "*",
-    "faye": "*"
+    "faye": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "connect-flash": "*"
   },
   "devDependencies": {
     "gulp": "^3.6.2",

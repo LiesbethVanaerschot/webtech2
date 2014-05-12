@@ -173,22 +173,26 @@ $(document).ready(function(){
 		var ul = document.createElement('ul');
 		ul.id = "order" + orderId;
 		$('#orders').append(ul);
-		//var aantal = 0;
-		//var naam = " ";
-		//var prijs = 0;
+		var aantal;
+		var naam;
+		var prijs;
+		var itemprijs;
+		var totaalprijs = 0;
 		var bestelling2 = [];
 		$.each(result, function( index, value ) {
   			console.log(index + " " + value.naam);
   			aantal = value.aantal;
   			naam = value.naam;
   			prijs = value.prijs;
+  			itemprijs = aantal * prijs;
   			tafel = value.tafel;
+  			totaalprijs += parseFloat(itemprijs);
   			//console.log(aantal + "," + naam + "," + prijs);
   			var order = "<li><h5>" + tafel + "</h5><p>" + aantal + " </p><h4>" + naam + " </h4><p>" + prijs + "</p></li>";
   			console.log(order);	
   			bestelling2.push(order);
 		});
-		
+		totaal = totaalprijs.toFixed(2);
 		$.each(bestelling2, function(index, value){
 			console.log(value);
 
@@ -196,7 +200,7 @@ $(document).ready(function(){
 			
 		});
 
-		$('#orders ul:first').append("<input class='print' type='button' value='print'/>")
+		$('#orders ul:first').append("<p>Totaal: " + totaal + "EUR</p><input class='print' type='button' value='print'/>")
 
 		orderId++;
 		idArray.push("order" + orderId);
@@ -226,7 +230,7 @@ $(document).ready(function(){
 
 	client.subscribe("/feedback",function(data){
 			console.log(data);
-			var p = "<p>Uw bestelling zal klaar zijn binnen " + data.ready + " minuten!";
+			var p = "<p>Uw bestelling zal klaar zijn binnen " + data.ready + " minuten! Het te betalen bedrag is " +data.totaal+".</p>";
 			$('#movingBallG').hide();
 			$('#feedback').show();
 			$('#feedback').prepend(p);
@@ -240,6 +244,8 @@ $(document).ready(function(){
 		var currentB = $(this).parent();
 		var currentID = $(this).parent().attr('id');
 		var tafelNummer = $(this).parent().find('h5:first').text();
+		var totaalArr = $(this).parent().find('p').text().split(':');
+		var totaalB = totaalArr[1];
 		console.log(tafelNummer);
 		var d = new Date();
 		var year = d.getFullYear();
@@ -257,7 +263,7 @@ $(document).ready(function(){
 		//berekening hoelang bestelling zal duren
 		orderReady();
 		console.log(ready);
-		client.publish("/feedback", {ready: ready});
+		client.publish("/feedback", {ready: ready, totaal: totaalB});
 		//de bestelling verdwijnt uit van /order
 		currentB.fadeOut();
 

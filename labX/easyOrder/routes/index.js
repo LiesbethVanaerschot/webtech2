@@ -298,5 +298,11 @@ exports.feedback = function(req, res){
   	 });
 };
 
+exports.login = function(req, res){	
+  res.render('admin', { 
+  	title: 'Admin Login',
+  	 });
+};
+
 //http://stackoverflow.com/questions/18008479/node-js-wait-for-multiple-async-calls
 //http://mherman.org/blog/2013/11/11/user-authentication-with-passport-dot-js/#.U1gM4Pl_tqU

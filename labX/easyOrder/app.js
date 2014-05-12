@@ -11,6 +11,10 @@ var path = require('path');
 var mongoose = require('mongoose');
 var async = require('async');
 var faye = require('faye');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var flash = require('connect-flash');
+
 
 mongoose.connect('mongodb://127.0.0.1/beans');
 
@@ -26,7 +30,7 @@ var eten = require('./models/eten');
 //console.log(typeof eten.EtenLijst);
 var drinken = require('./models/drinken');
 var bestellingen = require('./models/bestelling');
-
+//mongoose bestelling schema en model
 var Bestelling =  new mongoose.Schema({
 	orderid: String,
 	datum: String,
@@ -37,9 +41,60 @@ var Bestelling =  new mongoose.Schema({
 
 var order = mongoose.model('orders', Bestelling);
 
+//mongoose admin schema en model
+var Admin = new mongoose.Schema({
+	naam: String,
+	paswoord: String
+},{collection: 'admin'});
+
+Admin.methods.validPassword = function(pwd)
+{
+	if(this.paswoord === pwd)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+};
+
+var AdminModel = mongoose.model('admin', Admin);
 
 //
 var app = express();
+
+passport.use(new LocalStrategy(
+	function(username,password,done){
+		AdminModel.findOne({naam: username}, function(err,user){
+			console.log(user);
+			var pass= user.paswoord;
+			if(err)
+			{
+				return done(err);
+			}
+			if(!user)
+			{
+				return done(null, false, { message: 'Login naam is incorrect!'});
+			}
+			if(!user.validPassword(password))
+			{
+				return done(null,false, {message: 'Geef het juiste paswoord in!'})
+			}
+
+			return done(null, user);
+
+		})
+	}
+	));
+
+passport.serializeUser(function(user, done) {
+        done(null, user.naam);
+    });
+
+passport.deserializeUser(function(naam, done) {
+        done(null, {username: naam});
+    });
 
 // all environments
 app.configure(function(){
@@ -53,68 +108,48 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(express.cookieParser('your secret here'));
 app.use(express.bodyParser());
-app.use(express.session({cookie:{maxAge: 60000}}));
+app.use(express.session({secret: 'my secret'}));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 });
 
+
+//functies
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  res.redirect('/admin');
+}
 
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-//functies
-function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) { return next(); }
-  res.redirect('/login');
-}
-
 //APP GET GEDEELTE
 
 app.get('/', routes.index);
+//ADMIN SUCCESVOL AANMELDEN
+app.post('/login',
+	passport.authenticate('local', {failureRedirect: '/admin',
+									failureFlash: true}),
+	function(req, res){res.redirect('/order')}
+	);
+app.get('/logout', function(req, res){
+	req.logout();
+	res.redirect('/admin');
+});
+
 app.get('/order', routes.order);
 app.get('/feedback', routes.feedback);
+app.get('/admin', routes.login);
 //app.get('/', ensureAuthenticated, routes.login);
 app.get('/users', user.list);
 
 //BESTELLING OPSLAAN AJAX APP.POST
-//1. OP 'BESTEL' IN TABEL CLIENTORDERS
-
-/*var BestellingKlant =  new mongoose.Schema({
-	_id: String,
-	bestelling: Object
-});
-
-var clientorder = mongoose.model('clientorders', BestellingKlant);
-
-app.post('/', function(req, res){
-	var obj = {};
-	console.log(req.body.bestelling);
-
-	var id = req.body._id;
-	var bestelling = req.body.bestelling;
-	//https://www.youtube.com/watch?v=uZqwHfNIf8M
-	new clientorder({
-		_id: id,
-		bestelling: bestelling
-	}).save(function(err, doc){
-		if(err)
-		{
-			res.json(err);
-		}
-		else
-		{
-			console.log('succesful!');
-			order.count(function(err,c){
-				console.log('count is' + c);
-			});
-		}
-	});
-
-});*/
-
-//2. OP PRINT IN TBL ORDERS
+//SAVEN IN TBLORDERS
 
 app.post('/order', function(req, res){
 	var obj = {};
