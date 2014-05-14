@@ -14,11 +14,11 @@ $(document).ready(function(){
 
 	accordion_mini.on('click', function(e){
 		e.preventDefault();
-		if($(this).attr('class') != 'active'){
+		if($(this).attr('class') != 'mini-active'){
 			accordion_mini_body.slideUp('normal');
 			$(this).next().stop(true,true).slideToggle('normal');
-			accordion_mini.removeClass('active');
-			$(this).addClass('active');
+			accordion_mini.removeClass('mini-active');
+			$(this).addClass('mini-active');
 		}
 	});
 
@@ -42,11 +42,11 @@ $(document).ready(function(){
 		e.preventDefault();
 		console.log("click");
 
-		if($(this).attr('class') != 'active'){
+		if($(this).attr('class') != 'large-active'){
 			accordion_inner.slideUp('normal');
 			$(this).next().stop(true,true).slideToggle('normal');
-			accordion_large.removeClass('active');
-			$(this).addClass('active');
+			accordion_large.removeClass('large-active');
+			$(this).addClass('large-active');
 		}
 	});
 
@@ -95,7 +95,7 @@ $(document).ready(function(){
 		$(".bestel").each(function(index)
 		{
 			var naam = $(this).find('div:first-child').text();
-			var prijs = $(this).find('div:nth-child(2)').text();
+			var prijs = $(this).find('div:nth-child(2)').text().substring(1);
 			var aantal = $(this).find('div:last-child input').val();
 			var tafel = $("#tafel").val();
 			bestelling.push({aantal: aantal, naam: naam, prijs: prijs, tafel: tafel});
@@ -188,7 +188,7 @@ $(document).ready(function(){
   			tafel = value.tafel;
   			totaalprijs += parseFloat(itemprijs);
   			//console.log(aantal + "," + naam + "," + prijs);
-  			var order = "<li><h5>" + tafel + "</h5><p>" + aantal + " </p><h4>" + naam + " </h4><p>" + prijs + "</p></li>";
+  			var order = "<li><h5 class='neworder tafel'>tafel " + tafel + "</h5><p class='neworder aantal'>" + aantal + " X</p><h4 class='neworder it'>" + naam + " </h4><p class='neworder prijs'>€" + prijs + "</p></li>";
   			console.log(order);	
   			bestelling2.push(order);
 		});
@@ -196,11 +196,11 @@ $(document).ready(function(){
 		$.each(bestelling2, function(index, value){
 			console.log(value);
 
-			$("#orders ul:first").append(value);
+			$("#orders ul:last").append(value);
 			
 		});
 
-		$('#orders ul:first').append("<p>Totaal: " + totaal + "EUR</p><input class='print' type='button' value='print'/>")
+		$('#orders ul:last').append("<div id='totdiv'><p id='totaal'>Totaal: €" + totaal + "</p><input class='print' type='button' value='print'/></div>")
 
 		orderId++;
 		idArray.push("order" + orderId);
@@ -230,7 +230,7 @@ $(document).ready(function(){
 
 	client.subscribe("/feedback",function(data){
 			console.log(data);
-			var p = "<p>Uw bestelling zal klaar zijn binnen " + data.ready + " minuten! Het te betalen bedrag is " +data.totaal+".</p>";
+			var p = "<p>Uw bestelling zal klaar zijn binnen </br><span>" + data.ready + "</span> minuten!</br> Het te betalen bedrag is <span>" +data.totaal+".</span></p>";
 			$('#movingBallG').hide();
 			$('#feedback').show();
 			$('#feedback').prepend(p);
@@ -256,7 +256,7 @@ $(document).ready(function(){
 		var datum = day + "-" + month + "-" + year;
 		var tijd = hour + ":" + minute;
 		console.log(datum + " - " + tijd);
-		console.log(currentID);
+		console.log(currentB);
 		//bestelling saven in orders
 		saveOrder(currentID,tafelNummer,datum,tijd);
 		
@@ -265,7 +265,7 @@ $(document).ready(function(){
 		console.log(ready);
 		client.publish("/feedback", {ready: ready, totaal: totaalB});
 		//de bestelling verdwijnt uit van /order
-		currentB.fadeOut();
+		//currentB.fadeOut();
 
 		//timefunctie starten
 		setTimeout(function() {Timer(currentB);}, 10000);
@@ -292,7 +292,7 @@ $(document).ready(function(){
 		}
 		//$('.tab ' + currentAttrVal).addClass('active');
 		//$('.tab ' + currentAttrVal).parent('div').siblings().removeClass('active');
-		$(this).parent('li').addClass('active').siblings().removeClass('active');
+		$(this).parent('li').addClass('tabactive').siblings().removeClass('tabactive');
 
 		e.preventDefault();
 	});

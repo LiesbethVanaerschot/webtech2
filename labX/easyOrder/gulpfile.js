@@ -11,10 +11,15 @@ gulp.task('serve', function(){
 });
 
 gulp.task('styles', function(){ //in plaats dit als default moet je nu gulp styles ingeven in cmd
-	gulp.src('public/stylesheets/*.css')
+	gulp.src('public/css/*.css')
 		.pipe(concatCss("build.css"))
 		.pipe(minifyCss(opts))
 		.pipe(gulp.dest('build/css')) //nieuw mapje build aanmaken
+		.pipe(livereload());
+});
+
+gulp.task('scss', function(){
+	gulp.src('public/scss/styles.scss')
 		.pipe(livereload());
 });
 
@@ -35,4 +40,4 @@ gulp.task('watch', function(){
 });
 
 //default zou dit kunnen zijn
-gulp.task('default', ['serve', 'styles', 'jade', 'scripts', 'watch']);
+gulp.task('default', ['serve', 'styles', 'scss', 'jade', 'scripts', 'watch']);
