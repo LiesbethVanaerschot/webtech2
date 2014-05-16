@@ -910,6 +910,105 @@
     </div><!-- /container-fluid lab6-->  
     <div class="container-fluid" id="lab7">  
       <h2>LAB 7 - SASS</h2>
+      <p>
+        Syntactically Awesome StyleSheets. Is een andere taal om stylesheets in te schrijven. CSS maar dan anders. In SASS heb je twee verschillende scripts: .sass script en .scss script. Wij gebruiken de SCSS syntax.
+      </p>
+      <section>
+        <h4>SCSS</h4>
+        <p>
+          SCSS script lijkt op het eerste zicht hard op CSS. Je selecteert een element en tussen <kbd>{ }</kbd> wijs je de opmaak eigenschappen aan dit element toe. Maar SCSS heeft heel wat handige extra's: nesting, variables, mixins, import, extend,...
+        </p>
+        <h5>NESTING</h5>
+        <p>Je kan in SCSS de te selecteren element nesten in het geselecteerde parent-element. Zo kan je de structuur van je html code volgen.</p>
+        <pre>
+  &lt;div&gt;
+    &lt;h1 class = 'head'&gt;header&lt;/h1&gt;
+    &lt;p&gt;Ik ben een html voorbeeld.&lt;/p&gt;
+  &lt;/div&gt;        
+        </pre>
+        <h6>CSS</h6>
+        <pre>
+  div{
+    background-color: grey;
+    font-family: "Helvetica Neue", sans-serif;
+  }  
+
+  .head{
+    font-size: 2rem;
+    color: blue;
+    text-transform: uppercase;
+  } 
+
+  div p{
+    font-size: 0.8rem;
+  }     
+        </pre>
+        <h6>SCSS</h6>
+        <pre>
+  div{
+    background-color: grey;
+    font-family: "Helvetica Neue", sans-serif;
+
+    .head{
+    font-size: 2rem;
+    color: blue;
+    text-transform: uppercase;
+    } 
+
+    p{
+      font-size: 0.8rem;
+    }    
+  }        
+        </pre>
+        <h5>VARIABLES</h5>
+        <p>
+          In Sass kan je gebruik maken van variabelen net zoals in JavaScript. Een variabele in Sass ziet er als volgt uit: <kbd>$varnaam = varwaarde</kbd>. Deze variabelen kan je dan gebruiken overal waar je bijvoorbeeld dezelfde kleur wilt gebruiken of dezelfde font-size. Als dan alles in een ander kleur zou moeten veranderen hoef je enkel de waarde van de variabele één keer aan te passen.
+        </p>
+        <pre>
+  <strong>$textcolor = blue;
+  $bgcolor = grey;</strong>
+
+  div{
+    background-color: $bgcolor;
+    font-family: "Helvetica Neue", sans-serif;
+
+    .head{
+    font-size: 2rem;
+    color: $textcolor;
+    text-transform: uppercase;
+    } 
+
+    p{
+      font-size: 0.8rem;
+      color: $textcolor;
+    }    
+  } 
+        </pre>
+        <h5>MIXINS</h5>
+        <p>
+        Mixins kun je gebruiken om te voorkomen dat je constant browser prefixen moet toevoegen. Hoe minder herhaling hoe beter. Je kan mixins zelf schrijven of gebruik maken van een mixin library zoals Bourbon. Om de mixin te kunnen gebruiken moet je <kbd>@include mixinnaam(mixinwaarde)</kbd> schrijven bij het element waar je de mixin wilt gebruiken.
+        </p>
+        <pre>
+  @mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+  }
+
+  div{
+    background-color: $bgcolor;
+    font-family: "Helvetica Neue", sans-serif;
+    border: 2px solid green;
+    @include border-radius(6px);
+  }
+        
+        </pre>
+        <h5>@INCLUDE - @IMPORT</h5>
+        <p>
+          Met Sass kan je een duidelijke structuur in je stylesheets brengen. 
+        </p>
+      </section>
     </div><!-- /container-fluid lab7-->  
     <div class="container-fluid" id="lab8">  
       <h2>LAB 8 - BACKBONE.JS</h2>
