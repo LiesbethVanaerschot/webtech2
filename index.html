@@ -823,16 +823,88 @@
             <p>
               Non-blocking of Asynchronous Input/Output zorgt er voor dat verschillende processen te gelijk uitgevoerd kunnen worden. Bij Blocking I/O ligt dit anders omdat hierbij alles achter elkaar uitgevoerd wordt. Het ene proces start pas wanneer het voorgaande volledig uitgevoerd is. </br>
               Asynchronic I/O maakt gebruikt van callbackfuncties om het resultaat op te vangen van een bepaald proces, op deze manier moet er dus niet telkens gewacht worden op het goed einde van een bepaald proces vooraleer een ander gestart kan worden.
-              <pre>
-  VOORBEELD ASYNCHRONOUS I/O        
-              </pre>
-            </p>
+            </p>  
+            <pre>
+  VOORBEELD ASYNCHRONOUS I/O IN NODE met EXPRESS.JS FRAMEWORK
+
+  var routes = require('./routes');
+  app.get('/ask', routes.ask);
+  //routes.ask is hier dan de callback functie die uitgevoerd wordt in de route index.js
+
+  exports.ask = function(req, res){ 
+  res.render('ask', { 
+    title: 'Ask A Question',
+     });
+  };
+            </pre> 
       </section>
       <section>
         <h3>Node en Express</h3>
+        <p>
+          Om wat duidelijke structuur in je Node-app te krijgen gebruiken we Express.js. Express.js is een webapplicatie framework speciaal voor Node.js. Wanneer je express installeert doe je dit best globaal zodat de Express structuur gebruikt kan worden voor alle Node-apps eendert waar op je computer. </br>
+          Dependencies zoals Express.js installeer je door middel van <kbd>npm install express</kbd> in te voeren in de Node.js Command Prompt. En dan moet je Express nog toevoegen onder dependencies in je package.json file. Dit kan ook in 1 stap <kbd>npm install express --save</kbd>, door de save wordt Express meteen toegevoegd aan je dependencies.
+        </p>
+        <pre>
+  PACKAGE.JSON bij start
+
+  {
+    {
+    "name": "application-name",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+      "start": "node app.js"
+    },
+    "dependencies": {
+      "express": "3.5.0",
+      "jade": "*" 
+      <strong>jade is de standaard template engine van express.
+      hier in schrijf je html op een andere manier</strong>
+    }
+  }
+
+  IN APP.JS
+
+  (bovenaan niet vergeten bij te voegen.)
+  var express = require('express');
+        </pre>
+        <p>
+          Een Node app wordt door Express opgedeeld in een bepaalde structuur: Public, Routes en Views. </br>
+          <strong>1. Public</strong></br>
+          In de map <kbd>public</kbd> plaats je je JavaScript files, CSS files, Images,...</br>
+          <strong>2. Routes</strong></br>
+          In de map Routes vindt je de JavaScript bestanden die de "route" van je app bepalen, dus op welke pagina wat getoond wordt.</br>
+          <strong>3. Views</strong></br>
+          In Views staan je jade of html bestanden. Dit zijn de paginas die in je route files worden aangeroepen. Hierop render je de inhoud. Deze bestanden zijn letterlijk de view(het uitzicht) van je website.
+        </p>
       </section>
       <section>
         <h3>Node en Websockets</h3>
+        <p>
+          Voor Lab6 moesten we ook gebruik maken van Faye web sockets. Faye is een vrijsimpele module om gegevens te publishen en subscriben.</br>
+          Net zoals je met AJAX gegevens kunt posten naar een pagina en daar dan iets mee kunt doen. Zo publish je gegevens naar een pagina en subscribe je deze op dezelfde pagina. Om dit te doen werken moeten we ook eerst <kbd>npm install faye --save</kbd> doen en dan een faye server opstarten. Hoe je dit moet doen staat goed uitgelegd op deze site: <a href="http://faye.jcoglan.com/node.html">FAYE</a>. Wanneer je dit gedaan hebt zou het subscriben en publishen als volgt moeten lukken:
+        </p>
+        <pre>
+  FAYE IN SCRIPT.JS
+
+  <strong>Eerst een Faye client aanmaken</strong>
+  var client = new Faye.Client('http://localhost:3000/faye/',
+    {timeout: 20 });
+
+  <strong>dan met deze client publishen en subscriben</strong>
+  $('#throw').on('click',function()
+  {
+    var vraag = $('#vraag').val();
+    var naam = $('#naam').val();
+
+    client.publish("/ask", {naam: naam, vraag: vraag});
+  }
+  
+  client.subscribe('/ask', function(message){
+    var div = "&lt;div&gt;&lt;p class='naam'&gt;" + message.naam + " vraagt:&lt;/p&gt;&lt;p class='vraag'&gt;" + message.vraag + "&lt;/p&gt;&lt;/div&gt;";
+    $("#questions").prepend(div);  
+  }
+        </pre>
       </section>
       
     </div><!-- /container-fluid lab6-->  
