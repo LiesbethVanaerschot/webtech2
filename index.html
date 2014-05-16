@@ -986,7 +986,7 @@
         </pre>
         <h5>MIXINS</h5>
         <p>
-        Mixins kun je gebruiken om te voorkomen dat je constant browser prefixen moet toevoegen. Hoe minder herhaling hoe beter. Je kan mixins zelf schrijven of gebruik maken van een mixin library zoals Bourbon. Om de mixin te kunnen gebruiken moet je <kbd>@include mixinnaam(mixinwaarde)</kbd> schrijven bij het element waar je de mixin wilt gebruiken.
+        Mixins kun je gebruiken om te voorkomen dat je constant browser prefixen moet toevoegen. Hoe minder herhaling hoe beter. Je kan mixins zelf schrijven of gebruik maken van een mixin library zoals Bourbon. Om de mixin te kunnen gebruiken moet je <kbd>@include mixinnaam(mixinwaarde)</kbd> schrijven bij het element waar je de mixin wilt gebruiken. Je moet deze mixin includen in je stylesheet om deze te kunnen gebruiken.
         </p>
         <pre>
   @mixin border-radius($radius) {
@@ -1004,9 +1004,32 @@
   }
         
         </pre>
-        <h5>@INCLUDE - @IMPORT</h5>
+        <h5>@IMPORT</h5>
         <p>
-          Met Sass kan je een duidelijke structuur in je stylesheets brengen. 
+          Met Sass kan je een duidelijke structuur in je stylesheets brengen. In plaats van te werken in één scss bestand kan je je scss opsplitsen volgens de delen van je website. Bijvoorbeeld een scss bestand voor de header, container, footer, eentje voor de algemene opmaak(de basis) en nog een overkoepelende stylesheet waar alles bij elkaar gevoegd wordt. Als je niet wilt dat je aparte scss ook meteen worden ingeladen dan begin je deze best met een underscore: <kbd>_header.scss</kbd>.
+        </p>
+        <pre>
+  SASS STRUCTUUR
+
+  map scss
+    > style.sccs //overkoepelend scss bestand.
+    > _basis.scss
+    > _header.scss
+    > _container.scss
+    > _footer.scss
+
+  ONDERDELEN SAMENVOEGEN IN STYLE.SCSS
+  
+  @import 'basis';
+  @import 'header';
+  @import 'container';
+  @import 'footer';       
+        </pre>
+      </section>
+      <section>
+        <h4>Besluit</h4>
+        <p>
+          Door al de voorgaande elementen te gebruiken voorkom je veel herhaling en worden stylesheets duidelijker. In het begin is het wat zoeken, je hebt de neiging om dingen te herhalen, maar SASS is iets geweldig!
         </p>
       </section>
     </div><!-- /container-fluid lab7-->  
