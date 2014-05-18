@@ -817,10 +817,230 @@
     </div><!-- /container-fluid lab5-->
     <div class="container-fluid" id="lab6">
       <h2>LAB 6 - NODE.js</h2>
+        <p>
+        In LAB6 leerden we gebruik maken van het softwareplatform Node.js. De bedoeling was om een simpele questionapp uit te bouwen waar verschillende mensen korte vragen kunnen posten en kunnen stemmen op de reeds geposte vragen.
+        </p>
+        <section>
+         <h4>Wat is Node.js?</h4>
+            <p>
+            Door middel van het JavaScript platform Node.js kan je zowel client-side als server-side coderen in JavaScript. Waar je anders voor de server-side PHP nodig zou hebben, gebruik je met Node ook gewoon JavaScript. Dit heeft al één heel groot voordeel: 2 maal het gebruik van JavaScript werkt beter samen.</br>
+            De applicaties die gebouwd worden met Node draaien op de Node server, die geïnstalleerd wordt wanneer je Node installeert op je computer. Hierdoor heb je voor het lokaal draaien van je apps bijvoorbeeld geen Apache meer nodig.</br>
+            Door non-blocking io en het gebruik maken van een single thread, asynchronisch uitvoeren van functies en methoden wordt Node.js voornamelijk gebruikt om realtime applicaties uit te bouwen.
+            </p>
+            <h4>Non-blocking - Asynchronous I/O</h4>
+            <p>
+              Non-blocking of Asynchronous Input/Output zorgt er voor dat verschillende processen te gelijk uitgevoerd kunnen worden. Bij Blocking I/O ligt dit anders omdat hierbij alles achter elkaar uitgevoerd wordt. Het ene proces start pas wanneer het voorgaande volledig uitgevoerd is. </br>
+              Asynchronic I/O maakt gebruikt van callbackfuncties om het resultaat op te vangen van een bepaald proces, op deze manier moet er dus niet telkens gewacht worden op het goed einde van een bepaald proces vooraleer een ander gestart kan worden.
+            </p>  
+            <pre>
+  VOORBEELD ASYNCHRONOUS I/O IN NODE met EXPRESS.JS FRAMEWORK
+
+  var routes = require('./routes');
+  app.get('/ask', routes.ask);
+  //routes.ask is hier dan de callback functie die uitgevoerd wordt in de route index.js
+
+  exports.ask = function(req, res){ 
+  res.render('ask', { 
+    title: 'Ask A Question',
+     });
+  };
+            </pre> 
+      </section>
+      <section>
+        <h3>Node en Express</h3>
+        <p>
+          Om wat duidelijke structuur in je Node-app te krijgen gebruiken we Express.js. Express.js is een webapplicatie framework speciaal voor Node.js. Wanneer je express installeert doe je dit best globaal zodat de Express structuur gebruikt kan worden voor alle Node-apps eendert waar op je computer. </br>
+          Dependencies zoals Express.js installeer je door middel van <kbd>npm install express</kbd> in te voeren in de Node.js Command Prompt. En dan moet je Express nog toevoegen onder dependencies in je package.json file. Dit kan ook in 1 stap <kbd>npm install express --save</kbd>, door de save wordt Express meteen toegevoegd aan je dependencies.
+        </p>
+        <pre>
+  PACKAGE.JSON bij start
+
+  {
+    {
+    "name": "application-name",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+      "start": "node app.js"
+    },
+    "dependencies": {
+      "express": "3.5.0",
+      "jade": "*" 
+      <strong>jade is de standaard template engine van express.
+      hier in schrijf je html op een andere manier</strong>
+    }
+  }
+
+  IN APP.JS
+
+  (bovenaan niet vergeten bij te voegen.)
+  var express = require('express');
+        </pre>
+        <p>
+          Een Node app wordt door Express opgedeeld in een bepaalde structuur: Public, Routes en Views. </br>
+          <strong>1. Public</strong></br>
+          In de map <kbd>public</kbd> plaats je je JavaScript files, CSS files, Images,...</br>
+          <strong>2. Routes</strong></br>
+          In de map Routes vindt je de JavaScript bestanden die de "route" van je app bepalen, dus op welke pagina wat getoond wordt.</br>
+          <strong>3. Views</strong></br>
+          In Views staan je jade of html bestanden. Dit zijn de paginas die in je route files worden aangeroepen. Hierop render je de inhoud. Deze bestanden zijn letterlijk de view(het uitzicht) van je website.
+        </p>
+      </section>
+      <section>
+        <h3>Node en Websockets</h3>
+        <p>
+          Voor Lab6 moesten we ook gebruik maken van Faye web sockets. Faye is een vrijsimpele module om gegevens te publishen en subscriben.</br>
+          Net zoals je met AJAX gegevens kunt posten naar een pagina en daar dan iets mee kunt doen. Zo publish je gegevens naar een pagina en subscribe je deze op dezelfde pagina. Om dit te doen werken moeten we ook eerst <kbd>npm install faye --save</kbd> doen en dan een faye server opstarten. Hoe je dit moet doen staat goed uitgelegd op deze site: <a href="http://faye.jcoglan.com/node.html">FAYE</a>. Wanneer je dit gedaan hebt zou het subscriben en publishen als volgt moeten lukken:
+        </p>
+        <pre>
+  FAYE IN SCRIPT.JS
+
+  <strong>Eerst een Faye client aanmaken</strong>
+  var client = new Faye.Client('http://localhost:3000/faye/',
+    {timeout: 20 });
+
+  <strong>dan met deze client publishen en subscriben</strong>
+  $('#throw').on('click',function()
+  {
+    var vraag = $('#vraag').val();
+    var naam = $('#naam').val();
+
+    client.publish("/ask", {naam: naam, vraag: vraag});
+  }
+  
+  client.subscribe('/ask', function(message){
+    var div = "&lt;div&gt;&lt;p class='naam'&gt;" + message.naam + " vraagt:&lt;/p&gt;&lt;p class='vraag'&gt;" + message.vraag + "&lt;/p&gt;&lt;/div&gt;";
+    $("#questions").prepend(div);  
+  }
+        </pre>
+      </section>
+      
     </div><!-- /container-fluid lab6-->  
     <div class="container-fluid" id="lab7">  
       <h2>LAB 7 - SASS</h2>
-    </div><!-- /container-fluid lab7-->  
+      <p>
+        Syntactically Awesome StyleSheets. Is een andere taal om stylesheets in te schrijven. CSS maar dan anders. In SASS heb je twee verschillende scripts: .sass script en .scss script. Wij gebruiken de SCSS syntax.
+      </p>
+      <section>
+        <h4>SCSS</h4>
+        <p>
+          SCSS script lijkt op het eerste zicht hard op CSS. Je selecteert een element en tussen <kbd>{ }</kbd> wijs je de opmaak eigenschappen aan dit element toe. Maar SCSS heeft heel wat handige extra's: nesting, variables, mixins, import, extend,...
+        </p>
+        <h5>NESTING</h5>
+        <p>Je kan in SCSS de te selecteren element nesten in het geselecteerde parent-element. Zo kan je de structuur van je html code volgen.</p>
+        <pre>
+  &lt;div&gt;
+    &lt;h1 class = 'head'&gt;header&lt;/h1&gt;
+    &lt;p&gt;Ik ben een html voorbeeld.&lt;/p&gt;
+  &lt;/div&gt;        
+        </pre>
+        <h6>CSS</h6>
+        <pre>
+  div{
+    background-color: grey;
+    font-family: "Helvetica Neue", sans-serif;
+  }  
+
+  .head{
+    font-size: 2rem;
+    color: blue;
+    text-transform: uppercase;
+  } 
+
+  div p{
+    font-size: 0.8rem;
+  }     
+        </pre>
+        <h6>SCSS</h6>
+        <pre>
+  div{
+    background-color: grey;
+    font-family: "Helvetica Neue", sans-serif;
+
+    .head{
+    font-size: 2rem;
+    color: blue;
+    text-transform: uppercase;
+    } 
+
+    p{
+      font-size: 0.8rem;
+    }    
+  }        
+        </pre>
+        <h5>VARIABLES</h5>
+        <p>
+          In Sass kan je gebruik maken van variabelen net zoals in JavaScript. Een variabele in Sass ziet er als volgt uit: <kbd>$varnaam = varwaarde</kbd>. Deze variabelen kan je dan gebruiken overal waar je bijvoorbeeld dezelfde kleur wilt gebruiken of dezelfde font-size. Als dan alles in een ander kleur zou moeten veranderen hoef je enkel de waarde van de variabele één keer aan te passen.
+        </p>
+        <pre>
+  <strong>$textcolor = blue;
+  $bgcolor = grey;</strong>
+
+  div{
+    background-color: $bgcolor;
+    font-family: "Helvetica Neue", sans-serif;
+
+    .head{
+    font-size: 2rem;
+    color: $textcolor;
+    text-transform: uppercase;
+    } 
+
+    p{
+      font-size: 0.8rem;
+      color: $textcolor;
+    }    
+  } 
+        </pre>
+        <h5>MIXINS</h5>
+        <p>
+        Mixins kun je gebruiken om te voorkomen dat je constant browser prefixen moet toevoegen. Hoe minder herhaling hoe beter. Je kan mixins zelf schrijven of gebruik maken van een mixin library zoals Bourbon. Om de mixin te kunnen gebruiken moet je <kbd>@include mixinnaam(mixinwaarde)</kbd> schrijven bij het element waar je de mixin wilt gebruiken. Je moet deze mixin includen in je stylesheet om deze te kunnen gebruiken.
+        </p>
+        <pre>
+  @mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+  }
+
+  div{
+    background-color: $bgcolor;
+    font-family: "Helvetica Neue", sans-serif;
+    border: 2px solid green;
+    @include border-radius(6px);
+  }
+        
+        </pre>
+        <h5>@IMPORT</h5>
+        <p>
+          Met Sass kan je een duidelijke structuur in je stylesheets brengen. In plaats van te werken in één scss bestand kan je je scss opsplitsen volgens de delen van je website. Bijvoorbeeld een scss bestand voor de header, container, footer, eentje voor de algemene opmaak(de basis) en nog een overkoepelende stylesheet waar alles bij elkaar gevoegd wordt. Als je niet wilt dat je aparte scss ook meteen worden ingeladen dan begin je deze best met een underscore: <kbd>_header.scss</kbd>.
+        </p>
+        <pre>
+  SASS STRUCTUUR
+
+  map scss
+    > style.sccs //overkoepelend scss bestand.
+    > _basis.scss
+    > _header.scss
+    > _container.scss
+    > _footer.scss
+
+  ONDERDELEN SAMENVOEGEN IN STYLE.SCSS
+  
+  @import 'basis';
+  @import 'header';
+  @import 'container';
+  @import 'footer';       
+        </pre>
+      </section>
+      <section>
+        <h4>Besluit</h4>
+        <p>
+          Door al de voorgaande elementen te gebruiken voorkom je veel herhaling en worden stylesheets duidelijker. In het begin is het wat zoeken, je hebt de neiging om dingen te herhalen, maar SASS is iets geweldig!
+        </p>
+      </section>
+    </div><!-- /container-fluid lab7-->   
     <div class="container-fluid" id="lab8">  
       <h2>LAB 8 - BACKBONE.JS</h2>
       <p>
@@ -909,9 +1129,157 @@
     </div><!-- /container-fluid lab8-->   
     <div class="container-fluid" id="lab9">  
       <h2>LAB 9 - Gulp</h2>
-    </div><!-- /container-fluid lab9-->  
+      <p>
+        Gulp is een streaming build system en wordt gebruikt voor de zwaarte van je bestanden te beperken, zodat het de snelheid van je website verbeterd. Gulp wordt gebruikt zowel Node apps als gewone websites. Gulp bundelt al de taken die ervoor zorgen dat je website optimaal kan draaien.</br>
+        Het enigste dat je nodig hebt is een package.json file en gulp zelf. Eerst gulp globaal installeren zodat je het overal kunt gebruiken <kbd>npm install gulp -g</kbd>. Een package.json file aanmaken en in je project directory gulp lokaal installeren <kbd>npm install gulp --save-dev</kbd>. Ten laatste een gulpfile.js aan de root van je app toevoegen. In deze file schrijf je al de gulp taken uit.
+      </p>
+      <pre>
+  VOORBEELD GULPFILE
+
+  var gulp = require('gulp');
+  var concatCss = require('gulp-concat-css');
+  var minifyCss = require('gulp-minify-css');
+  var watch = require('gulp-watch'); 
+
+  gulp.task('styles', function(){ //in plaats dit als default moet je nu gulp styles ingeven in cmd
+  gulp.src('public/css/*.css')
+    .pipe(concatCss("build.css"))
+    .pipe(minifyCss(opts))
+    .pipe(gulp.dest('build/css')) //nieuw mapje build aanmaken
+  });
+
+  gulp.task('watch', function(){
+  gulp.watch('public/stylesheets/*.css', ['styles']);
+  });
+
+  //default zou dit kunnen zijn
+  gulp.task('default', [ 'styles', 'watch']);     
+      </pre>
+      <p>
+        ConcatCss, minifyCss, watch,... zijn allemaal gulp packages die een bepaalde taak uitvoeren. ConcatCss en minifyCss zorgen er beide voor dat uw CSS bestanden minder zwaar worden. Met watch hou je al je bestanden in het oog. Wanneer er iets verandert in je bestanden wordt dat meteen gedetecteerd. Als je dan ook nog eens Livereload gebruikt en de livereload plugin installeert voor Chrome hoef je niet eens meer je browser te refreshen.
+      </p>
+    </div><!-- /container-fluid lab9-->   
     <div class="container-fluid" id="labx">  
-      <h2>LAB X - EASYORDER</h2>   
+      <h2>LAB X - easyOrder</h2> 
+      <p>
+        Als eindopdracht was het de bedoeling van een eigen applicatie uit te bouwen waarin we de leerstof van de afgelopen maanden verwerkten. Mijn idee was om een applicatie te schrijven dat zowel het werk van de horecamedewerker kan verlichten en het bestellen van drank en eventueel eten voor de klant kan vergemakkelijken. Een klein beetje een luie mensen applicatie. 
+      </p>
+      <p>
+        Voor het prototype zo 'echt' mogelijk te maken heb ik als horecazaak Beans Bar te Mechelen genomen en dan ook hun menu gebruikt om de applicatie rond op te bouwen.
+      </p>
+      <ul>
+        <h6>De korte bespreking houdt in:</h6>
+        <li>1. Wat moet de app doen?</li>
+        <li>2. Welke node modules werden er gebruikt?
+          <ul>
+            <li>mongodb - mongoose</li>
+            <li>async</li>
+            <li>passport - passport local - connect flash</li>
+          </ul>
+        </li>
+      </ul>  
+      <section>
+        <h4>Wat moet de app doen?</h4>
+        <p>
+          EasyOrder moet er voor zorgen dat klanten, die bijvoorbeeld op het terras zitten van een bepaalde horecazaak, gemakkelijk hun bestelling naar de toog/bar kunnen doorsturen zonder dat zij tot daar moeten gaan of een ober hun bestelling moet komen opnemen.
+        </p>
+        <h5>SCENARIO</h5>
+        <p>
+          1. Klanten nemen plaats, bekijken de kaart en zien dat de zaak een easyOrder applicatie gebruikt voor bestellingen te plaatsen.</br>
+          2. De klant surft naar de juiste link waar hij nogmaals het menu terug kan vinden van de zaak. </br>
+          3. De klant vult zijn tafelnummer in, deze kan hij terug vinden op zijn tafel. Hij of zij duidt alle producten aan die hij wilt bestellen en vergeet vooral het aantal niet.</br>
+          4. Nu hoeft de klant enkel nog maar op BESTEL te drukken en zijn of haar bestelling wordt verzonden naar de bar.</br>
+          5. Wanneer bestelling wordt ontvangen wordt er feedback terug gestuurd naar de klant waarin wordt vermeld hoelang het zal duren en wat de totaalprijs is.
+        </p>
+      </section>
+      <section>
+        <h4>Welke node modules werden in easyOrder verwerkt?</h4>
+        <h5>MONGODB - MONGOOSE</h5>
+        <p>
+          Het bijna volledige menu is opgeslagen in een Mongo Database. Om dit te kunnen doen moet je eerste via de website van MongoDB, MongoDB installeren. Je moet natuurlijk ook de mongodb module voor Node applicaties in je applicatie directory installeren <kbd>npm install mongodb --save</kbd>.<br/>
+          In je app dir maak je een submap aan 'data' waar in jouw database geplaats zal worden. <strong>Hoe gaat dit in zijn werkt?</strong><br/>
+          <ul>
+            <li>1. Je opent de command prompt.</li>
+            <li>2. Je gaat naar de MongoDB directory waar MongoDB is geïnstalleerd <kbd>cd c:\mongodb\bin</kbd></li>
+            <li>3. Hier start je mongodb met het commando <kbd>mongod</kbd> en bepaal je het pad waar je database terecht zal komen. In mijn geval was dat <kbd>mongod --dbpath c:\node\easyOrder\data</kbd></li>
+            <li>4. Open nog een command prompt en ga terug naar je mongodb map. Om connectie te maken met je database voor je het commando <kbd>mongo</kbd> in.</li>
+          </ul>
+
+          Een mongodb structuur bestaat uit collections (tabellen) die documents (records) bevatten en dit in de vorm van een object.
+          Meer informatie over hoe je best je database opbouwt vindt je op de site van <a href="http://www.mongodb.org/">MongoDB</a>.
+        </p>
+        <pre>
+  ENKELE BASIS COMMANDO'S VOOR HET INVOEGEN VAN DATA 
+
+  - use eigendb : aanmaken van een nieuwe db of wisselen naar 'eigendb'.
+  - show dbs: toont alle beschikbare dbs
+  - show collections: toont alle collections
+  - db.test.insert({voornaam: "liesbeth", achternaam: "vanaerschot", leeftijd: 25}); : <br/>    als de collection 'test' nog niet bestaat wordt deze automatisch aangemaakt te samen met het invoegen van de gegevens tussen ({});  
+  - db.test.find().pretty() :  toont de collections test op een overzichtelijke JSON manier.     
+        </pre>
+        <p>
+          Om de ingevoerde gegevens te kunnen gebruiken in de app heb ik gekozen om Mongoose.js te gebruiken. <kbd>npm install mongoose --save</kbd>, nu kan je mongoose gebruiken om de connectie te leggen tussen je applicatie en je database.
+        </p>
+        <pre>
+  APP.JS
+
+  var mongoose = require('mongoose');
+  mongoose.connect('mongodb://localhost/eigendb');
+  var db = mongoose.connection;
+  db.on('error', console.error.bind(console, 'connection error:connection to db has failed'));
+  db.once('open',function callback(){
+    console.log('Connection with db has been succesful!');
+  });        
+        </pre>
+        <p>
+          Om de gegevens uit de databank te halen moet je mongoose Schema's en Models aanmaken zodat je deze met Express kunt renderen in de juiste View. Models en Schema's maak je best in aparte 'model'.js files die je dan plaatst in een model directory.
+        </p>
+        <pre>
+  <strong>STRUCTUUR</strong>
+  APP dir
+      > app.js
+      > models
+         > model.js
+      > routes
+         > index.js
+      > views
+         > index.jade
+      > data  
+
+  <strong>APP.JS</strong>
+  app.get('/', routes.index);
+
+  <strong>MODEL.JS</strong>
+  var mongoose = require("mongoose");
+  var Schema = mongoose.Schema;
+
+  var Test = new Schema({
+    voornaam: String,
+    achternaam: String,
+    leeftijd: Number 
+  },{collection: 'test'});
+
+  var testModel = mongoose.model('testModel', Test);
+  module.exports = { testModel: testModel};
+
+  <strong>INDEX.JS</strong>
+  exports.index = function(req, res, next){
+    var testModel = require("../models/model").testModel;
+
+    testModel.find({}, function(err,test){
+      res.render('index',{test: test});
+    });
+  }
+        </pre>
+        <h5>ASYNC</h5>
+        <p>
+          De Async module voor Node zorgt ervoor dat verschillende functies asynchronous uitgevoerd kunnen worden. Ik heb dit gebruikt om de verschillende mongoose Models te kunnen renderen op de index pagina. Hoe ik dit gedaan heb kan je in mijn webtech2 repo zien onder labX: <a href="https://github.com/LiesbethVanaerschot/webtech2/blob/master/labX/easyOrder/routes/index.js">Async</a>
+        </p>
+        <H5>PASSPORT</H5>
+        <p>
+          Passport.js wordt gebruikt om te kunnen aanmelden via facebook-account, gmail-account,... of gewoon door het checken van de gebruikersnaam en paswoord of deze wel overeenkomt met de gegevens in je database.
+        </p>
+      </section>
     </div><!-- /container-fluid labx-->  
   </section>      	
   
@@ -919,7 +1287,7 @@
     <nav class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Footer</a>
+          <a class="navbar-brand" href="#">Liesbeth Vanaerschot</a>
         </div>
       </div><!-- /.container-fluid -->
     </nav>
