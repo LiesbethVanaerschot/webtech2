@@ -22,6 +22,7 @@ header {
 
 #inleiding h1{
 	margin-bottom: 50px;
+	margin-top: 240px;
 }
 
 
@@ -34,7 +35,7 @@ div.credits {
 }
 
 footer p {
-	color: #333333;
+	color: #345178;
 }
 
 div.repo-author {
@@ -56,6 +57,13 @@ div.repo-author {
 	margin: 80px 20px 0px 20px;
 	padding: 60px 30px 40px 30px;
 	border-radius: 15px;
+}
+
+.footer{
+	background-color: #e8eef5;
+	margin-top: 50px;
+	color: #345178 !important;
+	border-top: 1px solid #d0dceb;
 }
 
 #lab2 .btn,
