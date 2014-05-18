@@ -126,7 +126,7 @@ weer.prototype.reverseGeocoding = function(latitude,longitude)
 	var apikey = "AIzaSyBGFKu20YhC4Cn_lfmJnpG4Yrx6Tn5wKBY";
 	var urlLocation = "https://maps.googleapis.com/maps/api/geocode/json"+apiLatLng+"&sensor=true&key="+apikey+"";
 	
-	$.ajax(urlLocation, {dataType: "jsonp"})
+	$.ajax(urlLocation, {dataType: "json"})
 			.done(function(data)
 			{
 				var city = data.results[2]['address_components'][0]['long_name'];
@@ -185,42 +185,56 @@ weer.prototype.setForecast = function()
 	switch(ico)
 	{
 		case "clear-day":
+		his.container.css('background-color','#FFF047');
 		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/sun-xxl.png");
 		break;
 
 		case "clear-night":
+		his.container.css('background-color','#1B51AF');
+		his.container.css('color','white');
 		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/moon-xxl.png");
 		break;
 
 		case "partly-cloudy-day":
+		his.container.css('background-color','#739BC0');
 		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/partly-cloudy-day-xxl.png");
 		break;
 
 		case "partly-cloudy-night":
+		his.container.css('background-color','#445482');
+		his.container.css('color','white');
 		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/partly-cloudy-night-xxl.png");
 		break;
 
 		case "cloudy":
+		his.container.css('background-color','#A1AEC8');
 		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/clouds-xxl.png");
 		break;
 
 		case "rain":
+		his.container.css('background-color','#6D7F92');
+		his.container.css('color','white');
 		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/rain-xxl.png");
 		break;
 
 		case "snow":
+		his.container.css('background-color','#C5E9EB');
 		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/snow-xxl.png");
 		break;
 
 		case "fog":
+		his.container.css('background-color','#CFCCEB');
 		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/fog-day-xxl.png");
 		break;
 
 		case "wind":
+		his.container.css('background-color','#8DC0B3');
+		his.container.css('color','white');
 		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/little-rain-xxl.png");
 		break;
 
 		default:
+		his.container.css('background-color','#A1AEC8');
 		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/clouds-xxl.png");
 		break;
 	}

@@ -1,0 +1,61 @@
+body
+{
+	font-size: 62.5%; /* 16px*62.5%=10px */
+	color: black;
+	font-family: "Helvetica Neue", sans-serif;
+}
+
+#container{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 220px;
+	padding: 20px 20px 40px 20px;
+	margin-top: 50px;
+	border-radius: 40px;
+	
+}
+
+h1{
+	text-transform: uppercase;
+	font-size: 2rem;
+}
+
+#datum{
+	font-size: 1.4rem;
+	text-transform: uppercase;
+}
+
+#datum div{
+	display: inline-block;
+}
+
+#city{
+	font-size: 1rem;
+}
+
+#icoon{
+	width: 100px;
+	margin: 40px 0px 40px 0px;
+}
+
+#omschr{
+	font-size: 1rem;
+	margin-bottom: 10px;
+}
+
+#linksdetails ,
+#rechtsdetails {
+	display: inline-block;
+	font-size: 1.1rem;
+}
+
+#linksdetails{
+	text-align: right;
+	margin-right: 16px;
+}
+
+#rechtsdetails{
+	text-align: left;
+	margin-left: 16px;
+}
