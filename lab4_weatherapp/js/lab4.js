@@ -181,7 +181,7 @@ weer.prototype.setForecast = function()
 	var ss_sec = zonsondergang.getSeconds();
 	this.zonsondergang.text(ss_hours + ":" + ss_minutes + ":" + ss_sec);
 	var his = this;
-	var ico = localData.daily.data[1].icon;
+	var ico = localData.currently.icon;
 	switch(ico)
 	{
 		case "clear-day":
