@@ -7,15 +7,39 @@ body
 body
 {
 	font-size: 62.5%; /* 16px*62.5%=10px */
-	font-family: Cabin, Arial, sans-serif;
+	font-family: "Helvetica Neue", Arial, sans-serif;
 	color: black;
 	background-color: #213447;
 }
 
+.container{
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+}
+
+nav{
+	margin-bottom: 50px;
+}
+
+nav a:link,
+nav a:visited,
+nav a:hover,
+nav a:active{
+	text-decoration: none;
+	background-color: white;
+	margin: 5px;
+	font-size: 1rem;
+	text-transform: uppercase;
+	padding: 5px;
+	border-radius: 5px;
+}
+
 #wrapper
 {
-	width: 200px;
-	height: 200px;
+	width: 400px;
+	height: 400px;
 }	
 
 #geel
@@ -28,11 +52,20 @@ body
 	z-index: 30;
 }
 
+h3{
+	position: relative;
+	top: -120px;
+	left: 50px;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	color: yellow;
+}
+
 .geel_trans
 {
-	-ms-transform: translate(0px,200px); /* IE 9 */
-	-webkit-transform: translate(0px,200px); /* Chrome, Safari, Opera */
-	transform: translate(0px,200px);
+	-ms-transform: translate(0px,400px); /* IE 9 */
+	-webkit-transform: translate(0px,400px); /* Chrome, Safari, Opera */
+	transform: translate(0px,400px);
 	transition-duration: 1.5s;
 }
 
@@ -48,9 +81,9 @@ body
 
 .groen_trans
 {
-	-ms-transform: translate(200px,200px); /* IE 9 */
-	-webkit-transform: translate(200px,200px); /* Chrome, Safari, Opera */
-	transform: translate(200px,200px);
+	-ms-transform: translate(400px,400px); /* IE 9 */
+	-webkit-transform: translate(400px,400px); /* Chrome, Safari, Opera */
+	transform: translate(400px,400px);
 	transition-duration: 1.5s;
 }
 
@@ -66,16 +99,16 @@ body
 
 .rood_trans
 {
-	-ms-transform: translate(200px,0px); /* IE 9 */
-	-webkit-transform: translate(200px,0px); /* Chrome, Safari, Opera */
-	transform: translate(200px,0px);
+	-ms-transform: translate(400px,0px); /* IE 9 */
+	-webkit-transform: translate(400px,0px); /* Chrome, Safari, Opera */
+	transform: translate(400px,0px);
 	transition-duration: 1.5s;
 }
 
 #wrapper2
 {
 	background-color: #213447;
-	width: 600px;
+	width: 400px;
 	height: 300px;
 	padding: 50px;
 }

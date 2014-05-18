@@ -5,6 +5,7 @@ $(document).ready(function(){
 		$("#geel").addClass("geel_trans");
 		$("#groen").addClass("groen_trans");
 		$("#rood").addClass("rood_trans");
+		$("h3").css("display","none");
 
 	});
 
