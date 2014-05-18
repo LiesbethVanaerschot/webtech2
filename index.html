@@ -44,22 +44,23 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-  <section class="jumbotron">
+  <header class="inleiding">
     <div id="inleiding">
       <div class="container-fluid">
         <h1>Portfolio Liesbeth Vanaerschot</h1>
     
-        <a class="btn btn-primary btn-lg" role="button" href="https://github.com/LiesbethVanaerschot/webtech2">View on GitHub</a>
-        <a class='btn btn-primary btn-lg' href='https://github.com/liesbethvanaerschot/webtech2/zipball/master'>Download</a>
+        <a class="btn btn-success btn-lg" role="button" href="https://github.com/LiesbethVanaerschot/webtech2">View on GitHub</a>
+        <a class='btn btn-success btn-lg' href='https://github.com/liesbethvanaerschot/webtech2/zipball/master'>Download as ZIP</a>
       </div>
     </div> 
+  </header>   
     <div class="container-fluid" id="lab1">
       <h2>LAB 1 - Let's GIT to work</h2>
       <p>
         Wat is GIT en hoe moeten we er mee werken? Dit hield de eerste opdracht voor Webtech 2 in. In groepjes van 3 of 4 moesten we samen bijdragen aan een repository. Eén iemand moest de repository aanmaken na het installeren van GitHub. 
       </p>
       <h4>Basis Git commando's:</h4>
-      <pre class="prettyprint">
+      <pre >
   git clone: clones/kopieert de repository map op je computer.
   git branch: toont lijst van alle branches en op welke branch je zit (default is master).
   git checkout -b (nieuwe branch): creert nieuwe branch en wisselt er meteen naar.
@@ -76,7 +77,7 @@
       <p>
       Als je wil bijdragen aan een repository van een andere git-gebruiker kun je zijn repository forken. Daardoor komt de repo ook in jouw repository overzicht te recht.
       </p>
-      <pre class="prettyprint">
+      <pre >
   git clone: clones/kopieert de repository map op je computer.
   git remote add upstream (link van geforked repo): upstream wijst naar de originele repo, zo kun je altijd jouw versie updaten.
   git fetch upstream: haalt de veranderingen in de originele repo op.
@@ -107,8 +108,8 @@
         <li>IMD-talks animatie on page load.</li>
       </ol>
       </br>
-      <a class="btn btn-primary btn-lg" href="http://lab2.liesbethvanaerschot.com/">Live Demo</a>
-      <a class="btn btn-primary btn-lg" href="https://github.com/LiesbethVanaerschot/webtech2/tree/master/lab2_css-animations">Op GIT</a>
+      <a class="btn btn-info " href="http://lab2.liesbethvanaerschot.com/">Live Demo<span class="glyphicon glyphicon-chevron-right"></span></a>
+      <a class="btn btn-info" href="https://github.com/LiesbethVanaerschot/webtech2/tree/master/lab2_css-animations">Op GIT<span class="glyphicon glyphicon-chevron-right"></span></a>
       <section id="css_opdracht1">
         <h4>Opdracht 1 - gebruik van CSS3 transformations</h4>
         <pre>
@@ -429,16 +430,16 @@
       <p>
         Voor de opdracht rond de workshop Advanced JS moesten we een simpele todo-app uitwerken. De to-do items zullen gewone list-items zijn in een unordered list, maar de bedoeling is dat we deze als 'done' kunnen aanduiden met Javascript zonder het gebruik van jQuery. Hiervoor schrijven we ons eigen mini-framework.
       </p>
+      <h4>Behandelen van:</h4>
       <ul>
-        <h4>Behandelen van:</h4>
         <li>object notation</li>
         <li>DRY</li>
         <li>function zijn js classes</li>
         <li>prototipical inheritance</li>
       </ul>
       <br/>
-      <a class="btn btn-primary btn-lg" href="http://lab3.liesbethvanaerschot.com/">Live Demo</a>
-      <a class="btn btn-primary btn-lg" href="https://github.com/LiesbethVanaerschot/webtech2/tree/master/lab3_advanced-js">Op GIT</a>
+      <a class=" btn btn-info" href="http://lab3.liesbethvanaerschot.com/">Live Demo<span class="glyphicon glyphicon-chevron-right"></span></a>
+      <a class=" btn btn-info" href="https://github.com/LiesbethVanaerschot/webtech2/tree/master/lab3_advanced-js">Op GIT<span class="glyphicon glyphicon-chevron-right"></span></a>
       <section id="object_notation">
         <h4>Object Notation</h4>
         <h6>Een Object creëren kan op twee manieren:</h6>
@@ -546,8 +547,8 @@
         Op basis van Advanced JS (LAB3) workshop bouwden we een eenvoudige weerapp met behulp van API's zoals HTML5 Geolocation, Google Maps en Forecast.io om het weer te kunnen detecteren waar jij je bevindt. LocalStorage gebruiken we in deze app om te verkomen dat er bij elk bezoek van de weerapp door dezelfde gebruiker een nieuwe API (ajax)-call gemaakt moet worden. Per API key wordt dit namelijk beperkt.
       </p>
       <br/>
-      <a class="btn btn-primary btn-lg" href="http://lab4.liesbethvanaerschot.com/">Live Demo</a>
-      <a class="btn btn-primary btn-lg" href="https://github.com/LiesbethVanaerschot/webtech2/tree/master/lab4_weatherapp">Op GIT</a>
+      <a class="btn btn-info" href="http://lab4.liesbethvanaerschot.com/">Live Demo<span class="glyphicon glyphicon-chevron-right"></span></a>
+      <a class="btn btn-info" href="https://github.com/LiesbethVanaerschot/webtech2/tree/master/lab4_weatherapp">Op GIT<span class="glyphicon glyphicon-chevron-right"></span></a>
       <h4>AJAX en API</h4>
       <h5>1. AJAX</h5>
       <p>
@@ -633,24 +634,24 @@
       <h3>Twitter Bootstrap</h3>
       <h4>Mini-voorbeeld voor Bootstrap tutorial Attribute.be</h4>
         <h5>VOORBEELD 1 CODE</h5>
-        <pre class="prettyprint lab5">
-&lt;div class=".container-fluid"&gt;
-  <!—content komt hier -->
-  &lt;div class="row"&gt;
-    &lt;div class="col-md-4"&gt;.col-md-4&lt;/div&gt;
-    &lt;div class="col-md-4"&gt;.col-md-4&lt;/div&gt;
-    &lt;div class="col-md-4"&gt;.col-md-4&lt;/div&gt;
-  &lt;/div&gt;<!-- /row -->
-  &lt;div class="row"&gt;
-    &lt;div class="col-md-6"&gt;.col-md-6&lt;/div&gt;
-    &lt;div class="col-md-6"&gt;.col-md-6&lt;/div&gt; 
-  &lt;/div&gt;<!-- /row -->
-  &lt;div class="row"&gt;
-    &lt;div class="col-md-2"&gt;.col-md-2&lt;/div&gt;
-    &lt;div class="col-md-8"&gt;.col-md-8&lt;/div&gt;
-    &lt;div class="col-md-2"&gt;.col-md-2&lt;/div&gt;
-  &lt;/div&gt;<!-- /row -->
-&lt;/div&gt;<!-- /container-fluid -->
+        <pre class=" prettyprint lab5">
+  &lt;div class=".container-fluid"&gt;
+    <!—content komt hier -->
+    &lt;div class="row"&gt;
+      &lt;div class="col-md-4"&gt;.col-md-4&lt;/div&gt;
+      &lt;div class="col-md-4"&gt;.col-md-4&lt;/div&gt;
+      &lt;div class="col-md-4"&gt;.col-md-4&lt;/div&gt;
+    &lt;/div&gt;<!-- /row -->
+    &lt;div class="row"&gt;
+      &lt;div class="col-md-6"&gt;.col-md-6&lt;/div&gt;
+      &lt;div class="col-md-6"&gt;.col-md-6&lt;/div&gt; 
+    &lt;/div&gt;<!-- /row -->
+    &lt;div class="row"&gt;
+      &lt;div class="col-md-2"&gt;.col-md-2&lt;/div&gt;
+      &lt;div class="col-md-8"&gt;.col-md-8&lt;/div&gt;
+      &lt;div class="col-md-2"&gt;.col-md-2&lt;/div&gt;
+    &lt;/div&gt;<!-- /row -->
+  &lt;/div&gt;<!-- /container-fluid -->
         </pre>
         
 
@@ -673,23 +674,23 @@
 
         <h5>VOORBEELD 2 CODE</h5>
         <pre class="prettyprint lab5">
-&lt;div class=".container-fluid"&gt;
-  <!—content komt hier -->
-  &lt;div class="row"&gt;
-    &lt;div class="col-md-4 col-sm-4 col-xs-4"&gt;.col-md-4 col-sm-4 col-xs-4&lt;/div&gt;
-    &lt;div class="col-md-4 col-sm-4 col-xs-4"&gt;.col-md-4 col-sm-4 col-xs-4&lt;/div&gt;
-    &lt;div class="col-md-4 col-sm-4 col-xs-4"&gt;.col-md-4 col-sm-4 col-xs-4&lt;/div&gt;
-  &lt;/div&gt;<!-- /row -->
-  &lt;div class="row"&gt;
-    &lt;div class="col-md-6 col-sm-6 col-xs-6"&gt;.col-md-6 col-sm-6 col-xs-6&lt;/div&gt;
-    &lt;div class="col-md-6 col-sm-6 col-xs-6"&gt;.col-md-6 col-sm-6 col-xs-6&lt;/div&gt; 
-  &lt;/div&gt;<!-- /row -->
-  &lt;div class="row"&gt;
-    &lt;div class="col-md-2 col-sm-2 col-xs-2"&gt;.col-md-2 col-sm-2 col-xs-2&lt;/div&gt;
-    &lt;div class="col-md-8 col-sm-8 col-xs-8"&gt;.col-md-8 col-sm-8 col-xs-8&lt;/div&gt;
-    &lt;div class="col-md-2 col-sm-2 col-xs-2"&gt;.col-md-2 col-sm-2 col-xs-2&lt;/div&gt;
-  &lt;/div&gt;<!-- /row -->
-&lt;/div&gt;<!-- /container-fluid -->
+  &lt;div class=".container-fluid"&gt;
+    <!—content komt hier -->
+    &lt;div class="row"&gt;
+      &lt;div class="col-md-4 col-sm-4 col-xs-4"&gt;.col-md-4 col-sm-4 col-xs-4&lt;/div&gt;
+      &lt;div class="col-md-4 col-sm-4 col-xs-4"&gt;.col-md-4 col-sm-4 col-xs-4&lt;/div&gt;
+      &lt;div class="col-md-4 col-sm-4 col-xs-4"&gt;.col-md-4 col-sm-4 col-xs-4&lt;/div&gt;
+    &lt;/div&gt;<!-- /row -->
+    &lt;div class="row"&gt;
+      &lt;div class="col-md-6 col-sm-6 col-xs-6"&gt;.col-md-6 col-sm-6 col-xs-6&lt;/div&gt;
+      &lt;div class="col-md-6 col-sm-6 col-xs-6"&gt;.col-md-6 col-sm-6 col-xs-6&lt;/div&gt; 
+    &lt;/div&gt;<!-- /row -->
+    &lt;div class="row"&gt;
+      &lt;div class="col-md-2 col-sm-2 col-xs-2"&gt;.col-md-2 col-sm-2 col-xs-2&lt;/div&gt;
+      &lt;div class="col-md-8 col-sm-8 col-xs-8"&gt;.col-md-8 col-sm-8 col-xs-8&lt;/div&gt;
+      &lt;div class="col-md-2 col-sm-2 col-xs-2"&gt;.col-md-2 col-sm-2 col-xs-2&lt;/div&gt;
+    &lt;/div&gt;<!-- /row -->
+  &lt;/div&gt;<!-- /container-fluid -->
         </pre>
 
         <h5>VOORBEELD 2 UITVOERING</h5>
@@ -710,18 +711,18 @@
 
         <h5>VOORBEELD 3 CODE</h5>
         <pre class="prettyprint lab5">
-&lt;div class=".container-fluid"&gt;
-  <!—content komt hier -->
-  &lt;div class="row"&gt;
-    &lt;div class="col-md-4 col-sm-2 col-xs-2"&gt;.col-md-4 col-sm-2 col-xs-2&lt;/div&gt;
-    &lt;div class="col-md-4 col-sm-5 col-xs-5"&gt;.col-md-4 col-sm-5 col-xs-5&lt;/div&gt;
-    &lt;div class="col-md-4 col-sm-5 col-xs-5"&gt;.col-md-4 col-sm-5 col-xs-5&lt;/div&gt;
-  &lt;/div&gt;<!-- /row -->
-  &lt;div class="row"&gt;
-    &lt;div class="col-md-6 col-sm-4 col-xs-12"&gt;.col-md-6 col-sm-4 col-xs-12&lt;/div&gt;
-    &lt;div class="col-md-6 col-sm-8 col-xs-12"&gt;.col-md-6 col-sm-8 col-xs-12&lt;/div&gt; 
-  &lt;/div&gt;<!-- /row -->
-&lt;/div&gt;<!-- /container-fluid -->
+  &lt;div class=".container-fluid"&gt;
+    <!—content komt hier -->
+    &lt;div class="row"&gt;
+      &lt;div class="col-md-4 col-sm-2 col-xs-2"&gt;.col-md-4 col-sm-2 col-xs-2&lt;/div&gt;
+      &lt;div class="col-md-4 col-sm-5 col-xs-5"&gt;.col-md-4 col-sm-5 col-xs-5&lt;/div&gt;
+      &lt;div class="col-md-4 col-sm-5 col-xs-5"&gt;.col-md-4 col-sm-5 col-xs-5&lt;/div&gt;
+    &lt;/div&gt;<!-- /row -->
+    &lt;div class="row"&gt;
+      &lt;div class="col-md-6 col-sm-4 col-xs-12"&gt;.col-md-6 col-sm-4 col-xs-12&lt;/div&gt;
+      &lt;div class="col-md-6 col-sm-8 col-xs-12"&gt;.col-md-6 col-sm-8 col-xs-12&lt;/div&gt; 
+    &lt;/div&gt;<!-- /row -->
+  &lt;/div&gt;<!-- /container-fluid -->
         </pre>
 
         <h5>VOORBEELD 3 UITVOERING</h5>
@@ -737,29 +738,29 @@
 
         <h5>VOORBEELD 4 CODE</h5>
         <pre class="prettyprint lab5">
-&lt;div class=".container-fluid"&gt;
-  <!—content komt hier -->
-  &lt;div class="row"&gt;
-    &lt;div class="col-md-4 col-sm-5 col-xs-5"&gt;
-    .col-md-4 col-sm-5 col-xs-5 
-      &lt;div class="row"&gt;
-        &lt;div class="col-md-6 col-sm-8 col-xs-6"&gt;col-md-6 col-sm-8 col-xs-6&lt;/div&gt;
-        &lt;div class="col-md-6 col-sm-4 col-xs-6"&gt;col-md-6 col-sm-4 col-xs-6&lt;/div&gt;
-      &lt;/div&gt;<!-- /row -->
-    &lt;/div&gt;
-    &lt;div class="col-md-4 col-sm-5 col-xs-5"&gt;.col-md-4 col-sm-5 col-xs-5&lt;/div&gt;
-    &lt;div class="col-md-4 col-sm-2 col-xs-2"&gt;.col-md-4 col-sm-2 col-xs-2&lt;/div&gt;
-  &lt;/div&gt;<!-- /row -->
-  &lt;div class="row"&gt;
-    &lt;div class="col-md-12"&gt;
-    .col-md-12
+  &lt;div class=".container-fluid"&gt;
+    <!—content komt hier -->
     &lt;div class="row"&gt;
-      &lt;div class="col-sm-5 col-md-push-7"&gt;.col-sm-5 col-md-push-7&lt;/div&gt;
-      &lt;div class="col-sm-7 col-md-push-5"&gt;.col-sm-7 col-md-push-5&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;/div&gt; 
-  &lt;/div&gt;<!-- /row -->
-&lt;/div&gt;<!-- /container-fluid -->
+      &lt;div class="col-md-4 col-sm-5 col-xs-5"&gt;
+      .col-md-4 col-sm-5 col-xs-5 
+        &lt;div class="row"&gt;
+          &lt;div class="col-md-6 col-sm-8 col-xs-6"&gt;col-md-6 col-sm-8 col-xs-6&lt;/div&gt;
+          &lt;div class="col-md-6 col-sm-4 col-xs-6"&gt;col-md-6 col-sm-4 col-xs-6&lt;/div&gt;
+        &lt;/div&gt;<!-- /row -->
+      &lt;/div&gt;
+      &lt;div class="col-md-4 col-sm-5 col-xs-5"&gt;.col-md-4 col-sm-5 col-xs-5&lt;/div&gt;
+      &lt;div class="col-md-4 col-sm-2 col-xs-2"&gt;.col-md-4 col-sm-2 col-xs-2&lt;/div&gt;
+    &lt;/div&gt;<!-- /row -->
+    &lt;div class="row"&gt;
+      &lt;div class="col-md-12"&gt;
+      .col-md-12
+      &lt;div class="row"&gt;
+        &lt;div class="col-sm-5 col-md-push-7"&gt;.col-sm-5 col-md-push-7&lt;/div&gt;
+        &lt;div class="col-sm-7 col-md-push-5"&gt;.col-sm-7 col-md-push-5&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt; 
+    &lt;/div&gt;<!-- /row -->
+  &lt;/div&gt;<!-- /container-fluid -->
         </pre>
 
         <h5>VOORBEELD 4 UITVOERING</h5>
@@ -786,23 +787,23 @@
 
         <h5>VOORBEELD 5 CODE</h5>
         <pre class="prettyprint lab5">
-&lt;div class=".container-fluid"&gt;
-  <!—content komt hier -->
-  &lt;div class="row"&gt;
-    &lt;div class="col-md-4"&gt;.col-md-4&lt;/div&gt;
-    &lt;div class="col-md-4 col-md-offset-4"&gt;
-      .col-md-4 col-md-offset-4
-    &lt;/div&gt;
-  &lt;/div&gt;<!-- /row -->
-  &lt;div class="row"&gt;
-    &lt;div class="col-md-6 col-sm-4 col-xs-4"&gt;
-      .col-md-6 col-sm-4 col-xs-4
-    &lt;/div&gt;
-    &lt;div class="col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-8"&gt;
-      .col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-8
-    &lt;/div&gt; 
-  &lt;/div&gt;<!-- /row -->
-&lt;/div&gt;<!-- /container-fluid -->
+  &lt;div class=".container-fluid"&gt;
+    <!—content komt hier -->
+    &lt;div class="row"&gt;
+      &lt;div class="col-md-4"&gt;.col-md-4&lt;/div&gt;
+      &lt;div class="col-md-4 col-md-offset-4"&gt;
+        .col-md-4 col-md-offset-4
+      &lt;/div&gt;
+    &lt;/div&gt;<!-- /row -->
+    &lt;div class="row"&gt;
+      &lt;div class="col-md-6 col-sm-4 col-xs-4"&gt;
+        .col-md-6 col-sm-4 col-xs-4
+      &lt;/div&gt;
+      &lt;div class="col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-8"&gt;
+        .col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-4 col-xs-8
+      &lt;/div&gt; 
+    &lt;/div&gt;<!-- /row -->
+  &lt;/div&gt;<!-- /container-fluid -->
         </pre>
 
         <h5>VOORBEELD 5 UITVOERING</h5>
@@ -1281,7 +1282,7 @@
         </p>
       </section>
     </div><!-- /container-fluid labx-->  
-  </section>      	
+       	
   
   <footer>
     <nav class="navbar navbar-default" role="navigation">

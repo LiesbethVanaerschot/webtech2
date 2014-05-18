@@ -7,15 +7,21 @@
 
 /* Page */
 body {
-	background: #333333 url('../images/page-background.png') repeat top left;
+	background: #333333 url('../images/ruitjesweb.svg') repeat top left;
 	font-family: arial,sans-serif;
 	padding:1%;
 	margin:1%;
 }
 /* Header */
 header {
-	padding-top: 50px;
+	padding-top: 240px;
 	padding-bottom: 28px;
+	height: 100%;
+	text-align: center;
+}
+
+#inleiding h1{
+	margin-bottom: 50px;
 }
 
 
@@ -35,6 +41,37 @@ div.repo-author {
 	padding-top: 30px;
 }
 
+/*ALGEMEEN*/
+#lab1,
+#lab2,
+#lab3,
+#lab4,
+#lab5,
+#lab6,
+#lab7,
+#lab8,
+#lab9,
+#labx{
+	background-color: rgba(255, 255, 255, 0.6);
+	margin: 80px 20px 0px 20px;
+	padding: 60px 30px 40px 30px;
+	border-radius: 15px;
+}
+
+#lab2 .btn,
+#lab3 .btn,
+#lab4 .btn{
+	display: block;
+	width: 120px;
+	margin: 5px;
+}
+
+#lab2 .btn span,
+#lab3 .btn span,
+#lab4 .btn span{
+	float: right;
+}
+
 /* Text */
 p, strong, li {
     
@@ -50,27 +87,20 @@ a {
 	text-decoration: none;
 }
 
-a:visited {
-	color: #0075B6;
-}
-
-a:hover {
-	text-decoration: underline;
-}
 
 h1, h2 {
 	font-family: georgia,serif;
 }
 
 h1 {
-	font-style: italic;
+	
 	color: #eee;
 	font-size: 50px;
 	margin: 0;
 }
 
 h2 {
-	color: #CCCCCC;
+	color: #29AC66 !important;
 	font-size: 20px;
 	line-height: 23px;
 	padding-top: 15px;
@@ -89,7 +119,7 @@ h3 {
 
 h4 {
 	font-size: 20px;
-	margin-top: 20px;
+	margin-top: 40px !important;
 }
 
 /* Useful classes and styles */
@@ -129,7 +159,7 @@ img.repo-author-logo {
 /*LAB 3 CSS ANIMATIONS*/
 #rotate
 {
-  background-color: blue;
+  background-color: #658bbd;
   width: 40px;
   height: 40px;
   border-radius: 15%;
@@ -148,7 +178,7 @@ img.repo-author-logo {
 #scale1
 {
   
-  background-color: blue;
+  background-color: #658bbd;
   width: 40px;
   height: 40px;
   border-radius: 15%;
@@ -159,7 +189,7 @@ img.repo-author-logo {
 #scale2
 {
   
-  background-color: blue;
+  background-color: #658bbd;
   width: 40px;
   height: 40px;
   border-radius: 15%;
@@ -170,7 +200,7 @@ img.repo-author-logo {
 #scale3
 {
   
-  background-color: blue;
+  background-color: #658bbd;
   width: 40px;
   height: 40px;
   border-radius: 15%;
@@ -180,7 +210,7 @@ img.repo-author-logo {
 
 #skew
 {
-  background-color: blue;
+  background-color: #658bbd;
   width: 40px;
   height: 40px;
   border-radius: 15%;
@@ -210,7 +240,7 @@ img.repo-author-logo {
   position: relative;
   left: 40px;
   top: -76px;
-  background-color: blue;
+  background-color: #658bbd;
   width: 40px;
   height: 40px;
   border-radius: 15%;
@@ -222,28 +252,28 @@ img.repo-author-logo {
 {
   transition: background-color 0.8s ease,
               border-radius 0.8s ease;
-  background-color: blue;
+  background-color: #658bbd;
   border-radius: 15%;
   width: 60px;
   height: 60px;
   margin-left: 15px;
 }
 #transition:hover {
-  background-color: yellow;
+  background-color: #FFF266;
   border-radius: 50%;
 }
 
 #animation
 {
   transition: all 2s ease-in-out;
-  background-color: blue;
+  background-color: #658bbd;
   border-radius: 15%;
   width: 60px;
   height: 60px;
   margin-left: 15px;
 }
 #animation:hover {
-  background-color: yellow;
+  background-color: #FFF266;
   border-radius: 50%;
   transform: translateX(200px);
   -webkit-transform: translateX(200px);
@@ -252,7 +282,7 @@ img.repo-author-logo {
 #rotate3d
 {
   transition: all 2s ease-in-out;
-  background-color: blue;
+  background-color: #658bbd;
   border-radius: 15%;
   width: 60px;
   height: 60px;
@@ -268,7 +298,7 @@ img.repo-author-logo {
 {
   display: inline-block;
   transition: all 2s ease-in-out;
-  background-color: blue;
+  background-color: #658bbd;
   border-radius: 15%;
   width: 60px;
   height: 60px;
@@ -306,12 +336,12 @@ img.repo-author-logo {
 	 width:60px;}
 50% {top:20px; 
 	 left: 200px; 
-	 background:yellow; 
+	 background:#FFF266; 
 	 width:60px; border-radius: 50%; 
 	 -webkit-transform: rotateZ(180deg );}
 100% {top:0px; 
 	  left: 400px; 
-	  background:blue; 
+	  background:#658bbd; 
 	  width:60px; 
 	  border-radius: 15%; 
 	  -webkit-transform: rotateZ(-180deg );}
