@@ -60,7 +60,10 @@ div.repo-author {
 
 #lab2 .btn,
 #lab3 .btn,
-#lab4 .btn{
+#lab4 .btn,
+#lab5 .btn,
+#lab6 .btn,
+#labx .btn{
 	display: block;
 	width: 120px;
 	margin: 5px;
@@ -68,7 +71,10 @@ div.repo-author {
 
 #lab2 .btn span,
 #lab3 .btn span,
-#lab4 .btn span{
+#lab4 .btn span,
+#lab5 .btn span,
+#lab6 .btn span,
+#labx .btn span{
 	float: right;
 }
 
