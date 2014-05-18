@@ -186,13 +186,13 @@ weer.prototype.setForecast = function()
 	{
 		case "clear-day":
 		his.container.css('background-color','#FFF047');
-		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/sun-xxl.png");
+		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/white/sun-xxl.png");
 		break;
 
 		case "clear-night":
 		his.container.css('background-color','#1B51AF');
 		his.container.css('color','white');
-		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/moon-xxl.png");
+		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/white/moon-xxl.png");
 		break;
 
 		case "partly-cloudy-day":
@@ -203,7 +203,7 @@ weer.prototype.setForecast = function()
 		case "partly-cloudy-night":
 		his.container.css('background-color','#445482');
 		his.container.css('color','white');
-		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/partly-cloudy-night-xxl.png");
+		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/white/partly-cloudy-night-xxl.png");
 		break;
 
 		case "cloudy":
@@ -214,7 +214,7 @@ weer.prototype.setForecast = function()
 		case "rain":
 		his.container.css('background-color','#6D7F92');
 		his.container.css('color','white');
-		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/rain-xxl.png");
+		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/white/rain-xxl.png");
 		break;
 
 		case "snow":
@@ -230,7 +230,7 @@ weer.prototype.setForecast = function()
 		case "wind":
 		his.container.css('background-color','#8DC0B3');
 		his.container.css('color','white');
-		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/black/little-rain-xxl.png");
+		return his.icoon.attr("src","http://www.iconsdb.com/icons/preview/white/little-rain-xxl.png");
 		break;
 
 		default:
